@@ -16,7 +16,7 @@ This is our testbed for API-(Micro-)Services in different languages & frameworks
 #### Command
 
 ```bash
-ab -n 10000 -c 8 http://localhost:8000/retailer/42
+ab -n 10000 -k -c 8 http://localhost:8000/retailer/42
 ```
 
 #### Environment
@@ -34,5 +34,5 @@ ab -n 10000 -c 8 http://localhost:8000/retailer/42
 
 * Falcon / gunicorn (4 workers) => 773.48 [#/sec] (mean)
 * Flask / gunicorn (4 workers) => 1783.23 [#/sec] (mean)
-* Node / express (pg pool, auto # workers) => ~3-11k req/sec. !!!
+* Node / express (pg pool, auto #workers) => 2591.86 [#/sec] (mean)
 * Rust / rocket (8 workers) => 
