@@ -3,6 +3,8 @@
 // OLD Rust (2015??)
 // #[macro_use] extern crate rocket;
 use rocket::*;
+// use diesel::prelude::*;
+use diesel::{Queryable, Insertable};
 
 /// Needs `features = ["derive"]` in Cargo.toml
 /// sometimes seems to need json_serde as well, or not, or yes, 
@@ -15,6 +17,22 @@ struct StatusMsg {
     status: u16,
     msg: String
 }
+
+
+// use super::schema::people;
+#[derive(Queryable, Serialize, Deserialize)]
+pub struct Retailer {
+    pub id: i32,
+    pub GSTIN: String,
+    pub Business_name: String,
+    pub Contact_person: String,
+    pub Contact_number: i32,
+    pub Contact_address: String,
+    pub Contact_emailId: String,
+    pub Status: String,
+    pub Outlet_limit: i32,
+}
+
 
 
 /// The route only exists when type constraints are fulfilled!
