@@ -1,0 +1,2 @@
+[global.databases]
+pg_conn = { url = "postgresql://retailer:retailer@localhost:5432/retailer_api" }
