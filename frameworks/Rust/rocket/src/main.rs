@@ -4,14 +4,14 @@
 extern crate rocket;
 #[macro_use]
 extern crate rocket_contrib;
-// #[macro_use]
-extern crate diesel_codegen;
+#[macro_use]                                                                                                 
+extern crate diesel; 
 
 extern crate dotenv;
 use dotenv::dotenv;
 // use std::env;
 
-// mod models;
+mod models;
 mod schema;
 
 

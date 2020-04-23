@@ -1,4 +1,3 @@
-
 table! {
     product (id) {
         id -> Int4,

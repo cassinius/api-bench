@@ -1,13 +1,17 @@
+#[allow(unused_imports)]
+
 use diesel;
 use diesel::prelude::*;
 use diesel::pg::PgConnection;
 use serde::{Deserialize, Serialize};
 
 
-use schema::retailer;
+// use crate::schema::retailer;
 
 
+#[allow(non_snake_case)]
 #[derive(Queryable, Serialize, Deserialize)]
+// #[database_name="retailer"]
 pub struct Retailer {
 		pub id: i32,
 		pub GSTIN: String,
