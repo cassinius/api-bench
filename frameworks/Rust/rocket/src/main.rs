@@ -1,22 +1,24 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 
-#[macro_use]
-extern crate rocket;
-#[macro_use]
-extern crate rocket_contrib;
-#[macro_use]                                                                                                 
-extern crate diesel; 
+#[macro_use] extern crate rocket;
+#[macro_use] extern crate rocket_contrib;
+#[macro_use] extern crate diesel;
+
+use diesel::pg::PgConnection;
 
 extern crate dotenv;
 use dotenv::dotenv;
-// use std::env;
+use std::env;
 
 mod models;
 mod schema;
 
+use models::Retailer;
+use schema::retailer::dsl::*;
+
 
 #[database("pg_conn")]
-struct RetailerDbConn(diesel::PgConnection);
+struct RetailerDbConn(PgConnection);
 
 use rocket_contrib::json::Json;
 /// Needs `features = ["derive"]` in Cargo.toml
