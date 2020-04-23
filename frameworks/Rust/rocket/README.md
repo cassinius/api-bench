@@ -1,3 +1,5 @@
+## Schema and modeling
+
 1. set DB URL
 ```bash
 echo DATABASE_URL=postgres://retailer:retailer@localhost:5432/retailer_api > .env
@@ -20,4 +22,9 @@ cargo install diesel_cli_ext
 ```bash
 diesel_ext > src/models.rs
 ```
+
+
+## Misc
+
+* Error *`error_chain` is ambiguous (derive helper attribute vs any other name)* came from having `dotenv` explicitly installed with a different version than as dependency of now-obsolete `diesel_codegen`
 

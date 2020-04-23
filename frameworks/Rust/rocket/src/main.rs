@@ -5,6 +5,9 @@
 #[macro_use] extern crate diesel;
 
 use diesel::pg::PgConnection;
+/// Without this, we can't use PgConnection::establish
+use diesel::prelude::*;
+// use diesel::result::Error;
 
 extern crate dotenv;
 use dotenv::dotenv;
@@ -14,23 +17,13 @@ mod models;
 mod schema;
 
 use models::Retailer;
+use models::StatusMsg;
 use schema::retailer::dsl::*;
 
-
-#[database("pg_conn")]
-struct RetailerDbConn(PgConnection);
+// #[database("pg_conn")]
+// struct RetailerDbConn(PgConnection);
 
 use rocket_contrib::json::Json;
-/// Needs `features = ["derive"]` in Cargo.toml
-/// sometimes seems to need json_serde as well, or not, or yes,
-/// depending on cargo's build mood (check with `cargo mood` ;-)
-use serde::{Deserialize, Serialize};
-
-#[derive(Serialize, Deserialize, Debug)]
-struct StatusMsg {
-    status: u16,
-    msg: String,
-}
 
 
 /// The route only exists when type constraints are fulfilled!
@@ -38,26 +31,26 @@ struct StatusMsg {
 /// so does /hello/#/<age> ->> because of `#` as macro sign??
 #[get("/hello/<name>/<age>")]
 fn hello(name: String, age: u8) -> String {
-    format!("Hello, {} year old named {}!", age, name)
+	format!("Hello, {} year old named {}!", age, name)
 }
 
 
 #[get("/api")]
 fn api_status() -> Json<StatusMsg> {
-    let msg = StatusMsg {
-        status: 200,
-        msg: String::from("API up and running."),
-    };
-    Json(msg)
+	let msg = StatusMsg {
+		status: 200,
+		msg: String::from("API up and running."),
+	};
+	Json(msg)
 }
 
 
 #[get("/")]
 fn root() -> Json<StatusMsg> {
-    Json(StatusMsg {
-        status: 200,
-        msg: String::from("Rootsy bootsy."),
-    })
+	Json(StatusMsg {
+		status: 200,
+		msg: String::from("Rootsy bootsy."),
+	})
 }
 
 
@@ -68,10 +61,24 @@ fn root() -> Json<StatusMsg> {
 
 
 fn main() {
-    dotenv().ok();
+	dotenv().ok();
+	let db_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
+	println!("{:?}", db_url);
+	let conn = PgConnection::establish(&db_url).expect(&format!("Error connecting to {}", db_url));
+	
+	let results = retailer
+									.limit(5)
+									.load::<Retailer>(&conn)
+									.expect("Error loading retailers");
 
-    rocket::ignite()
-        .attach(RetailerDbConn::fairing())
-        .mount("/", routes![hello, api_status, root])
-        .launch();
+	for r in results {
+		println!("Business: {}, Contact person: {}", 
+			r.Business_name.unwrap(), 
+			r.Contact_person.unwrap());
+	}
+
+	// rocket::ignite()
+	// 	// .attach(RetailerDbConn::fairing())
+	// 	.mount("/", routes![hello, api_status, root])
+	// 	.launch();
 }

@@ -4,6 +4,14 @@
 #![allow(clippy::all)]
 
 
+use serde::{Deserialize, Serialize};
+#[derive(Serialize, Deserialize, Debug)]
+pub struct StatusMsg {
+    pub status: u16,
+    pub msg: String,
+}
+
+
 #[allow(non_snake_case)]
 #[derive(Queryable, Debug)]
 pub struct Retailer {
