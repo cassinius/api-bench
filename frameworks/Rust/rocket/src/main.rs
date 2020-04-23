@@ -4,17 +4,19 @@
 extern crate rocket;
 #[macro_use]
 extern crate rocket_contrib;
+// #[macro_use]
+extern crate diesel_codegen;
 
-use rocket_contrib::databases::diesel;
+extern crate dotenv;
+use dotenv::dotenv;
+// use std::env;
+
+// mod models;
+mod schema;
+
 
 #[database("pg_conn")]
 struct RetailerDbConn(diesel::PgConnection);
-
-// OLD Rust (2015??)
-// #[macro_use] extern crate rocket;
-// use rocket::*;
-// use diesel::prelude::*;
-use diesel::{Queryable, Insertable};
 
 use rocket_contrib::json::Json;
 /// Needs `features = ["derive"]` in Cargo.toml
@@ -26,21 +28,6 @@ use serde::{Deserialize, Serialize};
 struct StatusMsg {
     status: u16,
     msg: String,
-}
-
-// mod schema;
-// use super::schema::people;
-#[derive(Queryable, Serialize, Deserialize)]
-pub struct Retailer {
-		pub id: i32,
-		pub GSTIN: String,
-		pub Business_name: String,
-		pub Contact_person: String,
-		pub Contact_number: i32,
-		pub Contact_address: String,
-		pub Contact_emailId: String,
-		pub Status: String,
-		pub Outlet_limit: i32,
 }
 
 
@@ -79,6 +66,8 @@ fn root() -> Json<StatusMsg> {
 
 
 fn main() {
+    dotenv().ok();
+
     rocket::ignite()
         .attach(RetailerDbConn::fairing())
         .mount("/", routes![hello, api_status, root])
