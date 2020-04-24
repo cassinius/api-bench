@@ -1,0 +1,7 @@
+faker
+flask
+falcon == 1.4.1
+falcon_autocrud == 1.0.36
+gunicorn
+psycopg2
+sqlalchemy
