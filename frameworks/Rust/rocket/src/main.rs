@@ -1,14 +1,13 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 
 #[macro_use] extern crate rocket;
-#[macro_use] extern crate rocket_contrib;
+// #[macro_use] 
+extern crate rocket_contrib;
 #[macro_use] extern crate diesel;
 
-use diesel::pg::PgConnection;
+use diesel::PgConnection;
 /// Without this, we can't use PgConnection::establish
 use diesel::prelude::*;
-// use diesel::result::Error;
-
 extern crate dotenv;
 use dotenv::dotenv;
 use std::env;
@@ -16,8 +15,9 @@ use std::env;
 mod models;
 mod schema;
 
-use models::Retailer;
 use models::StatusMsg;
+
+use models::Retailer;
 use schema::retailer::dsl::*;
 
 // #[database("pg_conn")]
@@ -37,11 +37,10 @@ fn hello(name: String, age: u8) -> String {
 
 #[get("/api")]
 fn api_status() -> Json<StatusMsg> {
-	let msg = StatusMsg {
+	Json(StatusMsg {
 		status: 200,
 		msg: String::from("API up and running."),
-	};
-	Json(msg)
+	})
 }
 
 
