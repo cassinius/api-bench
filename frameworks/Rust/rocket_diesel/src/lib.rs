@@ -1,9 +1,10 @@
 #![feature(proc_macro_hygiene, decl_macro)]
+// ^^ this is needed here in `lib.rs` to make the 
+// route (`get`) macros work in `routes.rs` ...
 
 #[macro_use] extern crate diesel;
 #[macro_use] extern crate rocket;
 extern crate rocket_contrib;
-use rocket_contrib::json::Json;
 
 use diesel::PgConnection;
 use diesel::prelude::*; // Without this, we can't use PgConnection::establish
@@ -12,7 +13,6 @@ mod schema;
 use schema::retailer::dsl::*;
 
 mod models;
-use models::StatusMsg;
 use models::Retailer;
 
 mod routes;
@@ -40,5 +40,8 @@ impl RetailerAPI {
     RetailerAPI { db_conn }
   }
 
+  fn api_start() {
+    routes::launch_rocket();
+  }
 
 }

@@ -35,3 +35,10 @@ fn root() -> Json<StatusMsg> {
 // fn get_retailer(conn: RetailerDbConn, id: usize) -> Result<Logs> {
 // 		Retailer::by_id(&*conn, id)
 // }
+
+
+pub fn launch_rocket() {
+  rocket::ignite()
+		.mount("/", routes![hello, api_status, root])
+		.launch();
+}
