@@ -4,7 +4,7 @@
 
 #[macro_use] extern crate diesel;
 #[macro_use] extern crate rocket;
-extern crate rocket_contrib;
+#[macro_use] extern crate rocket_contrib; // for the database macro...
 
 use diesel::PgConnection;
 use diesel::prelude::*; // Without this, we can't use PgConnection::establish
@@ -24,23 +24,26 @@ pub struct RetailerAPI {
 
 impl RetailerAPI {
   pub fn new(db_url: String) -> RetailerAPI {
-    let db_conn = PgConnection::establish(&db_url).expect(&format!("Error connecting to {}", db_url));
-    
-    let results = retailer
-									.limit(5)
-									.load::<Retailer>(&db_conn)
-									.expect("Error loading retailers");
-
-    for r in results {
-      println!("Business: {}, Contact person: {}", 
-        r.Business_name.unwrap(), 
-        r.Contact_person.unwrap());
-    }
-    
+    let db_conn = PgConnection::establish(&db_url).expect(&format!("Error connecting to {}", db_url));    
     RetailerAPI { db_conn }
   }
 
-  fn api_start() {
+
+  pub fn control_output(&self) {
+    let results = retailer
+      .limit(5)
+      .load::<Retailer>(&self.db_conn)
+      .expect("Error loading retailers");
+
+    for r in results {
+      println!("Business: {}, Contact person: {}", 
+      r.Business_name.unwrap(), 
+      r.Contact_person.unwrap());
+    }
+  }
+  
+
+  pub fn api_start() {
     routes::launch_rocket();
   }
 

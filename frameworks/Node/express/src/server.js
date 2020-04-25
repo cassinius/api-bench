@@ -9,9 +9,19 @@ const app = express();
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-const DEFAULT_PORT = 8000;
+const PORT = 8000;
+const LIMIT = 42;
 
 let DB_client = null;
+
+function checkDBConn(res) {
+  if ( !DB_client ) {
+    res.status(500).json({
+      status: 500,
+      msg: 'DB connection not initialized.'
+    });
+  }
+}
 
 
 /**
@@ -19,13 +29,19 @@ let DB_client = null;
  * @todo figure out if pg pool has any cache => delete if yes!
  */
 const getRetailer = (req, res, id=42) => {
-  if ( !DB_client ) {
-    res.status(500).json({
-      status: 500,
-      msg: 'DB connection not initialized.'
-    });
-  }
+  checkDBConn();
   pool.query("SELECT * FROM retailer WHERE id=$1", [id], (err, result) => {
+    if (err) { 
+      console.log(err); 
+    }
+    res.status(200).json(result.rows);
+  });
+}
+
+
+const getAllRetailers = (req, res) => {
+  checkDBConn();
+  pool.query("SELECT * FROM retailer LIMIT $1", [LIMIT], (err, result) => {
     if (err) { 
       console.log(err); 
     }
@@ -42,13 +58,18 @@ app.get('/', (req, res) => {
 });
 
 
+app.get('/retailers', (req, res) => {
+  getAllRetailers(req, res);
+});
+
+
 app.get('/retailer/:id', (req, res) => {
   getRetailer(req, res, req.params.id);
 });
 
 
 // Start server
-const port = process.env.PORT || DEFAULT_PORT;
+const port = process.env.PORT || PORT;
 app.listen(port, async () => {
   DB_client = await pool.connect().catch(e => console.log(e));
   console.log(`Server listening on port ${port}.`);

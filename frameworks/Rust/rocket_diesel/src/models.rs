@@ -13,7 +13,7 @@ pub struct StatusMsg {
 
 
 #[allow(non_snake_case)]
-#[derive(Queryable, Debug)]
+#[derive(Serialize, Queryable, Debug)]
 pub struct Retailer {
     pub id: i32,
     pub GSTIN: Option<String>,

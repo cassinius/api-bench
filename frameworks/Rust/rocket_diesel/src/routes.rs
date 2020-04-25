@@ -1,8 +1,20 @@
 use rocket_contrib::json::Json;
+// use diesel::PgConnection;
 
+use rocket_contrib::databases::diesel as condi;
+#[database("postgres_local")]
+struct RetailDB(condi::PgConnection);
+
+
+// injects methods on modles, like .load / .limit etc.
+use diesel::prelude::*;
 // this is necessitating the `mod models` in main.rs, which in turn
 // necessitates the `extern crate diesel` statement which 
-use super::models::StatusMsg;
+use super::models::{StatusMsg, Retailer};
+use super::schema::retailer::dsl::*;
+
+const LIMIT: u8 = 42;
+
 
 /// The route only exists when type constraints are fulfilled!
 /// e.g., /hello/Bernd/256 results in `404: Not Found` error
@@ -31,14 +43,31 @@ fn root() -> Json<StatusMsg> {
 }
 
 
+#[get("/retailers")]
+fn all(conn: RetailDB) -> Json<Vec<Retailer>> {
+  let results = retailer
+		.limit(LIMIT as i64)
+		.load::<Retailer>(&conn.0)
+		.expect("Error loading retailers");
+	Json(results)
+}
+
+
 // #[get("/retailer/<id>")]
-// fn get_retailer(conn: RetailerDbConn, id: usize) -> Result<Logs> {
-// 		Retailer::by_id(&*conn, id)
+// fn get_retailer(conn: RetailDB, id: u32) -> Json<Retailer> {
+//   let results = retailer
+//     .limit(5)
+//     .load::<Retailer>(&self.db_conn)
+//     .expect("Error loading retailers");
+// 		Json(
+//       results
+//     )
 // }
 
 
 pub fn launch_rocket() {
   rocket::ignite()
-		.mount("/", routes![hello, api_status, root])
+    .attach(RetailDB::fairing())
+		.mount("/", routes![hello, api_status, root, all])
 		.launch();
 }
