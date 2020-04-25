@@ -49,25 +49,26 @@ fn all(conn: RetailDB) -> Json<Vec<Retailer>> {
 		.limit(LIMIT as i64)
 		.load::<Retailer>(&conn.0)
 		.expect("Error loading retailers");
-	Json(results)
+	
+		Json(results)
 }
 
 
-// #[get("/retailer/<id>")]
-// fn get_retailer(conn: RetailDB, id: u32) -> Json<Retailer> {
-//   let results = retailer
-//     .limit(5)
-//     .load::<Retailer>(&self.db_conn)
-//     .expect("Error loading retailers");
-// 		Json(
-//       results
-//     )
-// }
+#[get("/retailer/<r_id>")]
+fn get_retailer(conn: RetailDB, r_id: i32) -> Json<Retailer> {
+  let result = retailer
+		.find(r_id).first(&conn.0)
+    .expect("Error loading retailers");
+	
+		Json(result)
+}
 
 
 pub fn launch_rocket() {
   rocket::ignite()
     .attach(RetailDB::fairing())
-		.mount("/", routes![hello, api_status, root, all])
+		.mount("/", routes!
+			[hello, api_status, root, all, get_retailer]
+		)
 		.launch();
 }

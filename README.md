@@ -35,4 +35,4 @@ ab -n 10000 -k -c 8 http://localhost:8000/retailer/42
 * Falcon / gunicorn (4 workers) => 773.48 [#/sec] (mean)
 * Flask / gunicorn (4 workers) => 1783.23 [#/sec] (mean)
 * Node / express (pg pool, auto #workers) => 2591.86 [#/sec] (mean)
-* Rust / rocket (8 workers) => 
+* Rust / rocket (8 workers, Ubuntu 20.04) => 9881.78 [#/sec] (mean)
