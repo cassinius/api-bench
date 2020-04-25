@@ -6,19 +6,21 @@ echo DATABASE_URL=postgres://retailer:retailer@localhost:5432/retailer_api > .en
 ```
 
 2. read DB into schema
-
 ```bash
 diesel print-schema > src/schema.rs
 ```
 
-3. install diesel_cli_ext
+3. install diesel (with feature `postgres`)
+```bash
+cargo install diesel --no-default-features --features postgres
+```
 
+3. install diesel_cli_ext
 ```bash
 cargo install diesel_cli_ext
 ```
 
 4. generate models
-
 ```bash
 diesel_ext > src/models.rs
 ```

@@ -16,23 +16,32 @@ This is our testbed for API-(Micro-)Services in different languages & frameworks
 #### Command
 
 ```bash
-ab -n 10000 -k -c 8 http://localhost:8000/retailer/42
+ab -n 10000 -k -c 16 http://localhost:8000/<path/to/action>
 ```
 
 #### Environment
 
-* Thinkpad X1 Carbon 5th gen
-* Windows 10
-* WSL Ubuntu 18.04
+* core i7 quad
+* OS: Arch linux
+* Kernel: 5.5.4-arch1-1
 * Postgres 12.2
-* Python 3.6.9
+* Python 3.7.4
 * Node 13.12
 * Rust 1.44 nightly
-
+* default = 16 workers, except when `auto` (pg-pool)
 
 #### Results (best of 3)
 
-* Falcon / gunicorn (4 workers) => 773.48 [#/sec] (mean)
-* Flask / gunicorn (4 workers) => 1783.23 [#/sec] (mean)
-* Node / express (pg pool, auto #workers) => 2591.86 [#/sec] (mean)
-* Rust / rocket (8 workers, Ubuntu 20.04) => 9881.78 [#/sec] (mean)
+##### *all* ->> `/retailers`
+
+* Falcon / gunicorn => 1103.43 [#/sec] (mean)
+* Flask / gunicorn => 5823.22 [#/sec] (mean)
+* Node / express => 3293.30 [#/sec] (mean)
+* Rust / rocket => 16810.34 [#/sec] (mean)
+
+##### *show* ->> `/retailer/42`
+
+* Falcon / gunicorn => 2808.54 [#/sec] (mean)
+* Flask / gunicorn => 8471.00 [#/sec] (mean)
+* Node / express => 7613.39 [#/sec] (mean)
+* Rust / rocket => 22121.07 [#/sec] (mean)
