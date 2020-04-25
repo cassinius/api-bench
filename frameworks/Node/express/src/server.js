@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 
 const PORT = 8000;
-const LIMIT = 42;
+// const LIMIT = 42;
 
 let DB_client = null;
 
@@ -41,7 +41,7 @@ const getRetailer = (req, res, id=42) => {
 
 const getAllRetailers = (req, res) => {
   checkDBConn();
-  pool.query("SELECT * FROM retailer LIMIT $1", [LIMIT], (err, result) => {
+  pool.query("SELECT * FROM retailer", [], (err, result) => {
     if (err) { 
       console.log(err); 
     }

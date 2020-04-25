@@ -16,7 +16,7 @@ This is our testbed for API-(Micro-)Services in different languages & frameworks
 #### Command
 
 ```bash
-ab -n 10000 -k -c 16 http://localhost:8000/<path/to/action>
+ab -n 100000 -k -c 16 http://localhost:8000/<path/to/action>
 ```
 
 #### Environment
@@ -34,14 +34,14 @@ ab -n 10000 -k -c 16 http://localhost:8000/<path/to/action>
 
 ##### *all* ->> `/retailers`
 
-* Falcon / gunicorn => 1103.43 [#/sec] (mean)
-* Flask / gunicorn => 5823.22 [#/sec] (mean)
-* Node / express => 3293.30 [#/sec] (mean)
-* Rust / rocket => 16810.34 [#/sec] (mean)
+* Py / Falcon / gunicorn => 1103.43 [#/sec] (mean)
+* Py / Flask / gunicorn => 5823.22 [#/sec] (mean)
+* Node / express / pg-pool => 3293.30 [#/sec] (mean)
+* Rust / rocket / diesel => 16810.34 [#/sec] (mean)
 
 ##### *show* ->> `/retailer/42`
 
-* Falcon / gunicorn => 2808.54 [#/sec] (mean)
-* Flask / gunicorn => 8471.00 [#/sec] (mean)
-* Node / express => 7613.39 [#/sec] (mean)
-* Rust / rocket => 22121.07 [#/sec] (mean)
+* Py / Falcon / gunicorn => 2808.54 [#/sec] (mean)
+* Py / Flask / gunicorn => 8471.00 [#/sec] (mean)
+* Node / express / pg-pool => 7613.39 [#/sec] (mean)
+* Rust / rocket / diesel => 22121.07 [#/sec] (mean)

@@ -4,6 +4,7 @@ from flask import jsonify
 connection = psycopg2.connect(host='localhost', database='retailer_api', user='retailer', password='retailer')
 cursor = connection.cursor()
 
+LIMIT = 42
 
 @app.route('/')
 @app.route('/index')
@@ -13,7 +14,7 @@ def index():
 
 @app.route('/retailers')
 def retailers():
-  cursor.execute('SELECT * FROM retailer')
+  cursor.execute("""SELECT * FROM retailer""")
   retailer = cursor.fetchall()
   # print(retailer)
   return jsonify(retailer)

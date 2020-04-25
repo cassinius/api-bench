@@ -13,7 +13,7 @@ use diesel::prelude::*;
 use super::models::{StatusMsg, Retailer};
 use super::schema::retailer::dsl::*;
 
-const LIMIT: u8 = 42;
+// const LIMIT: u8 = 42;
 
 
 /// The route only exists when type constraints are fulfilled!
@@ -46,7 +46,7 @@ fn root() -> Json<StatusMsg> {
 #[get("/retailers")]
 fn all(conn: RetailDB) -> Json<Vec<Retailer>> {
   let results = retailer
-		.limit(LIMIT as i64)
+		// .limit(LIMIT as i64)
 		.load::<Retailer>(&conn.0)
 		.expect("Error loading retailers");
 	
