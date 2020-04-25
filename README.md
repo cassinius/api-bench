@@ -36,12 +36,12 @@ ab -n 100000 -k -c 16 http://localhost:8000/<path/to/action>
 
 * Py / Falcon / gunicorn => 1103.43 [#/sec] (mean)
 * Py / Flask / gunicorn => 5823.22 [#/sec] (mean)
-* Node / express / pg-pool => 3293.30 [#/sec] (mean)
-* Rust / rocket / diesel => 16810.34 [#/sec] (mean)
+* Node / express / pg-pool => 1947.65 [#/sec] (mean)
+* Rust / rocket / diesel => 10756.12 [#/sec] (mean)
 
 ##### *show* ->> `/retailer/42`
 
-* Py / Falcon / gunicorn => 2808.54 [#/sec] (mean)
-* Py / Flask / gunicorn => 8471.00 [#/sec] (mean)
+* Py / Falcon / gunicorn => 2824.16 [#/sec] (mean)
+* Py / Flask / gunicorn => 8475.40 [#/sec] (mean)
 * Node / express / pg-pool => 7613.39 [#/sec] (mean)
-* Rust / rocket / diesel => 22121.07 [#/sec] (mean)
+* Rust / rocket / diesel => 22200.08 [#/sec] (mean)
