@@ -25,4 +25,3 @@ pub struct Retailer {
     pub Status: Option<String>,
     pub Outlet_limit: Option<i32>,
 }
-

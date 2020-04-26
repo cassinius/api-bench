@@ -14,7 +14,7 @@ def index():
 
 @app.route('/retailers')
 def retailers():
-  cursor.execute("""SELECT * FROM retailer""")
+  cursor.execute('SELECT * FROM retailer')
   retailer = cursor.fetchall()
   # print(retailer)
   return jsonify(retailer)
