@@ -50,6 +50,29 @@ ab -n 100000 -k -c 16 http://localhost:8000/<path/to/action>
 * Rust / rocket / diesel => 22200.08 [#/sec] (mean)
 
 
+### Arch Linux Laptop
+
+
+#### Results (best out of 3)
+
+##### *all* ->> `/retailers`
+
+* Py / falcon / gunicorn => 431.51 [#/sec] (mean)
+* Py / flask / gunicorn => 2070.50 [#/sec] (mean)
+* Node / express / pg-pool => 1549.49 [#/sec] (mean)
+* Node / restify / pg-pool => 1766.46 [#/sec] (mean)
+* Rust / rocket / diesel => 4782.41 [#/sec] (mean)
+
+##### *show* ->> `/retailer/42`
+
+* Py / falcon / gunicorn => 1060.58 [#/sec] (mean)
+* Py / flask / gunicorn => 2791.79 [#/sec] (mean)
+* Node / express / pg-pool => 5584.54 [#/sec] (mean)
+* Node / restify / pg-pool => 5166.64 [#/sec] (mean)
+* Rust / rocket / diesel => 11317.34 [#/sec] (mean)
+
+
+
 ### Windows client
 
 #### Command
@@ -94,3 +117,5 @@ psycopg2.ProgrammingError: no results to fetch
 * Py / Flask / gunicorn => 990.77 [#/sec] (mean)
 * Node / express / pg-pool => 3873.78 [#/sec] (mean)
 * Rust / rocket / diesel => 3147.69 [#/sec] (mean)
+
+

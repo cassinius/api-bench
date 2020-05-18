@@ -1,4 +1,4 @@
-extern crate dotenv;
+// extern crate dotenv;
 use dotenv::dotenv;
 use std::env;
 

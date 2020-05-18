@@ -1,0 +1,18 @@
+{
+  "name": "restify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bernd Malle",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.4",
+    "pg": "^8.2.1",
+    "restify": "^8.5.1"
+  }
+}
