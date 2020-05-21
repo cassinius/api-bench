@@ -103,6 +103,7 @@ psycopg2.ProgrammingError: no results to fetch
 
 - Py / Falcon / gunicorn => 160.56 [#/sec](mean)
 - Py / Flask / gunicorn => 790.10 [#/sec](mean)
+- Node / vanilla / pg-pool => 1011.91 [#/sec](mean)
 - Node / express / pg-pool => 1087.38 [#/sec](mean)
 - Node / fastify / pg => 863.33 [#/sec](mean)
 - Node / restify / pg-pool => 941.78 [#/sec](mean)
@@ -112,6 +113,7 @@ psycopg2.ProgrammingError: no results to fetch
 
 - Py / Falcon / gunicorn => 474.28 [#/sec](mean)
 - Py / Flask / gunicorn => 990.77 [#/sec](mean)
+- Node / vanilla / pg-pool => 2197.23 [#/sec](mean)
 - Node / express / pg-pool => 3873.78 [#/sec](mean)
 - Node / fastify / pg => 2205.89 [#/sec](mean)
 - Node / restify / pg-pool => 1979.22 [#/sec](mean)
