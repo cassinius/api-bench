@@ -50,6 +50,12 @@ ab -n 100000 -k -c 16 http://localhost:8000/<path/to/action>
 
 ### Arch Linux Laptop
 
+#### Command
+
+```bash
+ab -n 100000 -k -c 8 http://localhost:8000/<path/to/action>
+```
+
 #### Results (best out of 3)
 
 ##### _all_ ->> `/retailers`
@@ -59,6 +65,7 @@ ab -n 100000 -k -c 16 http://localhost:8000/<path/to/action>
 - Node / express / pg-pool => 1549.49 [#/sec](mean)
 - Node / restify / pg-pool => 1766.46 [#/sec](mean)
 - Rust / rocket / diesel => 4782.41 [#/sec](mean)
+- Rust / actix / r2d2 (pg) => 4642.40 [#/sec] (mean)
 
 ##### _show_ ->> `/retailer/42`
 
@@ -67,6 +74,7 @@ ab -n 100000 -k -c 16 http://localhost:8000/<path/to/action>
 - Node / express / pg-pool => 5584.54 [#/sec](mean)
 - Node / restify / pg-pool => 5166.64 [#/sec](mean)
 - Rust / rocket / diesel => 11317.34 [#/sec](mean)
+- Rust / actix / r2d2 (pg) => 12496.74 [#/sec] (mean)
 
 ### Windows client
 
