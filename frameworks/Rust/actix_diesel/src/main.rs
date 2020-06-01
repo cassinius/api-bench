@@ -70,7 +70,7 @@ async fn get_retailers(
 }
 
 
-#[get("/status")]
+#[get("/")]
 async fn get_status() -> Result<HttpResponse, Error> {
 	Ok(HttpResponse::Ok().json(models::StatusMsg {
 		status: 200,

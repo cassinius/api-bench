@@ -28,7 +28,8 @@ ab -n 100000 -k -c 16 http://localhost:8000/<path/to/action>
 - Postgres 12.2
 - Python 3.7.4
 - Python runner: gunicorn
-- Node 13.12
+- Node (JS) 13.12
+- es4x (JS)
 - Rust 1.44 nightly
 - default = 16 workers, except when `auto` (pg-pool)
 
@@ -57,6 +58,14 @@ ab -n 100000 -k -c 8 http://localhost:8000/<path/to/action>
 ```
 
 #### Results (best out of 3)
+
+##### JSON response static
+
+Node / express => 10219.17 [#/sec] (mean)
+Node / vanilla => 15840.53 [#/sec] (mean)
+Es4x / vertx => 22101.24 [#/sec] (mean)
+Rust / rocket => 21187.22 [#/sec] (mean)
+Rust / actix => 18911.75 [#/sec] (mean)
 
 ##### _all_ ->> `/retailers`
 
@@ -92,7 +101,7 @@ ab -n 10000 -k -c 8 http://localhost:8000/<path/to/action>
 - Postgres 11.5
 - Python 3.7.6
 - Python runner: waitress
-- Node 13.12
+- Node (JS) 13.12
 - Rust 1.44 nightly
 - default = 16 workers, except when `auto` (pg-pool)
 
