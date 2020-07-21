@@ -12,7 +12,6 @@ edition = "2018"
 serde = {version = "1.0.106", features = ["derive"] }
 rocket = "0.4.4"
 rocket_codegen = "0.4.4" # provides some useful macros
-
 diesel = { version = "1.4.4", features = ["postgres"] }
 
 ### diesel_codegen is outdated !! and refs dotenv = 0.10.1

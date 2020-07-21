@@ -31,6 +31,12 @@ fn root() -> Json<StatusMsg> {
 }
 
 
+#[get("/hello/<name>")]
+fn hello(name: String) -> String {
+	format!("Hello, {}!", name.as_str())
+}
+
+
 #[get("/retailers")]
 fn get_retailers(conn: RetailDB) -> Json<Vec<Retailer>> {
   let results = retailer
@@ -55,7 +61,7 @@ pub fn launch_rocket() {
   rocket::ignite()
     .attach(RetailDB::fairing())
 		.mount("/", routes!
-			[root, api_status, get_retailers, get_retailer]
+			[root, hello, api_status, get_retailers, get_retailer]
 		)
 		.launch();
 }
