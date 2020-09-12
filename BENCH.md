@@ -124,3 +124,38 @@ psycopg2.ProgrammingError: no results to fetch
 - Node / fastify / pg => 2205.89 [#/sec](mean)
 - Node / restify / pg-pool => 1979.22 [#/sec](mean)
 - Rust / rocket / diesel => 3147.69 [#/sec](mean)
+
+
+### Ryzen 3950 workstation
+
+#### Environment
+
+* MUG Workstation
+* Ryzen 3950 16 core, 32 threads
+* 128 GB Ram
+* Ubuntu 20.04 LTS
+* Python 3.7.9
+* Node (JS) 14.10.1
+* rustc 1.44.0-nightly (dbf8b6bf1 2020-04-19)
+
+
+#### Results (c=16) (best out of 3) 
+
+> only those that worked with 16 cores & were comparatively fast
+
+###### _all_ ->> `/retailers`
+
+- Py / Flask / gunicorn => 13617.95 [#/sec] (mean)
+- Node / express / pg-pool => 11814.09 [#/sec] (mean)
+- Node / fastify / fastify-pg => 11911.98 [#/sec] (mean)
+- Node / restify / pg-pool => 13958.26 [#/sec] (mean)
+- Rust / rocket / diesel => 21276.88 [#/sec] (mean)
+
+###### _show_ ->> `/retailer/42`
+
+- Py / Flask / gunicorn => 18843.98 [#/sec] (mean)
+- Node / express / pg-pool => 18547.51 [#/sec] (mean)
+- Node / fastify / fastify-pg => 23285.87 [#/sec] (mean)
+- Node / restify / pg-pool => 22740.42 [#/sec] (mean)
+- Rust / rocket / diesel => 35293.35 [#/sec] (mean)
+
