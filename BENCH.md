@@ -159,3 +159,31 @@ psycopg2.ProgrammingError: no results to fetch
 - Node / restify / pg-pool => 22740.42 [#/sec] (mean)
 - Rust / rocket / diesel => 35293.35 [#/sec] (mean)
 
+
+
+### Intel 10th-gen core i7-10700k
+
+#### Environment
+
+* New Home Workstation
+* Intel 10th-gen core i7-10700k
+* 64 GB Ram
+* Ubuntu 20.04 LTS
+* Python 3.7.9
+* Node (JS) 15.3.0
+* rustc 1.44.0-nightly (dbf8b6bf1 2020-04-20)
+
+#### Results
+
+> only those that worked with 16 cores & were comparatively fast
+
+###### _all_ ->> `/retailers`
+
+- Py / Flask / gunicorn => 12423.53 [#/sec] (mean)
+- Rust / rocket / diesel => 26196.12 [#/sec] (mean)
+
+###### _show_ ->> `/retailer/42`
+
+- Py / Flask / gunicorn => 20920.53 [#/sec] (mean)
+- Rust / rocket / diesel => 35489.88 [#/sec] (mean)
+
