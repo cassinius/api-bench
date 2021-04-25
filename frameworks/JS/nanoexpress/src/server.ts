@@ -14,7 +14,6 @@ const corsConfigured = cors({
 app.options('/*', corsConfigured as unknown)
 
 const PORT: number = 8000;
-const LIMIT = 42;
 
 let DB_client = null;
 
