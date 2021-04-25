@@ -1,7 +1,6 @@
 const express = require('express');
 // const bodyParser = require('body-parser');
 const cors = require('cors');
-const { pool } = require('./db_conn');
 
 const app = express();
 
