@@ -187,3 +187,4 @@ psycopg2.ProgrammingError: no results to fetch
 - Py / Flask / gunicorn => 20920.53 [#/sec] (mean)
 - Rust / rocket / diesel => 35489.88 [#/sec] (mean)
 
+
