@@ -4,48 +4,31 @@ import nanoexpress, { IHttpRequest, IHttpResponse } from "nanoexpress";
 import { pool } from "./db_conn";
 
 export const app = nanoexpress();
-// app.use((req, res, next) => {
-//   cors();
-//   next();
-// });
+
+const corsConfigured = cors({
+  origin: 'http://localhost:8000',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  preflightContinue: false,
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+});
+app.options('/*', corsConfigured as unknown)
 
 const PORT: number = 8000;
 const LIMIT = 42;
 
 let DB_client = null;
 
-function checkDBConn(res) {
+function checkDBConn(req, res: IHttpResponse, next) {
   if (!DB_client) {
-    res.status(500).json({
+    res.status(500).send({
       status: 500,
       msg: "DB connection not initialized.",
     });
   }
+  next();
 }
 
-/**
- * @todo introduce random retailer lookup...
- * @todo figure out if pg pool has any cache => delete if yes!
- */
-const getRetailer = (req, res, id = LIMIT) => {
-  checkDBConn(res);
-  pool.query("SELECT * FROM retailer WHERE id=$1", [id], (err, result) => {
-    if (err) {
-      console.log(err);
-    }
-    res.status(200).json(result.rows);
-  });
-};
-
-const getAllRetailers = (req, res) => {
-  checkDBConn(res);
-  pool.query("SELECT * FROM retailer", [], (err, result) => {
-    if (err) {
-      console.log(err);
-    }
-    res.status(200).json(result.rows);
-  });
-};
+app.use(checkDBConn as unknown as any);
 
 app.get("/", (req: IHttpRequest, res: IHttpResponse) => {
   res.status(200);
@@ -55,12 +38,14 @@ app.get("/", (req: IHttpRequest, res: IHttpResponse) => {
   });
 });
 
-app.get("/retailers", (req, res) => {
-  getAllRetailers(req, res);
+app.get("/retailers", async (req: IHttpRequest, res: IHttpResponse) => {
+  const result = await pool.query("SELECT * FROM retailer", []); //.catch(e => console.error(e));
+  return res.status(200).send(result.rows);
 });
 
-app.get("/retailer/:id", (req, res) => {
-  getRetailer(req, res, +req.params.id);
+app.get("/retailer/:id", async (req: IHttpRequest, res: IHttpResponse) => {
+  const result = await pool.query("SELECT * FROM retailer WHERE id=$1", [req.params.id]);
+  return res.status(200).send(result.rows);
 });
 
 async function MAIN() {

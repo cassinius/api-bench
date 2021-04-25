@@ -9,4 +9,6 @@ const pool = new Pool({
   port: 5432,
 });
 
+console.log('PG pool:', pool);
+
 export { pool };
