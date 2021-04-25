@@ -1,0 +1,27 @@
+{
+  "name": "expressapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "start": "ts-node src/server.ts",
+    "deploy": "pm2 start src/server.ts -i max"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "nanoexpress": "^2.4.13",
+    "pg": "^8.3.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^14.14.41",
+    "@types/pg": "^7.14.11",
+    "nodemon": "^2.0.3",
+    "typescript": "^4.2.4"
+  }
+}
