@@ -161,7 +161,7 @@ psycopg2.ProgrammingError: no results to fetch
 
 
 
-### Intel 10th-gen core i7-10700k
+### Intel 10th-gen core i7-10700k (different test command - `wrk`)
 
 #### Environment
 
@@ -173,18 +173,26 @@ psycopg2.ProgrammingError: no results to fetch
 * Node (JS) 15.3.0
 * rustc 1.44.0-nightly (dbf8b6bf1 2020-04-20)
 
+#### Test command
+
+```bash
+wrk -t 16 -c 16 <URL>
+```
+
 #### Results
 
 > only those that worked with 16 cores & were comparatively fast
 
 ###### _all_ ->> `/retailers`
 
-- Py / Flask / gunicorn => 12423.53 [#/sec] (mean)
-- Rust / rocket / diesel => 26196.12 [#/sec] (mean)
+- Express / pm2 => 13233.23
+- Py / Flask / gunicorn => 14320.22
+- Rust / rocket / diesel => 26393.77
 
 ###### _show_ ->> `/retailer/42`
 
-- Py / Flask / gunicorn => 20920.53 [#/sec] (mean)
-- Rust / rocket / diesel => 35489.88 [#/sec] (mean)
+- Express / pm2 => 22353.96
+- Py / Flask / gunicorn => 17404.85
+- Rust / rocket / diesel => 55919.08
 
 

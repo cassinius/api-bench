@@ -12,7 +12,9 @@
 
 #### Benchmark command
 
-
+```bash
+wrk -t 16 -c 16 <url>
+```
 
 #### Results
 
