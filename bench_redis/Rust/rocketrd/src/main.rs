@@ -6,6 +6,8 @@ extern crate rocket_contrib;
 
 use std::io::Cursor;
 
+use std::any::type_name;
+
 use rocket::http::ContentType;
 use rocket::request::Request;
 use rocket::response::{self, Responder, Response};
@@ -28,6 +30,10 @@ struct Retailer {
     // pub Outlet_limit: i32,
 }
 
+fn type_of<T>(_: T) -> &'static str {
+    type_name::<T>()
+}
+
 impl<'r> Responder<'r> for Retailer {
     fn respond_to(self, _: &Request) -> response::Result<'r> {
         Response::build()
@@ -43,8 +49,16 @@ fn api() -> String {
 }
 
 #[get("/retailers")]
-fn retailers(conn: RetailerDbConn) -> String {
-    String::from("Retailers!")
+fn retailers(conn: RetailerDbConn) -> Option<String> {
+    let keys: Vec<String> = conn.keys("*").unwrap(); // automatic collection !?
+
+    // println!("{}", type_of(&keys));
+    // println!("{:?}", keys);
+
+    match conn.get(keys) {
+        Ok(value) => value,
+        Err(_e) => Some("No retailers found...!".to_string()),
+    }
 }
 
 #[get("/retailer/<id>")]

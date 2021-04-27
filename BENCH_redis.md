@@ -22,9 +22,9 @@ wrk -t 16 -c 16 <url>
 
 ###### _all_ ->> `/retailers`
 
-- Express / pm2 => 18945.80 req/sec
+- Express / pm2 => 18945.80
 - Nanoexpress / pm2 => 
-- Rust / Rocket => 
+- Rust / Rocket => 15427.94
 
 ###### _show_ ->> `/retailer/42`
 
