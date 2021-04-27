@@ -1,15 +1,14 @@
 const nanoexpress = require("nanoexpress");
+
 const redis = require('redis');
 
 const PORT = 8000;
 
 const redisUrl = "redis://localhost:6379/7";
-const redisClient = redis.createClient(redisUrl);
+let redisClient;
 // console.log(redisClient);
 
 const app = nanoexpress();
-
-app.use(redisClient);
 
 /**
  * 
@@ -37,15 +36,22 @@ app.get("/retailer/:id", async (req, res) => {
   redisClient.KEYS("*", (err, keys) => {
     // console.log(keys);
     redisClient.mget(keys, (err, data) => {
-      let strRes = data.join(',');
-      strRes = "[" + strRes;
-      strRes = strRes + "]";
+      // let strRes = data.join(',');
+      // strRes = "[" + strRes;
+      // strRes = strRes + "]";
       // console.log(JSON.parse(strRes));
-      return res.status(200).send({ status: 200, retailers: JSON.parse(strRes) });
+      return res.status(200).send({ status: 200, retailers: data }); // JSON.parse(strRes)
     });
   });
 });
 
 // Start server
-const port = process.env.PORT || PORT;
-app.listen(port).then(() => console.log(`Nanoexpress server listening on port ${port}.`));
+async function MAIN() {
+  const port = process.env.PORT || PORT;
+  await app.listen(port);
+  console.log(app);
+  redisClient = redis.createClient(redisUrl);
+  console.log(`Nanoexpress server listening on port ${port}.`);
+}
+
+MAIN();
