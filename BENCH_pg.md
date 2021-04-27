@@ -195,4 +195,3 @@ wrk -t 16 -c 16 <URL>
 - Py / Flask / gunicorn => 17404.85
 - Rust / rocket / diesel => 55919.08
 
-
