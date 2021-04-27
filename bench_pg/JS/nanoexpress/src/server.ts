@@ -1,17 +1,17 @@
-import cors from "cors";
+// import cors from "cors";
 import nanoexpress, { IHttpRequest, IHttpResponse } from "nanoexpress";
 
 import { pool } from "./db_conn";
 
 export const app = nanoexpress();
 
-const corsConfigured = cors({
-  origin: 'http://localhost:8000',
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  preflightContinue: false,
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-});
-app.options('/*', corsConfigured as unknown)
+// const corsConfigured = cors({
+//   origin: 'http://localhost:8000',
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   preflightContinue: false,
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// });
+// app.options('/*', corsConfigured as unknown)
 
 const PORT: number = 8000;
 

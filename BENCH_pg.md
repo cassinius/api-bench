@@ -1,4 +1,3 @@
-
 ## Performance benchmarks
 
 ### Linux server
@@ -38,6 +37,8 @@ ab -n 100000 -k -c 16 http://localhost:8000/<path/to/action>
 - Node / express / pg-pool => 7613.39 [#/sec](mean)
 - Rust / rocket / diesel => 22200.08 [#/sec](mean)
 
+---
+
 ### Arch Linux Laptop
 
 #### Command
@@ -73,6 +74,8 @@ Rust / actix => 18911.75 [#/sec] (mean)
 - Node / restify / pg-pool => 5166.64 [#/sec](mean)
 - Rust / rocket / diesel => 11317.34 [#/sec](mean)
 - Rust / actix / r2d2 (pg) => 12496.74 [#/sec] (mean)
+
+---
 
 ### Windows client
 
@@ -125,6 +128,7 @@ psycopg2.ProgrammingError: no results to fetch
 - Node / restify / pg-pool => 1979.22 [#/sec](mean)
 - Rust / rocket / diesel => 3147.69 [#/sec](mean)
 
+---
 
 ### Ryzen 3950 workstation
 
@@ -159,7 +163,7 @@ psycopg2.ProgrammingError: no results to fetch
 - Node / restify / pg-pool => 22740.42 [#/sec] (mean)
 - Rust / rocket / diesel => 35293.35 [#/sec] (mean)
 
-
+---
 
 ### Intel 10th-gen core i7-10700k (different test command - `wrk`)
 
@@ -176,7 +180,7 @@ psycopg2.ProgrammingError: no results to fetch
 #### Test command
 
 ```bash
-wrk -t 16 -c 16 <URL>
+wrk -t 16 -c 200 <URL>
 ```
 
 #### Results
@@ -185,13 +189,15 @@ wrk -t 16 -c 16 <URL>
 
 ###### _all_ ->> `/retailers`
 
-- Express / pm2 => 13233.23
-- Py / Flask / gunicorn => 14320.22
-- Rust / rocket / diesel => 26393.77
+- Express / pm2 => 22823.05
+- Nanoexpress / pm2 => 14737.24 (??)
+- Py / Flask / gunicorn => 14369.12
+- Rust / rocket / diesel => 28293.74
 
 ###### _show_ ->> `/retailer/42`
 
-- Express / pm2 => 22353.96
-- Py / Flask / gunicorn => 17404.85
-- Rust / rocket / diesel => 55919.08
+- Express / pm2 => 30466.18
+- Nanoexpress / pm2 => 29888.50 (??)
+- Py / Flask / gunicorn => 20647.20
+- Rust / rocket / diesel => 65260.80
 

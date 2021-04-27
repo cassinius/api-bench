@@ -38,11 +38,11 @@ app.get('/retailers', (req, res) => {
   redisClient.KEYS("*", (err, keys) => {
     // console.log(keys);
     redisClient.mget(keys, (err, data) => {
-      // let strRes = data.join(',');
-      // strRes = "[" + strRes;
-      // strRes = strRes + "]";
+      let strRes = data.join(',');
+      strRes = "[" + strRes;
+      strRes = strRes + "]";
       // console.log(JSON.parse(strRes));
-      res.status(200).json({ status: 200, retailers: data }); // JSON.parse(strRes)
+      res.status(200).json({ status: 200, retailers: JSON.parse(strRes) }); // JSON.parse(strRes)
     });
   });
 });
