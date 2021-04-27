@@ -32,7 +32,9 @@ app.get("/retailer/:id", async (req, res) => {
 /**
  * 
  */
- app.get("/retailers", async (req, res) => {
+app.get("/retailers", async (req, res) => {
+  // if (!redisClient) return res.send({ status: 500 });
+
   redisClient.KEYS("*", (err, keys) => {
     // console.log(keys);
     redisClient.mget(keys, (err, data) => {
