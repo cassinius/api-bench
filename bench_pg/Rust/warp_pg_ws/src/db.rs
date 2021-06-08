@@ -62,6 +62,14 @@ pub async fn fetch_retailers(db_pool: &DBPool) -> Result<Vec<Retailer>> {
   Ok(rows.iter().map(|r| row_to_retailer(&r)).collect())
 }
 
+pub async fn show_retailer(db_pool: &DBPool) -> Result<Retailer> {
+  let con = get_db_con(db_pool).await?;
+  let query = format!("SELECT * FROM retailer WHERE id=42;");
+  let q = con.query(query.as_str(), &[]).await;
+  let rows = q.map_err(DBQueryError)?;
+  Ok(row_to_retailer(&rows[0]))
+}
+
 #[allow(non_snake_case)]
 fn row_to_retailer(row: &Row) -> Retailer {
   let id: i32 = row.get(0);

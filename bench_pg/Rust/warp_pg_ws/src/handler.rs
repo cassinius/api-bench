@@ -23,3 +23,11 @@ pub async fn list_retailers_handler(query: SearchQuery, db_pool: DBPool) -> Resu
     .map_err(|e| reject::custom(e))?;
   Ok(json::<Vec<_>>(&retailers))
 }
+
+pub async fn show_retailer_handler(query: SearchQuery, db_pool: DBPool) -> Result<impl Reply> {
+  let retailer = db::show_retailer(&db_pool)
+    .await
+    .map_err(|e| reject::custom(e))?;
+  Ok(json::<>(&retailer))
+}
+

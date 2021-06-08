@@ -13,7 +13,7 @@ type Result<T> = std::result::Result<T, Rejection>;
 type DBCon = Connection<PgConnectionManager<NoTls>>;
 type DBPool = Pool<PgConnectionManager<NoTls>>;
 
-use models::{Msg};
+use models::Msg;
 
 const HOST: [u8; 4] = [127, 0, 0, 1];
 const PORT: u16 = 8000;
@@ -48,15 +48,22 @@ async fn main() {
 
 	let retailers = warp::path!("retailers")
 		.and(warp::get())
-    .and(warp::query())
+		.and(warp::query())
 		.and(with_db(db_pool.clone()))
 		.and_then(handler::list_retailers_handler);
+
+	let retailer = warp::path!("retailer")
+		.and(warp::get())
+		.and(warp::query())
+		.and(with_db(db_pool.clone()))
+		.and_then(handler::show_retailer_handler);
 
 	let routes = warp::get().and(
 		root
 			.or(health_route)
 			.or(api_v1)
 			.or(retailers)
+			.or(retailer)
 			.with(warp::cors().allow_any_origin())
 			.recover(error::handle_rejection),
 	);
