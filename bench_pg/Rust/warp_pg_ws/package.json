@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "start": "cargo run",
+    "prod": "cargo run --release",
+    "deploy": "pm2 start target/release/warp_pg_ws -i max"
+  }
+}

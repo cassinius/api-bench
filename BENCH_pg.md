@@ -191,6 +191,7 @@ wrk -t 16 -c 200 <URL>
 - Nanoexpress / pm2 => 14737.24 (??)
 - Py / Flask / gunicorn => 14369.12
 - Rust / rocket / diesel => 28293.74
+- Rust / warp / tokio_pg => 17798.43
 
 ###### _show_ ->> `/retailer/42`
 
@@ -198,4 +199,5 @@ wrk -t 16 -c 200 <URL>
 - Nanoexpress / pm2 => 29888.50 (??)
 - Py / Flask / gunicorn => 20647.20
 - Rust / rocket / diesel => 65260.80
+- Rust / warp / tokio_pg => 23455.55 (after ~6 runs)
 
