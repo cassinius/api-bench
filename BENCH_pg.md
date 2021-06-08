@@ -134,7 +134,6 @@ psycopg2.ProgrammingError: no results to fetch
 
 #### Environment
 
-* MUG Workstation
 * Ryzen 3950 16 core, 32 threads
 * 128 GB Ram
 * Ubuntu 20.04 LTS
@@ -169,10 +168,9 @@ psycopg2.ProgrammingError: no results to fetch
 
 #### Environment
 
-* New Home Workstation
-* Intel 10th-gen core i7-10700k
+* Intel 10th-gen core i7-10700
 * 64 GB Ram
-* Ubuntu 20.04 LTS
+* Arch Linux
 * Python 3.7.9
 * Node (JS) 15.3.0
 * rustc 1.44.0-nightly (dbf8b6bf1 2020-04-20)
