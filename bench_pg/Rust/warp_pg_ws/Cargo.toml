@@ -9,5 +9,8 @@ edition = "2018"
 [dependencies]
 tokio = { version = "1.6.1", features = ["full"] }
 warp = "0.3.1"
-serde = "1.0.126"
-serde_derive = "1.0.126"
+mobc-postgres = { version = "0.7", features = ["with-chrono-0_4"] }
+mobc = "0.7"
+serde = {version = "1.0.126", features = ["derive"] }
+chrono = { version = "0.4.19", features = ["serde"] }
+thiserror = "1.0.25"
