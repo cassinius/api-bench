@@ -1,11 +1,20 @@
 # Readme, API bench
 
-This is our testbed for API-(Micro-)Services in different languages & frameworks. At the time of this writing (2020-04-20) we got
+This is our testbed for API-(Micro-)Services in different languages & frameworks. At the time of this writing (2021-06-14) we got:
 
+- Java
+  - es4x-app
 - Python
-  - Flask
-  - Falcon
+  - flask
+  - falcon
 - Node
-  - Express
+  - vanilla
+  - express
+  - nanoexpress
+  - fastify
+  - restify
 - Rust
   - rocket
+  - actix
+  - warp
+

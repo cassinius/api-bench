@@ -187,7 +187,9 @@ wrk -t 16 -c 200 <URL>
 
 ###### _all_ ->> `/retailers`
 
+- Node.js / pg pool / pm2 => 18365.49
 - Express / pm2 => 22823.05
+- Fastify / fastify-pg / pm2 => 12974.40
 - Nanoexpress / pm2 => 14737.24 (??)
 - Py / Flask / gunicorn => 14369.12
 - Rust / rocket / diesel => 28293.74
@@ -195,9 +197,11 @@ wrk -t 16 -c 200 <URL>
 
 ###### _show_ ->> `/retailer/42`
 
+- Node.js / pg pool / pm2 => 50517.41
 - Express / pm2 => 30466.18
+- Fastify / fastify-pg / pm2 => 32465.91
 - Nanoexpress / pm2 => 29888.50 (??)
 - Py / Flask / gunicorn => 20647.20
 - Rust / rocket / diesel => 65260.80
-- Rust / warp / tokio_pg => 23455.55 (after ~6 runs)
+- Rust / warp / tokio_pg => 23455.55 (after ~6 runs... ??)
 

@@ -30,4 +30,3 @@ pub async fn show_retailer_handler(query: SearchQuery, db_pool: DBPool) -> Resul
     .map_err(|e| reject::custom(e))?;
   Ok(json::<>(&retailer))
 }
-

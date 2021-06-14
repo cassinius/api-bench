@@ -19,7 +19,7 @@ fastify.get("/", async (req, res) => {
 
 fastify.get("/retailers", async (req, res) => {
   const client = await fastify.pg.connect();
-  const rows = await client
+  const { rows } = await client
     .query("SELECT * FROM retailer", [])
     .catch((e) => console.log(e));
   client.release();
