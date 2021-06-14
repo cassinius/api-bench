@@ -9,7 +9,7 @@
     "deploy": "pm2 start src/server.js -i max"
   },
   "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "dependencies": {
     "@types/node": "^14.0.4",
     "fast-json-stringify": "^2.0.0",

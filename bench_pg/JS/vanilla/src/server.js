@@ -1,8 +1,8 @@
-const url = require("url");
 const http = require("http");
 const { pool } = require("./db_conn");
 const fastJson = require("fast-json-stringify");
-const stringify = fastJson({
+
+const retailer = {
   title: "Retailer",
   type: "object",
   properties: {
@@ -16,6 +16,12 @@ const stringify = fastJson({
     Status: { type: "string" },
     Outlet_limit: { type: "integer" },
   },
+};
+const stringifyOneRetailer = fastJson(retailer);
+const stringifyAllRetailers = fastJson({
+  title: "All Retailers",
+  type: "array",
+  items: retailer
 });
 
 const PORT = process.env.PORT || 8000;
@@ -45,10 +51,13 @@ const getRetailer = (req, res, id = 42) => {
     }
     res.statusCode = 200;
     // console.log(result.rows);
-    res.end(stringify(result.rows[0]));
+    res.end(stringifyOneRetailer(result.rows[0]));
   });
 };
 
+/**
+ * 
+ */
 const getAllRetailers = (req, res) => {
   checkDBConn(res);
   pool.query("SELECT * FROM retailer", [], (err, result) => {
@@ -56,7 +65,7 @@ const getAllRetailers = (req, res) => {
       console.log(err);
     }
     res.statusCode = 200;
-    res.end(JSON.stringify(result.rows));
+    res.end(stringifyAllRetailers(result.rows));
   });
 };
 
