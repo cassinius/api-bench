@@ -1,0 +1,21 @@
+{
+  "name": "vanilla",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "deploy": "pm2 start src/server.js -i max"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "fast-json-stringify": "^2.7.6",
+    "pg": "^8.6.0",
+    "polka": "^0.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.2"
+  }
+}

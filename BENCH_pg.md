@@ -188,6 +188,7 @@ wrk -t 16 -c 200 <URL>
 ###### _all_ ->> `/retailers`
 
 - Node.js / pg pool / pm2 => 18365.49
+- Polka / pg pool / pm2 => 18100.57
 - Express / pm2 => 22823.05
 - Fastify / fastify-pg / pm2 => 12974.40
 - Nanoexpress / pm2 => 14737.24 (??)
@@ -198,6 +199,7 @@ wrk -t 16 -c 200 <URL>
 ###### _show_ ->> `/retailer/42`
 
 - Node.js / pg pool / pm2 => 50517.41
+- Polka / pg pool / pm2 => 55327.29
 - Express / pm2 => 30466.18
 - Fastify / fastify-pg / pm2 => 32465.91
 - Nanoexpress / pm2 => 29888.50 (??)
