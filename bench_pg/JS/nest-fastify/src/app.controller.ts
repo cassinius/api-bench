@@ -19,4 +19,9 @@ export class AppController {
   async getRetailerById(@Param('id') id: string): Promise<RetailerModel> {
     return this.retailerService.retailer({ id: Number(id) });
   }
+
+  @Get('/retailers')
+  async getAllRetailers(): Promise<RetailerModel[]> {
+    return this.retailerService.retailers({});
+  }
 }
