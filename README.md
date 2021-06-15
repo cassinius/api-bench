@@ -18,4 +18,5 @@ This is our testbed for API-(Micro-)Services in different languages & frameworks
   - rocket
   - actix
   - warp
-
+- .NET
+  - core 5.0 with EF

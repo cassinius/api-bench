@@ -32,6 +32,5 @@ namespace RetailerApi.Controllers
         var retailers = await _retailerRepository.GetAll();
         return Ok(retailers);
     }
-
   }
 }
