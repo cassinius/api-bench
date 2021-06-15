@@ -196,6 +196,9 @@ wrk -t 16 -c 200 <URL>
 - Rust / rocket / diesel => 28293.74
 - Rust / actix / diesel => 28349.99
 - Rust / warp / tokio_pg => 17798.43
+
+###### _all_ ->> `/Retailer`
+
 - .NET / core 5.0 / EF => 11961.10
 
 ###### _show_ ->> `/retailer/42`
@@ -209,4 +212,7 @@ wrk -t 16 -c 200 <URL>
 - Rust / rocket / diesel => 65260.80
 - Rust / actix / diesel => 59926.58
 - Rust / warp / tokio_pg => 23455.55 (after ~6 runs... ??)
+
+###### _show_ ->> `/Retailer/42`
+
 - .NET / core 5.0 / EF => 17312.92
