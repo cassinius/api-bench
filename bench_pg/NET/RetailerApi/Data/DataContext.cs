@@ -8,7 +8,8 @@ namespace RetailerApi.Data
         public DataContext(DbContextOptions<DataContext> options): base(options) {
 
         }
-
         public DbSet<Retailer> Retailers {get; set;}
+        
     }
 }
+
