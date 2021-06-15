@@ -208,6 +208,7 @@ wrk -t 16 -c 200 <URL>
 - Express / pm2 => 30466.18
 - Fastify / fastify-pg / pm2 => 32465.91
 - Nanoexpress / pm2 => 29888.50 (??)
+- Nestjs / fastify / prisma => 7474.85
 - Py / Flask / gunicorn => 20647.20
 - Rust / rocket / diesel => 65260.80
 - Rust / actix / diesel => 59926.58

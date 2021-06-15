@@ -14,6 +14,7 @@ This is our testbed for API-(Micro-)Services in different languages & frameworks
   - fastify
   - restify
   - polka
+  - nestify / fastify
 - Rust
   - rocket
   - actix
