@@ -1,28 +1,40 @@
+using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
 using RetailerApi.Models;
 using RetailerApi.Data;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
+using Dapper;
+using Npgsql;
 
 namespace RetailerApi.Repositories
 {
-  public class RetailerRepository : IRetailerRepository
+  public class RetailerRepository: IRetailerRepository
   {
-    private readonly IDataContext _context;
+    private IDbConnection _db;
 
-    public RetailerRepository(IDataContext context)
+    public IConfiguration Configuration;
+
+    public RetailerRepository(IConfiguration configuration)
     {
-      this._context = context;
+      Configuration = configuration;
+      this._db = new NpgsqlConnection(Configuration.GetConnectionString("NpgsqlConnection"));
     }
 
-    public async Task<Retailer> Get(int id)
+    public Retailer Get(int id)
     {
-        return await _context.Retailers.FindAsync(id);
+      string sql = "SELECT * FROM \"Retailers\" WHERE id = @id";
+      return _db.QuerySingle<Retailer>(sql, new { @id = id });
     }
 
-    public async Task<IEnumerable<Retailer>> GetAll()
+    public IEnumerable<Retailer> GetAll()
     {
-        return await _context.Retailers.ToListAsync();
+      string sql = "SELECT * FROM \"Retailers\"";
+      return _db.Query<Retailer>(sql).ToList();
     }
   }
 }

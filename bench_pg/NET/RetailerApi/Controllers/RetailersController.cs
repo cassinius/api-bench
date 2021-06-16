@@ -18,18 +18,18 @@ namespace RetailerApi.Controllers
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Retailer>> GetRetailer(int id)
+    public ActionResult<Retailer> GetRetailer(int id)
     {
-        var retailer = await _retailerRepository.Get(id);
+        var retailer = _retailerRepository.Get(id);
         if(retailer == null)
             return NotFound();
         return Ok(retailer);
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Retailer>>> GetRetailers()
+    public ActionResult<IEnumerable<Retailer>> GetRetailers()
     {
-        var retailers = await _retailerRepository.GetAll();
+        var retailers = _retailerRepository.GetAll();
         return Ok(retailers);
     }
   }
