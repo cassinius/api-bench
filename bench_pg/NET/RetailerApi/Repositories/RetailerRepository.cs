@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-// using System.Data.Entity;
 using RetailerApi.Models;
 using RetailerApi.Data;
 using Microsoft.EntityFrameworkCore;
