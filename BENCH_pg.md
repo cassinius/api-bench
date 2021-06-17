@@ -201,6 +201,7 @@ wrk -t 16 -c 200 <URL>
 ###### _all_ ->> `/Retailer`
 
 - .NET / core 5.0 / EF => 11961.10
+- .NET / core 5.0 / dapper (sync) => 18086.94
 
 ###### _show_ ->> `/retailer/42`
 
@@ -218,3 +219,4 @@ wrk -t 16 -c 200 <URL>
 ###### _show_ ->> `/Retailer/42`
 
 - .NET / core 5.0 / EF => 17312.92
+- .NET / core 5.0 / dapper (sync) => 52209.81

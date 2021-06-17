@@ -9,10 +9,10 @@ namespace RetailerApi.Controllers
 {
   [ApiController]
   [Route("[controller]")]
-  public class RetailerController : ControllerBase
+  public class RetailerSyncController : ControllerBase
   {
     private readonly IRetailerRepository _retailerRepository;
-    public RetailerController(IRetailerRepository retailerRepository)
+    public RetailerSyncController(IRetailerRepository retailerRepository)
     {
         _retailerRepository = retailerRepository;
     }
