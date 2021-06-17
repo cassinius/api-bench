@@ -13,7 +13,7 @@ using Npgsql;
 
 namespace RetailerApi.Repositories
 {
-  public class RetailerAsyncRepository: IRetailerAsyncRepository
+  public class RetailerAsyncRepository : IRetailerAsyncRepository
   {
     private IDbConnection _db;
 
@@ -28,13 +28,22 @@ namespace RetailerApi.Repositories
     public async Task<Retailer> Get(int id)
     {
       string sql = "SELECT * FROM \"Retailers\" WHERE id = @id";
-      return await _db.QueryFirstAsync<Retailer>(sql, new { @id = id });
+      var retailer = await _db.QueryAsync<Retailer>(sql, new { @id = id });
+      return retailer.FirstOrDefault();
     }
 
     public async Task<IEnumerable<Retailer>> GetAll()
     {
       string sql = "SELECT * FROM \"Retailers\"";
-      return (await _db.QueryAsync<Retailer>(sql)).ToList();
+      var retailers = await _db.QueryAsync<Retailer>(sql);
+      return retailers.ToList();
     }
   }
 }
+
+// This makes it a few percent SLOWER (actually logical...)
+// 
+// using (var _db = new NpgsqlConnection("User ID=retailer;Password=retailer;Host=localhost;Port=5432;Database=retailer_api_dotnet;"))
+// {
+//   return await _db.QueryFirstAsync<Retailer>(sql, new { @id = id });
+// }

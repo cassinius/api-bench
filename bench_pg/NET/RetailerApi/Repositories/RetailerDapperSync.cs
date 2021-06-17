@@ -31,10 +31,22 @@ namespace RetailerApi.Repositories
       return _db.QuerySingle<Retailer>(sql, new { @id = id });
     }
 
+    // public IEnumerable<Retailer> GetAll()
+    // {
+    //   string sql = "SELECT * FROM \"Retailers\"";
+    //   return _db.Query<Retailer>(sql).ToList();
+    // }
+
+    // Using STORED PROCEDURES
+    // public Retailer Get(int id)
+    // {
+    //   return _db.Query<Retailer>("get_all_retailers", commandType: CommandType.StoredProcedure).ToList();
+    // }
+
     public IEnumerable<Retailer> GetAll()
     {
-      string sql = "SELECT * FROM \"Retailers\"";
-      return _db.Query<Retailer>(sql).ToList();
+      return _db.Query<Retailer>("get_all_retailers", commandType: CommandType.StoredProcedure).ToList();
     }
+    
   }
 }
