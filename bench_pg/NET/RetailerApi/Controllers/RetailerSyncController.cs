@@ -11,8 +11,8 @@ namespace RetailerApi.Controllers
   [Route("[controller]")]
   public class RetailerSyncController : ControllerBase
   {
-    private readonly IRetailerRepository _retailerRepository;
-    public RetailerSyncController(IRetailerRepository retailerRepository)
+    private readonly IRetailerSyncRepository _retailerRepository;
+    public RetailerSyncController(IRetailerSyncRepository retailerRepository)
     {
         _retailerRepository = retailerRepository;
     }

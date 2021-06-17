@@ -13,13 +13,13 @@ using Npgsql;
 
 namespace RetailerApi.Repositories
 {
-  public class RetailerRepository: IRetailerRepository
+  public class RetailerSyncRepository: IRetailerSyncRepository
   {
     private IDbConnection _db;
 
     public IConfiguration Configuration;
 
-    public RetailerRepository(IConfiguration configuration)
+    public RetailerSyncRepository(IConfiguration configuration)
     {
       Configuration = configuration;
       this._db = new NpgsqlConnection(Configuration.GetConnectionString("NpgsqlConnection"));

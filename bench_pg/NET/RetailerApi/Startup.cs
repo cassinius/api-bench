@@ -32,7 +32,8 @@ namespace RetailerApi
     {
       // services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
       // services.AddScoped<IDataContext>(provider => provider.GetService<DataContext>());
-      services.AddScoped<IRetailerRepository, RetailerRepository>();
+      services.AddScoped<IRetailerSyncRepository, RetailerSyncRepository>();
+      services.AddScoped<IRetailerAsyncRepository, RetailerAsyncRepository>();
       services.AddControllers();
       services.AddSwaggerGen(c =>
       {

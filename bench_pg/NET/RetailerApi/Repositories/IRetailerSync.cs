@@ -4,7 +4,7 @@ using RetailerApi.Models;
 
 namespace RetailerApi.Repositories
 {
-    public interface IRetailerRepository
+    public interface IRetailerSyncRepository
     {
          Retailer Get(int id);
          IEnumerable<Retailer> GetAll();
