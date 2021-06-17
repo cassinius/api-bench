@@ -38,6 +38,20 @@ namespace RetailerApi.Repositories
       var retailers = await _db.QueryAsync<Retailer>(sql);
       return retailers.ToList();
     }
+
+    // Using STORED PROCEDURES => SLOWER !!
+
+    // public async Task<Retailer> Get(int id)
+    // {
+    //   var retailer = await _db.QueryAsync<Retailer>("get_retailer_by_id", new { rid = id }, commandType: CommandType.StoredProcedure);
+    //   return retailer.FirstOrDefault();
+    // }
+
+    // public async Task<IEnumerable<Retailer>> GetAll()
+    // {
+    //   var retailers = await _db.QueryAsync<Retailer>("get_all_retailers", commandType: CommandType.StoredProcedure);
+    //   return retailers.ToList();
+    // }
   }
 }
 

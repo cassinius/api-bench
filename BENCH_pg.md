@@ -191,7 +191,7 @@ wrk -t 16 -c 200 <URL>
 - Polka / pg pool / pm2 => 18100.57
 - Express / pm2 => 22823.05
 - Fastify / fastify-pg / pm2 => 12974.40
-- Nanoexpress / pm2 => 14737.24 (??)
+- Nanoexpress / pm2 => 14737.24
 - Nestjs / fastify / prisma => 2852.65 (JfMJ)
 - Py / Flask / gunicorn => 14369.12
 - Rust / rocket / diesel => 28293.74
@@ -204,6 +204,7 @@ wrk -t 16 -c 200 <URL>
 - .NET / core 5.0 / dapper (sync) => 18086.94
 - .NET / core 5.0 / dapper (sync, stored proc.) => 16461.93
 - .NET / core 5.0 / dapper (Async, 100 conns) => 18130.60
+- .NET / core 5.0 / dapper (Async, stored proc., 100 conns) => 16609.70
 
 ###### _show_ ->> `/retailer/42`
 
@@ -211,7 +212,7 @@ wrk -t 16 -c 200 <URL>
 - Polka / pg pool / pm2 => 55327.29
 - Express / pm2 => 30466.18
 - Fastify / fastify-pg / pm2 => 32465.91
-- Nanoexpress / pm2 => 29888.50 (??)
+- Nanoexpress / pm2 => 29888.50
 - Nestjs / fastify / prisma => 7474.85 (JfMJ)
 - Py / Flask / gunicorn => 20647.20
 - Rust / rocket / diesel => 65260.80
@@ -224,4 +225,5 @@ wrk -t 16 -c 200 <URL>
 - .NET / core 5.0 / dapper (sync) => 52209.81
 - .NET / core 5.0 / dapper (sync, stored proc.) => 43100.49
 - .NET / core 5.0 / dapper (Async, 100 conns) => 48944.83
+- .NET / core 5.0 / dapper (Async, stored proc., 100 conns) => 40137.15
 
