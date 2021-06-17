@@ -10,10 +10,11 @@ using Microsoft.Extensions.Configuration;
 
 using Dapper;
 using Npgsql;
+using Microsoft.OpenApi.Models;
 
 namespace RetailerApi.Repositories
 {
-  public class RetailerSyncRepository: IRetailerSyncRepository
+  public class RetailerSyncRepository : IRetailerSyncRepository
   {
     private IDbConnection _db;
 
@@ -31,22 +32,26 @@ namespace RetailerApi.Repositories
       return _db.QuerySingle<Retailer>(sql, new { @id = id });
     }
 
-    // public IEnumerable<Retailer> GetAll()
+    public IEnumerable<Retailer> GetAll()
+    {
+      string sql = "SELECT * FROM \"Retailers\"";
+      return _db.Query<Retailer>(sql).ToList();
+    }
+
+    // Using STORED PROCEDURES => SLOWER...!!!
+
+    // public Retailer Get(int id)
     // {
-    //   string sql = "SELECT * FROM \"Retailers\"";
-    //   return _db.Query<Retailer>(sql).ToList();
+    //   // Console.WriteLine($"Retailer: Get called with id: {id}");
+    //   var retailer = _db.QueryFirstOrDefault<Retailer>("get_retailer_by_id", new { rid = id }, commandType: CommandType.StoredProcedure);
+    //   // return retailer.FirstOrDefault();
+    //   // Console.WriteLine($"Got Retailer: {retailer.Business_name}");
+    //   return retailer;
     // }
 
-    // Using STORED PROCEDURES
-    // public Retailer Get(int id)
+    // public IEnumerable<Retailer> GetAll()
     // {
     //   return _db.Query<Retailer>("get_all_retailers", commandType: CommandType.StoredProcedure).ToList();
     // }
-
-    public IEnumerable<Retailer> GetAll()
-    {
-      return _db.Query<Retailer>("get_all_retailers", commandType: CommandType.StoredProcedure).ToList();
-    }
-    
   }
 }
