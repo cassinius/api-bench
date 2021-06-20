@@ -27,7 +27,7 @@ namespace RetailerApi.Controllers
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Retailer>>> GetRetailers()
+    public async Task<ActionResult<IAsyncEnumerable<Retailer>>> GetRetailers()
     {
         var retailers = await _retailerRepository.GetAll();
         return Ok(retailers);
