@@ -200,11 +200,12 @@ wrk -t 16 -c 200 <URL>
 
 ###### _all_ ->> `/Retailer`
 
-- .NET / core 5.0 / EF => 11961.10
-- .NET / core 5.0 / dapper (sync) => 18086.94
-- .NET / core 5.0 / dapper (sync, stored proc.) => 16461.93
-- .NET / core 5.0 / dapper (Async, 100 conns) => 18130.60
-- .NET / core 5.0 / dapper (Async, stored proc., 100 conns) => 16609.70
+- .NET c5 / EF => 11961.10
+- .NET c5 / dapper (sync) => 18086.94
+- .NET c5 / dapper (sync, stored proc.) => 16461.93
+- .NET c5 / dapper (sync, MessagePack bytes) => 19610.43
+- .NET c5 / dapper (Async, 100 conns) => 18130.60
+- .NET c5 / dapper (Async, stored proc., 100 conns) => 16609.70
 
 ###### _show_ ->> `/retailer/42`
 
@@ -221,9 +222,10 @@ wrk -t 16 -c 200 <URL>
 
 ###### _show_ ->> `/Retailer/42`
 
-- .NET / core 5.0 / EF => 17312.92
-- .NET / core 5.0 / dapper (sync) => 52209.81
-- .NET / core 5.0 / dapper (sync, stored proc.) => 43100.49
-- .NET / core 5.0 / dapper (Async, 100 conns) => 48944.83
-- .NET / core 5.0 / dapper (Async, stored proc., 100 conns) => 40137.15
+- .NET c5 / EF => 17312.92
+- .NET c5 / dapper (sync) => 52209.81
+- .NET c5 / dapper (sync, stored proc.) => 43100.49
+- .NET c5 / dapper (sync, MessagePack bytes) => 51443.75
+- .NET c5 / dapper (Async, 100 conns) => 48944.83
+- .NET c5 / dapper (Async, stored proc., 100 conns) => 40137.15
 

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using MessagePack;
 
 using RetailerApi.Repositories;
 using RetailerApi.Models;
@@ -11,6 +12,7 @@ using System.Net;
 using Microsoft.AspNetCore.WebUtilities;
 using System.Linq;
 using Newtonsoft.Json.Serialization;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace RetailerApi.Controllers
 {
@@ -30,7 +32,11 @@ namespace RetailerApi.Controllers
       var retailer = _retailerRepository.Get(id);
       if (retailer == null)
         return NotFound();
-      return Ok(retailer);
+      // return Ok(retailer);
+
+      byte[] bytes = MessagePackSerializer.Serialize(retailer);
+      // return Ok(MessagePackSerializer.ConvertToJson(bytes));
+      return Ok(bytes);
     }
 
     [HttpGet]
@@ -46,7 +52,12 @@ namespace RetailerApi.Controllers
 
       // var json = JsonConvert.SerializeObject(retailerList);
       // return Ok(json);
-      return Ok(retailers);
+      // return Ok(retailers);
+
+
+      byte[] bytes = MessagePackSerializer.Serialize(retailers);
+      // return Ok(MessagePackSerializer.ConvertToJson(bytes));
+      return Ok(bytes);
     }
   }
 }
