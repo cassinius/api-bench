@@ -1,18 +1,16 @@
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+// using Newtonsoft.Json;
 using MessagePack;
+using Utf8Json;
 
 using RetailerApi.Repositories;
 using RetailerApi.Models;
 using System.Net.Http;
 using Microsoft.AspNetCore.Http;
 using System.Net;
-using Microsoft.AspNetCore.WebUtilities;
 using System.Linq;
-using Newtonsoft.Json.Serialization;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace RetailerApi.Controllers
 {
@@ -30,13 +28,28 @@ namespace RetailerApi.Controllers
     public ActionResult<Retailer> GetRetailer(int id)
     {
       var retailer = _retailerRepository.Get(id);
+      // var retailer = new Retailer
+      // {
+      //   id = 41,
+      //   GSTIN = "irviciusblahoo",
+      //   Business_name = "Lemonphi",
+      //   Contact_person = "Berndicio Servicio",
+      //   Contact_number = 12345678,
+      //   Contact_address = "Galceis Alley 12",
+      //   Contact_emailId = "berndicio@lemonphicio.com",
+      //   Status = "super active (even on Sundays)",
+      //   Outlet_limit = 12
+      // };
       if (retailer == null)
         return NotFound();
       // return Ok(retailer);
 
-      byte[] bytes = MessagePackSerializer.Serialize(retailer);
+      // byte[] bytes = MessagePackSerializer.Serialize(retailer);
       // return Ok(MessagePackSerializer.ConvertToJson(bytes));
-      return Ok(bytes);
+      // return Ok(bytes);
+
+      var json = JsonSerializer.ToJsonString(retailer);
+      return Ok(json);
     }
 
     [HttpGet]
@@ -49,15 +62,18 @@ namespace RetailerApi.Controllers
       // if (retailerList == null || retailerList.Count() == 0) {
       //   return NotFound();
       // }
+      // return Ok(retailers);
 
       // var json = JsonConvert.SerializeObject(retailerList);
       // return Ok(json);
-      // return Ok(retailers);
 
 
-      byte[] bytes = MessagePackSerializer.Serialize(retailers);
+      // byte[] bytes = MessagePackSerializer.Serialize(retailers);
       // return Ok(MessagePackSerializer.ConvertToJson(bytes));
-      return Ok(bytes);
+      // return Ok(bytes);
+
+      var json = JsonSerializer.ToJsonString(retailers);
+      return Ok(json);
     }
   }
 }
