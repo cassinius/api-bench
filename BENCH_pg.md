@@ -198,7 +198,7 @@ wrk -t 16 -c 200 <URL>
 - Rust / actix / diesel => 28349.99
 - Rust / warp / tokio_pg => 17798.43
 
-###### _all_ ->> `/Retailer`
+###### _all_ ->> `/Retailer[A?]Sync`
 
 - .NET c5 / EF => 11961.10
 - .NET c5 / dapper (sync) => 18086.94
@@ -222,7 +222,7 @@ wrk -t 16 -c 200 <URL>
 - Rust / actix / diesel => 59926.58
 - Rust / warp / tokio_pg => 23455.55 (after ~6 runs... ??)
 
-###### _show_ ->> `/Retailer/42`
+###### _show_ ->> `/Retailer[A?]Sync/42`
 
 - .NET c5 / EF => 17312.92
 - .NET c5 / dapper (sync) => 52209.81

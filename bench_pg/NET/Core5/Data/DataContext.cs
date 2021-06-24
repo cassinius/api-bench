@@ -12,4 +12,3 @@ namespace RetailerApi.Data
         
     }
 }
-

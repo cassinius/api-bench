@@ -8,7 +8,7 @@ namespace RetailerApi.Data
     public interface IDataContext
     {
         DbSet<Retailer> Retailers {get; set;}
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+        // Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
 
