@@ -209,6 +209,9 @@ wrk -t 16 -c 200 <URL>
 - .NET c5 / dapper (Async, Utf8Json) => 18323.76
 - .NET c5 / dapper (Async, stored proc., 100 conns) => 16609.70
 
+- .NET c6 / dapper (sync) => 18953.60
+- .NET c6 / dapper (Async) => 19053.01
+
 ###### _show_ ->> `/retailer/42`
 
 - Node.js / pg pool / pm2 => 50517.41
@@ -232,3 +235,7 @@ wrk -t 16 -c 200 <URL>
 - .NET c5 / dapper (Async, 100 conns) => 48944.83
 - .NET c5 / dapper (Async, Utf8Json) => 49824.98
 - .NET c5 / dapper (Async, stored proc., 100 conns) => 40137.15
+
+- .NET c6 / dapper (sync) => 47497.82
+- .NET c6 / dapper (Async) => 51789.26
+
