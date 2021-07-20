@@ -30,7 +30,7 @@ namespace RetailerApi
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      // services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+      services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("NpgsqlConnection")));
       // services.AddScoped<IDataContext>(provider => provider.GetService<DataContext>());
       services.AddScoped<IRetailerSyncRepository, RetailerSyncRepository>();
       services.AddScoped<IRetailerAsyncRepository, RetailerAsyncRepository>();
