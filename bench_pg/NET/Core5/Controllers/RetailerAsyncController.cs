@@ -24,16 +24,20 @@ namespace RetailerApi.Controllers
       var retailer = await _retailerRepository.Get(id);
       if (retailer == null)
         return NotFound();
-      var json = JsonSerializer.ToJsonString(retailer);
-      return Ok(json);
+      return Ok(retailer);
+      
+      // var json = JsonSerializer.ToJsonString(retailer);
+      // return Ok(json);
     }
 
     [HttpGet]
     public async Task<ActionResult<IAsyncEnumerable<Retailer>>> GetRetailers()
     {
       var retailers = await _retailerRepository.GetAll();
-      var json = JsonSerializer.ToJsonString(retailers);
-      return Ok(json);
+      return Ok(retailers);
+
+      // var json = JsonSerializer.ToJsonString(retailers);
+      // return Ok(json);
     }
   }
 }

@@ -42,14 +42,14 @@ namespace RetailerApi.Controllers
       // };
       if (retailer == null)
         return NotFound();
-      // return Ok(retailer);
+      return Ok(retailer);
 
       // byte[] bytes = MessagePackSerializer.Serialize(retailer);
       // return Ok(MessagePackSerializer.ConvertToJson(bytes));
       // return Ok(bytes);
 
-      var json = JsonSerializer.ToJsonString(retailer);
-      return Ok(json);
+      // var json = JsonSerializer.ToJsonString(retailer);
+      // return Ok(json);
     }
 
     [HttpGet]
@@ -62,7 +62,7 @@ namespace RetailerApi.Controllers
       // if (retailerList == null || retailerList.Count() == 0) {
       //   return NotFound();
       // }
-      // return Ok(retailers);
+      return Ok(retailers);
 
       // var json = JsonConvert.SerializeObject(retailerList);
       // return Ok(json);
@@ -72,8 +72,8 @@ namespace RetailerApi.Controllers
       // return Ok(MessagePackSerializer.ConvertToJson(bytes));
       // return Ok(bytes);
 
-      var json = JsonSerializer.ToJsonString(retailers);
-      return Ok(json);
+      // var json = JsonSerializer.ToJsonString(retailers);
+      // return Ok(json);
     }
   }
 }

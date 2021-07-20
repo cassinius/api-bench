@@ -239,3 +239,50 @@ wrk -t 16 -c 200 <URL>
 - .NET c6 / dapper (sync) => 47497.82
 - .NET c6 / dapper (Async) => 51789.26
 
+---
+
+### Ryzen 7 5800H Laptop (test command -> `wrk`)
+
+#### Environment
+
+* Ryzen 7 5800h
+* 16 GB Ram
+* Ubuntu 21.04
+* Python 3.7.10
+* Node (JS) 16.5.0
+* rustc ---
+
+#### Test command
+
+```bash
+wrk -t 16 -c 200 <URL>
+```
+
+###### _all_ ->> `/Retailer[A?]Sync`
+
+- .NET c5 / dapper (sync, System.Text.Json) => 11177.24
+- .NET c5 / dapper (Async, System.Text.Json) => 14725.54
+- 
+- .NET c5 / dapper (sync, Utf8Json) => 11983.10
+- .NET c5 / dapper (Async, Utf8Json) => 14959.06
+
+- .NET c6 / dapper (sync, System.Text.Json) => 11708.14
+- .NET c6 / dapper (Async, System.Text.Json) => 15624.72
+- 
+- .NET c6 / dapper (sync, Utf8Json) => 11229.95
+- .NET c6 / dapper (Async, Utf8Json) => 15614.55
+
+###### _show_ ->> `/Retailer[A?]Sync/42`
+
+- .NET c5 / dapper (sync, System.Text.Json) => 30092.94
+- .NET c5 / dapper (Async, System.Text.Json) => 39073.78
+- 
+- .NET c5 / dapper (sync, Utf8Json) => 33520.80
+- .NET c5 / dapper (Async, Utf8Json) => 39793.88
+
+- .NET c6 / dapper (sync, System.Text.Json) => 30138.83
+- .NET c6 / dapper (Async, System.Text.Json) => 40684.14
+- 
+- .NET c6 / dapper (sync, Utf8Json) => 30804.70
+- .NET c6 / dapper (Async, Utf8Json) => 40535.39
+
