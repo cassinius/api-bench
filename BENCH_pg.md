@@ -258,6 +258,10 @@ wrk -t 16 -c 200 <URL>
 wrk -t 16 -c 200 <URL>
 ```
 
+###### _all_ ->> `/retailers`
+
+- Rust / rocket / diesel => 22602.61
+
 ###### _all_ ->> `/Retailer[A?]Sync`
 
 - .NET c5 / dapper (sync, System.Text.Json) => 11177.24 (Nov. 9th 2021: 15651.91)
@@ -271,6 +275,10 @@ wrk -t 16 -c 200 <URL>
 - 
 - .NET c6 / dapper (sync, Utf8Json) => 11229.95
 - .NET c6 / dapper (Async, Utf8Json) => 15614.55
+
+###### _all_ ->> `/retailer/42`
+
+- Rust / rocket / diesel => 55798.49
 
 ###### _show_ ->> `/Retailer[A?]Sync/42`
 

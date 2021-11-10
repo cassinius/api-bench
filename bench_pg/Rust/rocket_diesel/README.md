@@ -1,5 +1,10 @@
 ## Schema and modeling
 
+0. Set old rustc version
+```bash
+rustup override set nightly-2020-04-20
+```
+
 1. set DB URL
 ```bash
 echo DATABASE_URL=postgres://retailer:retailer@localhost:5432/retailer_api > .env
