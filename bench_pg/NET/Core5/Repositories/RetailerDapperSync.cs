@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 using RetailerApi.Models;
 using RetailerApi.Data;
 using Microsoft.Extensions.Configuration;
 
 using Dapper;
 using Npgsql;
-using Microsoft.OpenApi.Models;
 
 namespace RetailerApi.Repositories
 {
@@ -28,14 +30,16 @@ namespace RetailerApi.Repositories
 
     public Retailer Get(int id)
     {
-      string sql = "SELECT * FROM \"Retailers\" WHERE id = @id";
+      string sql = "SELECT * FROM retailer WHERE id = @id";
       return _db.QuerySingle<Retailer>(sql, new { @id = id });
     }
 
     public IEnumerable<Retailer> GetAll()
     {
-      string sql = "SELECT * FROM \"Retailers\"";
-      return _db.Query<Retailer>(sql).ToList();
+      string sql = "SELECT * FROM retailer";
+      IEnumerable<Retailer> retailers = _db.Query<Retailer>(sql).ToList();
+      // Console.WriteLine(JsonSerializer.Serialize(retailers));
+      return retailers;
     }
 
     // Using STORED PROCEDURES => SLOWER...!!!

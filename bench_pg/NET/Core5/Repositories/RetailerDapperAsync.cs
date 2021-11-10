@@ -27,14 +27,14 @@ namespace RetailerApi.Repositories
 
     public async Task<Retailer> Get(int id)
     {
-      string sql = "SELECT * FROM \"Retailers\" WHERE id = @id";
+      string sql = "SELECT * FROM retailer WHERE id = @id";
       var retailer = await _db.QueryAsync<Retailer>(sql, new { @id = id });
       return retailer.FirstOrDefault();
     }
 
     public async Task<IEnumerable<Retailer>> GetAll()
     {
-      string sql = "SELECT * FROM \"Retailers\"";
+      string sql = "SELECT * FROM retailer";
       var retailers = await _db.QueryAsync<Retailer>(sql);
       return retailers.ToList();
     }

@@ -260,8 +260,8 @@ wrk -t 16 -c 200 <URL>
 
 ###### _all_ ->> `/Retailer[A?]Sync`
 
-- .NET c5 / dapper (sync, System.Text.Json) => 11177.24
-- .NET c5 / dapper (Async, System.Text.Json) => 14725.54
+- .NET c5 / dapper (sync, System.Text.Json) => 11177.24 (Nov. 9th 2021: 15651.91)
+- .NET c5 / dapper (Async, System.Text.Json) => 14725.54 (Nov. 9th 2021: 16872.19)
 - 
 - .NET c5 / dapper (sync, Utf8Json) => 11983.10
 - .NET c5 / dapper (Async, Utf8Json) => 14959.06
@@ -274,8 +274,8 @@ wrk -t 16 -c 200 <URL>
 
 ###### _show_ ->> `/Retailer[A?]Sync/42`
 
-- .NET c5 / dapper (sync, System.Text.Json) => 30092.94
-- .NET c5 / dapper (Async, System.Text.Json) => 39073.78
+- .NET c5 / dapper (sync, System.Text.Json) => 30092.94 (Nov. 9th 2021: 40901.22)
+- .NET c5 / dapper (Async, System.Text.Json) => 39073.78 (Nov. 9th 2021: 44733.87)
 - 
 - .NET c5 / dapper (sync, Utf8Json) => 33520.80
 - .NET c5 / dapper (Async, Utf8Json) => 39793.88

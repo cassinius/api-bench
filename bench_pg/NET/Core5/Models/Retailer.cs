@@ -1,27 +1,36 @@
-using MessagePack;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace RetailerApi.Models
 {
-  [MessagePackObject]
+  [Table("StudentMaster")]
   public class Retailer
   {
-    [Key(0)]
-    public int id { get; set; }
-    [Key(1)]
+    [Column("id")]
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
     public string GSTIN { get; set; }
-    [Key(2)]
-    public string Business_name { get; set; }
-    [Key(3)]
-    public string Contact_person { get; set; }
-    [Key(4)]
-    public int Contact_number { get; set; }
-    [Key(5)]
-    public string Contact_address { get; set; }
-    [Key(6)]
-    public string Contact_emailId { get; set; }
-    [Key(7)]
+    [Column("Business_name")]
+    [JsonPropertyName("business_name")]
+    public string BusinessName { get; set; }
+    [Column("Contact_person")]
+    [JsonPropertyName("contact_person")]
+    public string ContactPerson { get; set; }
+    [Column("Contact_number")]
+    [JsonPropertyName("contact_number")]
+    public int ContactNumber { get; set; }
+    [Column("Contact_address")]
+    [JsonPropertyName("contact_address")]
+    public string ContactAddress { get; set; }
+    [Column("Contact_emailId")]
+    [JsonPropertyName("contact_emailId")]
+    public string ContactEmailId { get; set; }
+    // [Column("Status")]
+    [JsonPropertyName("status")]
     public string Status { get; set; }
-    [Key(8)]
-    public int Outlet_limit { get; set; }
+    [Column("Outlet_limit")]
+    [JsonPropertyName("outlet_limit")]
+    public int OutletLimit { get; set; }
   }
 }

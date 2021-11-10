@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -16,6 +17,8 @@ using Microsoft.EntityFrameworkCore;
 using RetailerApi.Data;
 using RetailerApi.Repositories;
 
+using Dapper;
+
 namespace RetailerApi
 {
   public class Startup
@@ -23,6 +26,7 @@ namespace RetailerApi
     public Startup(IConfiguration configuration)
     {
       Configuration = configuration;
+      Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
     }
 
     public IConfiguration Configuration { get; }
@@ -56,7 +60,7 @@ namespace RetailerApi
         app.UseExceptionHandler("/Error");
       }
 
-      app.UseHttpsRedirection();
+      // app.UseHttpsRedirection();
 
       app.UseRouting();
 
@@ -65,6 +69,15 @@ namespace RetailerApi
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
+
+        endpoints.MapGet("/", async context =>
+        {
+          await context.Response.WriteAsJsonAsync(new
+          {
+            status = "OK",
+            message = "Retailer API up and running."
+          });
+        });
       });
     }
   }

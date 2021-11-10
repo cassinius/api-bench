@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
-// using Newtonsoft.Json;
-using MessagePack;
-using Utf8Json;
 
 using RetailerApi.Repositories;
 using RetailerApi.Models;
@@ -28,18 +25,6 @@ namespace RetailerApi.Controllers
     public ActionResult<Retailer> GetRetailer(int id)
     {
       var retailer = _retailerRepository.Get(id);
-      // var retailer = new Retailer
-      // {
-      //   id = 41,
-      //   GSTIN = "irviciusblahoo",
-      //   Business_name = "Lemonphi",
-      //   Contact_person = "Berndicio Servicio",
-      //   Contact_number = 12345678,
-      //   Contact_address = "Galceis Alley 12",
-      //   Contact_emailId = "berndicio@lemonphicio.com",
-      //   Status = "super active (even on Sundays)",
-      //   Outlet_limit = 12
-      // };
       if (retailer == null)
         return NotFound();
       return Ok(retailer);
