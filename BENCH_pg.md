@@ -271,6 +271,7 @@ wrk -t 16 -c 200 <URL>
 - .NET c5 / dapper (Async, Utf8Json) => 14959.06
 
 - .NET c6 / dapper (sync, System.Text.Json) => 11708.14
+- 
 - .NET c6 / dapper (Async, System.Text.Json) => 15624.72
 - 
 - .NET c6 / dapper (sync, Utf8Json) => 11229.95
