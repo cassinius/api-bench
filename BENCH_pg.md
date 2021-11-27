@@ -260,25 +260,26 @@ wrk -t 16 -c 200 <URL>
 
 ###### _all_ ->> `/retailers`
 
+- Express / pg / pm2 => 14846.65
 - Rust / rocket / diesel => 22602.61
 
 ###### _all_ ->> `/Retailer[A?]Sync`
 
 - .NET c5 / dapper (sync, System.Text.Json) => 11177.24 (Nov. 9th 2021: 16177.48)
 - .NET c5 / dapper (Async, System.Text.Json) => 14725.54 (Nov. 9th 2021: 16872.19)
-- 
+ 
 - .NET c5 / dapper (sync, Utf8Json) => 11983.10
 - .NET c5 / dapper (Async, Utf8Json) => 14959.06
 
-- .NET c6 / dapper (sync, System.Text.Json) => 11708.14
-- 
-- .NET c6 / dapper (Async, System.Text.Json) => 15624.72
+- .NET c6 / dapper (sync, System.Text.Json) => 11708.14 (Nov. 27th 2021: 16640.03)
+- .NET c6 / dapper (Async, System.Text.Json) => 15624.72 (Nov. 27th 2021: 17176.83)
 - 
 - .NET c6 / dapper (sync, Utf8Json) => 11229.95
 - .NET c6 / dapper (Async, Utf8Json) => 15614.55
 
 ###### _all_ ->> `/retailer/42`
 
+- Express / pg / pm2 => 20039.75
 - Rust / rocket / diesel => 55798.49
 
 ###### _show_ ->> `/Retailer[A?]Sync/42`
@@ -289,9 +290,9 @@ wrk -t 16 -c 200 <URL>
 - .NET c5 / dapper (sync, Utf8Json) => 33520.80
 - .NET c5 / dapper (Async, Utf8Json) => 39793.88
 
-- .NET c6 / dapper (sync, System.Text.Json) => 30138.83
-- .NET c6 / dapper (Async, System.Text.Json) => 40684.14
-- 
+- .NET c6 / dapper (sync, System.Text.Json) => 30138.83 (Nov. 27th 2021: 37341.09)
+- .NET c6 / dapper (Async, System.Text.Json) => 40684.14 (Nov. 27th 2021: 41076.68)
+ 
 - .NET c6 / dapper (sync, Utf8Json) => 30804.70
 - .NET c6 / dapper (Async, Utf8Json) => 40535.39
 
