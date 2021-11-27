@@ -273,7 +273,13 @@ wrk -t 16 -c 200 <URL>
 
 - .NET c6 / dapper (sync, System.Text.Json) => 11708.14 (Nov. 27th 2021: 17267.13)
 - .NET c6 / dapper (Async, System.Text.Json) => 15624.72 (Nov. 27th 2021: 17493.97)
-- 
+
+- .NET c6 / dapper (sync, SC generated JSON serialization) => 17042.81
+- .NET c6 / dapper (Async, SC generated JSON serialization) => 17336.53
+
+- .NET c6 / dapper (sync, SC generated JSON serialization UTF8-bytes) => 16508.15
+- .NET c6 / dapper (Async, SC generated JSON serialization UTF8-bytes) => 17241.86
+ 
 - .NET c6 / dapper (sync, Utf8Json) => 11229.95
 - .NET c6 / dapper (Async, Utf8Json) => 15614.55
 

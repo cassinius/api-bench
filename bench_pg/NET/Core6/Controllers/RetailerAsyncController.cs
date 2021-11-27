@@ -37,8 +37,8 @@ namespace RetailerApi.Controllers
     public async Task<ActionResult<IAsyncEnumerable<Retailer>>> GetRetailers()
     {
       var retailers = await _retailerRepository.GetAll();
-      return Ok(retailers);
-      // return Ok(JsonSerializer.Serialize(retailers, RetailerJsonContext.Default.Retailer));
+      // return Ok(retailers);
+      return Ok(JsonSerializer.SerializeToUtf8Bytes(retailers, RetailerJsonContext.Default.IEnumerableRetailer));
 
       // var json = JsonSerializer.ToJsonString(retailers);
       // return Ok(json);

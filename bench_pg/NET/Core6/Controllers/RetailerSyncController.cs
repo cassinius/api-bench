@@ -50,8 +50,8 @@ namespace RetailerApi.Controllers
       // if (retailerList == null || retailerList.Count() == 0) {
       //   return NotFound();
       // }
-      return Ok(retailers);
-      // return Ok(JsonSerializer.Serialize(retailers, RetailerJsonContext.Default.Retailer));
+      // return Ok(retailers);
+      return Ok(JsonSerializer.SerializeToUtf8Bytes(retailers, RetailerJsonContext.Default.IEnumerableRetailer));
 
       // var json = JsonConvert.SerializeObject(retailerList);
       // return Ok(json);
