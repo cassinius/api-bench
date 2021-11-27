@@ -247,9 +247,9 @@ wrk -t 16 -c 200 <URL>
 
 * Ryzen 7 5800h
 * 16 GB Ram
-* Ubuntu 21.04
-* Python 3.7.10
-* Node (JS) 16.5.0
+* Arch Linux (Garuda)
+* Python 3.7.11
+* Node (JS) 16.9.1
 * rustc ---
 
 #### Test command
@@ -264,7 +264,7 @@ wrk -t 16 -c 200 <URL>
 
 ###### _all_ ->> `/Retailer[A?]Sync`
 
-- .NET c5 / dapper (sync, System.Text.Json) => 11177.24 (Nov. 9th 2021: 15651.91)
+- .NET c5 / dapper (sync, System.Text.Json) => 11177.24 (Nov. 9th 2021: 16177.48)
 - .NET c5 / dapper (Async, System.Text.Json) => 14725.54 (Nov. 9th 2021: 16872.19)
 - 
 - .NET c5 / dapper (sync, Utf8Json) => 11983.10
@@ -283,7 +283,7 @@ wrk -t 16 -c 200 <URL>
 
 ###### _show_ ->> `/Retailer[A?]Sync/42`
 
-- .NET c5 / dapper (sync, System.Text.Json) => 30092.94 (Nov. 9th 2021: 40901.22)
+- .NET c5 / dapper (sync, System.Text.Json) => 30092.94 (Nov. 9th 2021: 41997.21)
 - .NET c5 / dapper (Async, System.Text.Json) => 39073.78 (Nov. 9th 2021: 44733.87)
 - 
 - .NET c5 / dapper (sync, Utf8Json) => 33520.80
