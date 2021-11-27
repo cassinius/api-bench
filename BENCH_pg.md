@@ -271,8 +271,8 @@ wrk -t 16 -c 200 <URL>
 - .NET c5 / dapper (sync, Utf8Json) => 11983.10
 - .NET c5 / dapper (Async, Utf8Json) => 14959.06
 
-- .NET c6 / dapper (sync, System.Text.Json) => 11708.14 (Nov. 27th 2021: 16640.03)
-- .NET c6 / dapper (Async, System.Text.Json) => 15624.72 (Nov. 27th 2021: 17176.83)
+- .NET c6 / dapper (sync, System.Text.Json) => 11708.14 (Nov. 27th 2021: 17267.13)
+- .NET c6 / dapper (Async, System.Text.Json) => 15624.72 (Nov. 27th 2021: 17493.97)
 - 
 - .NET c6 / dapper (sync, Utf8Json) => 11229.95
 - .NET c6 / dapper (Async, Utf8Json) => 15614.55
@@ -290,8 +290,14 @@ wrk -t 16 -c 200 <URL>
 - .NET c5 / dapper (sync, Utf8Json) => 33520.80
 - .NET c5 / dapper (Async, Utf8Json) => 39793.88
 
-- .NET c6 / dapper (sync, System.Text.Json) => 30138.83 (Nov. 27th 2021: 37341.09)
-- .NET c6 / dapper (Async, System.Text.Json) => 40684.14 (Nov. 27th 2021: 41076.68)
+- .NET c6 / dapper (sync, System.Text.Json) => 30138.83 (Nov. 27th 2021: 41068.56)
+- .NET c6 / dapper (Async, System.Text.Json) => 40684.14 (Nov. 27th 2021: 43943.26)
+
+- .NET c6 / dapper (sync, SC generated JSON serialization) => 41646.04
+- .NET c6 / dapper (Async, SC generated JSON serialization) => 44662.39
+
+- .NET c6 / dapper (sync, SC generated JSON serialization UTF8-bytes) => 46630.94
+- .NET c6 / dapper (Async, SC generated JSON serialization UTF8-bytes) => 44626.03
  
 - .NET c6 / dapper (sync, Utf8Json) => 30804.70
 - .NET c6 / dapper (Async, Utf8Json) => 40535.39

@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Utf8Json;
+// using Utf8Json;
 
 using RetailerApi.Repositories;
 using RetailerApi.Models;
+
+using System.Text.Json;
 
 namespace RetailerApi.Controllers
 {
@@ -24,7 +26,8 @@ namespace RetailerApi.Controllers
       var retailer = await _retailerRepository.Get(id);
       if (retailer == null)
         return NotFound();
-      return Ok(retailer);
+      // return Ok(retailer);
+      return Ok(JsonSerializer.SerializeToUtf8Bytes(retailer, RetailerJsonContext.Default.Retailer));
       
       // var json = JsonSerializer.ToJsonString(retailer);
       // return Ok(json);
@@ -35,6 +38,7 @@ namespace RetailerApi.Controllers
     {
       var retailers = await _retailerRepository.GetAll();
       return Ok(retailers);
+      // return Ok(JsonSerializer.Serialize(retailers, RetailerJsonContext.Default.Retailer));
 
       // var json = JsonSerializer.ToJsonString(retailers);
       // return Ok(json);

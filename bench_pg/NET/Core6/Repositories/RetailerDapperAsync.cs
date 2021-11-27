@@ -36,7 +36,7 @@ namespace RetailerApi.Repositories
     {
       string sql = "SELECT * FROM retailer";
       var retailers = await _db.QueryAsync<Retailer>(sql);
-      return retailers.ToList();
+      return retailers;
     }
 
     // Using STORED PROCEDURES => SLOWER !!

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Http;
 using System.Net;
 using System.Linq;
 
+using System.Text.Json;
+
 namespace RetailerApi.Controllers
 {
   [ApiController]
@@ -27,7 +29,8 @@ namespace RetailerApi.Controllers
       var retailer = _retailerRepository.Get(id);
       if (retailer == null)
         return NotFound();
-      return Ok(retailer);
+      // return Ok(retailer);
+      return Ok(JsonSerializer.SerializeToUtf8Bytes(retailer, RetailerJsonContext.Default.Retailer));
 
       // byte[] bytes = MessagePackSerializer.Serialize(retailer);
       // return Ok(MessagePackSerializer.ConvertToJson(bytes));
@@ -48,6 +51,7 @@ namespace RetailerApi.Controllers
       //   return NotFound();
       // }
       return Ok(retailers);
+      // return Ok(JsonSerializer.Serialize(retailers, RetailerJsonContext.Default.Retailer));
 
       // var json = JsonConvert.SerializeObject(retailerList);
       // return Ok(json);
