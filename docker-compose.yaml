@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - /home/bernd/pg14/data/retailer
+    environment:
+      - POSTGRES_PASSWORD=retailer
+      - POSTGRES_USER=retailer
+      - POSTGRES_DB=retailer_api
+
