@@ -251,6 +251,7 @@ wrk -t 16 -c 200 <URL>
 * Python 3.7.11
 * Node (JS) 16.9.1
 * rustc ---
+* Postgres 13.x
 
 #### Test command
 
@@ -307,4 +308,24 @@ wrk -t 16 -c 200 <URL>
  
 - .NET c6 / dapper (sync, Utf8Json) => 30804.70
 - .NET c6 / dapper (Async, Utf8Json) => 40535.39
+
+##### Ubuntu 21.10 / Postgres 14
+
+###### _all_ ->>
+
+- Express () / pg / pm2 => 13282.31
+- Rust (1.44 nightly) / rocket / diesel => 24095.65
+- .NET 5 / dapper / sync => 10039.47
+- .NET 5 / dapper / async => 14701.96
+- .NET 6 / dapper / sync => 10747.95
+- .NET 6 / dapper / async => 15544.70
+
+###### _show_ ->>
+
+- Express () / pg / pm2 => 24508.36
+- Rust (1.44 nightly) / rocket / diesel => 51423.80
+- .NET 5 / dapper / sync => 24663.15
+- .NET 5 / dapper / async => 36540.49
+- .NET 6 / dapper / sync => 25659.31
+- .NET 6 / dapper / async => 38103.64
 
