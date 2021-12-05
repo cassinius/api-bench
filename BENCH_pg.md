@@ -314,7 +314,9 @@ wrk -t 16 -c 200 <URL>
 ###### _all_ ->>
 
 - Express () / pg / pm2 => 13282.31
-- Rust (1.44 nightly) / rocket / diesel => 24095.65
+- Rocket (1.44 nightly) / diesel => 24095.65
+- Actix (1.57) / diesel / r2d2 => 23659.26
+- Warp (1.57) / mobc => 13990.00
 - .NET 5 / dapper / sync => 10039.47
 - .NET 5 / dapper / async => 14701.96
 - .NET 6 / dapper / sync => 10747.95
@@ -323,7 +325,9 @@ wrk -t 16 -c 200 <URL>
 ###### _show_ ->>
 
 - Express () / pg / pm2 => 24508.36
-- Rust (1.44 nightly) / rocket / diesel => 51423.80
+- Rocket (1.44 nightly) / diesel => 51423.80
+- Actix (1.57) / diesel / r2d2 => 50895.81
+- Warp (1.57) / mobc => 16738.81
 - .NET 5 / dapper / sync => 24663.15
 - .NET 5 / dapper / async => 36540.49
 - .NET 6 / dapper / sync => 25659.31

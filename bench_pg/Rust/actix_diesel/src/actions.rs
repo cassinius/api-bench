@@ -19,7 +19,7 @@ pub fn find_retailer_by_id(r_id: i32, conn: &PgConnection)
 }
 
 
-pub fn get_all_retailers(conn: &PgConnection) 
+pub fn get_all_retailers(conn: &PgConnection)
 -> Result<Option<Vec<models::Retailer>>, diesel::result::Error>
 {
 	use crate::schema::retailer::dsl::*;
