@@ -263,6 +263,7 @@ wrk -t 16 -c 200 <URL>
 
 - Express / pg / pm2 => 14846.65
 - Rust / rocket / diesel => 22602.61
+- Rust (1.57) / diesel => 19309.70
 - Phoenix (Elixir) / ecto / json view => 6355.82
 - Phoenix (Elixir) / ecto / Jason => 10540.54
 
@@ -275,7 +276,7 @@ wrk -t 16 -c 200 <URL>
 - .NET c5 / dapper (Async, Utf8Json) => 14959.06
 
 - .NET c6 / dapper (sync, System.Text.Json) => 11708.14 (Nov. 27th 2021: 17267.13)
-- .NET c6 / dapper (Async, System.Text.Json) => 15624.72 (Nov. 27th 2021: 17493.97)
+- .NET c6 / dapper (Async, System.Text.Json) => 15624.72 (Nov. 27th 2021: 17493.97) (Dec, 6th: 17609.47)
 
 - .NET c6 / dapper (sync, SC generated JSON serialization) => 17042.81
 - .NET c6 / dapper (Async, SC generated JSON serialization) => 17336.53
@@ -292,6 +293,7 @@ wrk -t 16 -c 200 <URL>
 
 - Express / pg / pm2 => 20039.75
 - Rust / rocket / diesel => 55798.49
+- Rust (1.57) / diesel => 45688.32
 - Phoenix (Elixir) / ecto / json view => 30344.54
 - Phoenix (Elixir) / ecto / Jason => 33153.59
 
@@ -322,7 +324,7 @@ wrk -t 16 -c 200 <URL>
 
 ###### _all_ ->>
 
-- Express () / pg / pm2 => 13282.31
+- Express (Node 17.2) / pg / pm2 => 13282.31
 - Rocket (1.44 nightly) / diesel => 24095.65
 - Actix (1.57) / diesel / r2d2 => 23659.26
 - Warp (1.57) / mobc => 13990.00
@@ -334,7 +336,7 @@ wrk -t 16 -c 200 <URL>
 
 ###### _show_ ->>
 
-- Express () / pg / pm2 => 24508.36
+- Express (Node 17.2) / pg / pm2 => 24508.36
 - Rocket (1.44 nightly) / diesel => 51423.80
 - Actix (1.57) / diesel / r2d2 => 50895.81
 - Warp (1.57) / mobc => 16738.81
