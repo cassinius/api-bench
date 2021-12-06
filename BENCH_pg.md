@@ -321,6 +321,7 @@ wrk -t 16 -c 200 <URL>
 - .NET 5 / dapper / async => 14701.96
 - .NET 6 / dapper / sync => 10747.95
 - .NET 6 / dapper / async => 15544.70
+- .NET 6 / EF Core / sync => 6829.01
 
 ###### _show_ ->>
 
@@ -332,4 +333,4 @@ wrk -t 16 -c 200 <URL>
 - .NET 5 / dapper / async => 36540.49
 - .NET 6 / dapper / sync => 25659.31
 - .NET 6 / dapper / async => 38103.64
-
+- .NET 6 / EF Core / async => 10316.96
