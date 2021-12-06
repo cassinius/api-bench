@@ -263,6 +263,8 @@ wrk -t 16 -c 200 <URL>
 
 - Express / pg / pm2 => 14846.65
 - Rust / rocket / diesel => 22602.61
+- Phoenix (Elixir) / ecto / json view => 6355.82
+- Phoenix (Elixir) / ecto / Jason => 10540.54
 
 ###### _all_ ->> `/Retailer[A?]Sync`
 
@@ -290,6 +292,8 @@ wrk -t 16 -c 200 <URL>
 
 - Express / pg / pm2 => 20039.75
 - Rust / rocket / diesel => 55798.49
+- Phoenix (Elixir) / ecto / json view => 30344.54
+- Phoenix (Elixir) / ecto / Jason => 33153.59
 
 ###### _show_ ->> `/Retailer[A?]Sync/42`
 
