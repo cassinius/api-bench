@@ -284,6 +284,8 @@ wrk -t 16 -c 200 <URL>
 - .NET c6 / dapper (sync, Utf8Json) => 11229.95
 - .NET c6 / dapper (Async, Utf8Json) => 15614.55
 
+- .NET 6 / EF Core / sync => 10851.80
+
 ###### _all_ ->> `/retailer/42`
 
 - Express / pg / pm2 => 20039.75
@@ -308,6 +310,9 @@ wrk -t 16 -c 200 <URL>
  
 - .NET c6 / dapper (sync, Utf8Json) => 30804.70
 - .NET c6 / dapper (Async, Utf8Json) => 40535.39
+
+- .NET 6 / EF Core / sync => 13930.44
+
 
 ##### Ubuntu 21.10 / Postgres 14
 
