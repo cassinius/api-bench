@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZKWBoN27qFo8Yn2zEaOnIAV9PILyB66pY2RrE3rozK3xDY8oQ7b4ry+04JG4Cet/FWYWDTYYcTprq+h8zGqpMA==",
+  "dgSpecHash": "G25UEraJXCMAriXl3CFWgUjdSd/WZQnZvkWn19cRHUucVoDSNiqYJLnwS9JrwHosneOuo4IikhJpYcuL2tbTEg==",
   "success": true,
   "projectFilePath": "/home/bernd/develop/Experiments/api-bench/bench_arango/NET/min6api/min6api.csproj",
   "expectedPackageFiles": [
@@ -18,8 +18,7 @@
     "/home/bernd/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "/home/bernd/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
     "/home/bernd/.nuget/packages/system.identitymodel.tokens.jwt/6.14.1/system.identitymodel.tokens.jwt.6.14.1.nupkg.sha512",
-    "/home/bernd/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
-    "/home/bernd/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.0/microsoft.aspnetcore.app.ref.6.0.0.nupkg.sha512"
+    "/home/bernd/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

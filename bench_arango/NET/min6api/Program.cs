@@ -1,5 +1,7 @@
 using Core.Arango;
-using Core.Arango.Serialization;
+using Core.Arango.Serialization.Json;
+
+using min6api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddArango(builder.Configuration.GetConnectionString("Arango"));
+builder.Services.AddArango((sp, config) => 
+{
+  config.ConnectionString = builder.Configuration.GetConnectionString("Arango");
+  config.Serializer = new ArangoJsonSerializer(new ArangoJsonDefaultPolicy());
+});
 
 var app = builder.Build();
 
@@ -30,5 +36,14 @@ app.MapGet("/", () => new
   message = ".NET Arango Retailer API up and running."
 })
 .WithName("RootStatus");
+
+app.MapGet("/retailer", async (IArangoContext arango) => 
+{
+  var retailer = await arango.Document.GetAsync<Retailer>("retailer_api", "retailer", "2757");
+  return new {
+    status = StatusCodes.Status200OK,
+    retailer = retailer
+  };
+});
 
 app.Run();
