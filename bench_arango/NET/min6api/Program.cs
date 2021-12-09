@@ -37,12 +37,31 @@ app.MapGet("/", () => new
 })
 .WithName("RootStatus");
 
-app.MapGet("/retailer", async (IArangoContext arango) => 
+app.MapGet("/retailerByFunc/{id}", async (IArangoContext arango, string id) => 
 {
-  var retailer = await arango.Document.GetAsync<Retailer>("retailer_api", "retailer", "2757");
+  var retailer = await arango.Document.GetAsync<Retailer>("retailer_api", "retailers", id);
   return new {
     status = StatusCodes.Status200OK,
     retailer = retailer
+  };
+});
+
+app.MapGet("/retailerByQuery/{id}", async (IArangoContext arango, string id) => 
+{
+  var retailer = await arango.Query.ExecuteAsync<Retailer>("retailer_api", $"FOR r IN retailers FILTER r._key == {id} RETURN r");
+  return new {
+    status = StatusCodes.Status200OK,
+    retailer = retailer
+  };
+});
+
+app.MapGet("/retailers/{limit}", async (IArangoContext arango, int limit) => 
+{
+  var retailers = await arango.Query.ExecuteAsync<Retailer>("retailer_api", $"FOR r IN retailers LIMIT {limit} RETURN r");
+  return new {
+    status = StatusCodes.Status200OK,
+    count = retailers.Count(),
+    retailers = retailers
   };
 });
 
