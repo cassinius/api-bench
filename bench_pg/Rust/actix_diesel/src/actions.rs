@@ -5,30 +5,30 @@ use diesel::pg::PgConnection;
 use crate::models;
 
 
-pub fn find_retailer_by_id(r_id: i32, conn: &PgConnection) 
--> Result<Option<models::Retailer>, diesel::result::Error>
+pub fn find_retailer_by_id(r_id: i32, conn: &PgConnection)
+                           -> Result<Option<models::Retailer>, diesel::result::Error>
 {
-	use crate::schema::retailer::dsl::*;
+    use crate::schema::retailer::dsl::*;
 
-	let one_retailer = retailer
-		.find(r_id)
-		.first::<models::Retailer>(conn)
-		.optional()?;
-	
-	Ok(one_retailer)
+    let one_retailer = retailer
+        .find(r_id)
+        .first::<models::Retailer>(conn)
+        .optional()?;
+
+    Ok(one_retailer)
 }
 
 
 pub fn get_all_retailers(conn: &PgConnection)
--> Result<Option<Vec<models::Retailer>>, diesel::result::Error>
+                         -> Result<Option<Vec<models::Retailer>>, diesel::result::Error>
 {
-	use crate::schema::retailer::dsl::*;
+    use crate::schema::retailer::dsl::*;
 
-  let all_retailers = retailer
-		.load::<models::Retailer>(conn)
-		.optional()?;
-	
-		Ok(all_retailers)
+    let all_retailers = retailer
+        .load::<models::Retailer>(conn)
+        .optional()?;
+
+    Ok(all_retailers)
 }
 
 
