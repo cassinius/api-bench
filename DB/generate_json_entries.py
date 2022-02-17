@@ -10,7 +10,7 @@ retailers = []
 
 fake = Faker()
 
-for i in range(1, 10001):
+for i in range(1, 101):
     retailer = {}
     retailer["id"] = i
     retailer["GSTIN"] = ''.join(random.choice(
