@@ -320,7 +320,7 @@ wrk -t 16 -c 200 <URL>
 - .NET 6 / EF Core / sync => 13930.44
 
 
-##### Ubuntu 21.10 / Postgres 14
+##### Ubuntu 21.10 / Postgres 14 (!! NO PERFORMANCE MODE !!)
 
 ###### _all_ ->>
 
@@ -345,3 +345,13 @@ wrk -t 16 -c 200 <URL>
 - .NET 6 / dapper / sync => 25659.31
 - .NET 6 / dapper / async => 38103.64
 - .NET 6 / EF Core / async => 10316.96
+
+##### Fedora 36 / Postgres 14
+
+###### _all_ ->>
+
+- Go 1.18 / pgxpool => 28694.05
+
+###### _show_ ->>
+
+- Go 1.18 / pgxpool =>  116397.02

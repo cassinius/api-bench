@@ -1,11 +1,11 @@
 package main
 
 import (
-	"database/sql"
+	"context"
+	"github.com/jackc/pgx/v4/pgxpool"
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/middleware/logger"
 	"github.com/kataras/iris/v12/middleware/recover"
-	_ "github.com/lib/pq"
 	"log"
 )
 
@@ -35,16 +35,17 @@ func main() {
 	app.Use(recover.New())
 	app.Use(logger.New())
 
-	//var db *sql.DB
-	connStr := "postgres://retailer:retailer@localhost:5432/retailer_api?sslmode=disable"
-	db, err := sql.Open("postgres", connStr)
+	connStr := "user=retailer password=retailer dbname=retailer_api sslmode=disable"
+
+	dbPool, err := pgxpool.Connect(context.Background(), connStr)
+	//dbPool, err := sql.Open("postgres", connStr)
+
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer db.Close()
+	defer dbPool.Close()
 
 	app.Get("/", func(ctx iris.Context) {
-		//ctx.HTML("Hello World")
 		ctx.JSON(ApiResponse{
 			Status:  200,
 			Message: "Golang Retailer API up and running.",
@@ -53,7 +54,7 @@ func main() {
 
 	app.Get("/retailers", func(ctx iris.Context) {
 		var retailers []Retailer
-		rows, err := db.Query("SELECT * FROM retailer")
+		rows, err := dbPool.Query(context.Background(), "SELECT * FROM retailer")
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -66,6 +67,17 @@ func main() {
 			retailers = append(retailers, retailer)
 		}
 		ctx.JSON(retailers)
+	})
+
+	app.Get("/retailer/{id}", func(ctx iris.Context) {
+		id := ctx.Params().Get("id")
+		var retailer Retailer
+		row := dbPool.QueryRow(context.Background(), "SELECT * FROM retailer WHERE id = $1", id)
+		err := row.Scan(&retailer.Id, &retailer.GSTIN, &retailer.Business_name, &retailer.Contact_person, &retailer.Contact_number, &retailer.Constact_address, &retailer.Contact_emailId, &retailer.Status, &retailer.Outlet_limit)
+		if err != nil {
+			log.Fatal(err)
+		}
+		ctx.JSON(retailer)
 	})
 
 	app.Run(iris.Addr(":8000"))
