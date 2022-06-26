@@ -350,8 +350,10 @@ wrk -t 16 -c 200 <URL>
 
 ###### _all_ ->>
 
-- Go 1.18 / pgxpool => 28694.05
+- Go 1.18 / pgxpool / std. statement cache => 28694.05
+- Go 1.18 / pgxpool / NO statement cache => 24515.83
 
 ###### _show_ ->>
 
-- Go 1.18 / pgxpool =>  116397.02
+- Go 1.18 / pgxpool / std. statement cache =>  116397.02
+- Go 1.18 / pgxpool / NO statement cache => 64099.76

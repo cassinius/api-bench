@@ -35,7 +35,7 @@ func main() {
 	app.Use(recover.New())
 	app.Use(logger.New())
 
-	connStr := "user=retailer password=retailer dbname=retailer_api sslmode=disable"
+	connStr := "user=retailer password=retailer dbname=retailer_api sslmode=disable statement_cache_capacity=0"
 
 	dbPool, err := pgxpool.Connect(context.Background(), connStr)
 	//dbPool, err := sql.Open("postgres", connStr)
