@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/bytedance/sonic"
 	"github.com/goccy/go-json"
 	"github.com/gorilla/mux"
 	"go-pg-bench/shared/db/pgx"
@@ -35,7 +36,7 @@ func main() {
 
 	getRetailers := func(w http.ResponseWriter, r *http.Request) {
 		retailers := pgx.GetRetailers(dbPool)
-		jsonResponse, err := json.Marshal(retailers)
+		jsonResponse, err := sonic.Marshal(retailers)
 		if err != nil {
 			return
 		}
@@ -48,7 +49,7 @@ func main() {
 		params := mux.Vars(r)
 		id := params["id"]
 		retailer := pgx.GetRetailer(dbPool, id)
-		jsonResponse, err := json.Marshal(retailer)
+		jsonResponse, err := sonic.Marshal(retailer)
 		if err != nil {
 			return
 		}
