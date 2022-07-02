@@ -16,7 +16,7 @@ func main() {
 	dbPool := pgx.GetDbPool()
 	defer dbPool.Close()
 
-	returnStatusOk := func(ctx iris.Context) {
+	returnStatus := func(ctx iris.Context) {
 		ctx.JSON(responses.ApiResponse{
 			Status:  200,
 			Message: "Go->Fiber Retailer API up and running.",
@@ -38,7 +38,7 @@ func main() {
 	app.Logger().SetLevel(helpers.GetLogLevel())
 	app.Use(logger.New())
 
-	app.Get("/", returnStatusOk)
+	app.Get("/", returnStatus)
 	app.Get("/retailers", getRetailers)
 	app.Get("/retailer/:id", getRetailer)
 

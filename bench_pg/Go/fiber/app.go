@@ -15,7 +15,7 @@ func main() {
 	dbPool := pgx.GetDbPool()
 	defer dbPool.Close()
 
-	returnStatusOk := func(ctx *fiber.Ctx) error {
+	returnStatus := func(ctx *fiber.Ctx) error {
 		return ctx.JSON(responses.ApiResponse{
 			Status:  200,
 			Message: "Go->Fiber Retailer API up and running.",
@@ -32,16 +32,12 @@ func main() {
 		return ctx.JSON(retailer)
 	}
 
-	func() {
-
-	}()
-
 	app := fiber.New()
 	if os.Getenv("APP_ENV") != "production" {
 		app.Use(logger.New())
 	}
 
-	app.Get("/", returnStatusOk)
+	app.Get("/", returnStatus)
 	app.Get("/retailers", getRetailers)
 	app.Get("/retailer/:id", getRetailer)
 

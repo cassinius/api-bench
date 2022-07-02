@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-const connStr = "user=retailer password=retailer dbname=retailer_api sslmode=disable statement_cache_capacity=0"
+const connStr = "user=retailer password=retailer dbname=retailer_api sslmode=disable statement_cache_capacity=10"
 
 // GetDbPool returns a *pgxpool.Pool
 /**

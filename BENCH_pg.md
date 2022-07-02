@@ -356,6 +356,8 @@ wrk -t 16 -c 200 <URL>
 - Iris / pgxpool / NO statement cache => 24515.83 (22923.64 on July 2nd 22')
 - Fiber / pgxpool / statement cache = 10 => 30155.94
 - Fiber / pgxpool / NO statement cache => 26156.61
+- Gorilla / mux / pgxpool / statement cache = 10 => 26151.59
+- Gorilla / mux / pgxpool / NO statement cache => 22627.38
 
 ###### _show_ ->>
 
@@ -363,3 +365,5 @@ wrk -t 16 -c 200 <URL>
 - Iris / pgxpool / NO statement cache => 64099.76 (54990.79 on July 2nd 22')
 - Fiber / pgxpool / statement cache = 10 => 114355.39
 - Fiber / pgxpool / NO statement cache => 61900.93
+- Gorilla / mux / pgxpool / statement cache = 10 => 91912.26
+- Gorilla / mux / pgxpool / NO statement cache => 53697.67
