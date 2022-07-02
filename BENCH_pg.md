@@ -360,6 +360,7 @@ wrk -t 16 -c 200 <URL>
 - Gorilla / mux / pgxpool / NO statement cache => 22627.38
 - Gorilla / mux / pgxpool / go-json / statement cache = 10 => 28043.39
 - Gorilla / mux / pgxpool / sonic / statement cache = 10 => 27833.19
+- Echo / pgxpool / statement cache = 10 => 27893.04
 
 ###### _show_ ->>
 
@@ -371,3 +372,4 @@ wrk -t 16 -c 200 <URL>
 - Gorilla / mux / pgxpool / NO statement cache => 53697.67
 - Gorilla / mux / pgxpool / go-json / statement cache = 10 => 90613.69
 - Gorilla / mux / pgxpool / sonic / statement cache = 10 => 93976.48
+- Echo / pgxpool / statement cache = 10 => 96341.07

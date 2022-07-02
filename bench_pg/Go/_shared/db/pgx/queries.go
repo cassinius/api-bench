@@ -3,7 +3,7 @@ package pgx
 import (
 	"context"
 	"github.com/jackc/pgx/v4/pgxpool"
-	model "go-pg-bench/shared/models"
+	model "go-pg-bench/_shared/models"
 	"log"
 )
 

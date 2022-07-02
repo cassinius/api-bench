@@ -5,8 +5,8 @@ import (
 	"github.com/bytedance/sonic"
 	"github.com/goccy/go-json"
 	"github.com/gorilla/mux"
-	"go-pg-bench/shared/db/pgx"
-	"go-pg-bench/shared/models/responses"
+	"go-pg-bench/_shared/db/pgx"
+	"go-pg-bench/_shared/models/responses"
 	"net/http"
 	"os"
 )
