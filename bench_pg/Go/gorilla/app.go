@@ -1,9 +1,10 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/gorilla/mux"
-	"github.com/pquerna/ffjson/ffjson"
+	"github.com/mailru/easyjson"
 	"go-pg-bench/shared/db/pgx"
 	"go-pg-bench/shared/models/responses"
 	"net/http"
@@ -18,7 +19,7 @@ func main() {
 	defer dbPool.Close()
 
 	returnStatus := func(w http.ResponseWriter, r *http.Request) {
-		jsonResponse, err := ffjson.Marshal(responses.ApiResponse{
+		jsonResponse, err := json.Marshal(responses.ApiResponse{
 			Status:  200,
 			Message: "Go->Gorilla/Mux Retailer API up and running.",
 		})
@@ -31,8 +32,9 @@ func main() {
 	}
 
 	getRetailers := func(w http.ResponseWriter, r *http.Request) {
+		//var retailers []model.Retailer
 		retailers := pgx.GetRetailers(dbPool)
-		jsonResponse, err := ffjson.Marshal(&retailers)
+		jsonResponse, err := easyjson.Marshal(retailers)
 		if err != nil {
 			return
 		}
@@ -44,8 +46,8 @@ func main() {
 	getRetailer := func(w http.ResponseWriter, r *http.Request) {
 		params := mux.Vars(r)
 		id := params["id"]
-		retailers := pgx.GetRetailer(dbPool, id)
-		jsonResponse, err := ffjson.Marshal(retailers)
+		retailer := pgx.GetRetailer(dbPool, id)
+		jsonResponse, err := easyjson.Marshal(retailer)
 		if err != nil {
 			return
 		}
