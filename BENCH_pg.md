@@ -358,6 +358,7 @@ wrk -t 16 -c 200 <URL>
 - Fiber / pgxpool / NO statement cache => 26156.61
 - Gorilla / mux / pgxpool / statement cache = 10 => 26151.59
 - Gorilla / mux / pgxpool / NO statement cache => 22627.38
+- Gorilla / mux / pgxpool / go-json / statement cache = 10 => 28043.39
 
 ###### _show_ ->>
 
@@ -367,3 +368,4 @@ wrk -t 16 -c 200 <URL>
 - Fiber / pgxpool / NO statement cache => 61900.93
 - Gorilla / mux / pgxpool / statement cache = 10 => 91912.26
 - Gorilla / mux / pgxpool / NO statement cache => 53697.67
+- Gorilla / mux / pgxpool / go-json / statement cache = 10 => 90613.69

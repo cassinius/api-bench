@@ -1,10 +1,9 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
+	"github.com/goccy/go-json"
 	"github.com/gorilla/mux"
-	"github.com/mailru/easyjson"
 	"go-pg-bench/shared/db/pgx"
 	"go-pg-bench/shared/models/responses"
 	"net/http"
@@ -17,6 +16,9 @@ import (
 func main() {
 	dbPool := pgx.GetDbPool()
 	defer dbPool.Close()
+
+	// About the same speed as the standard library's json.Marshal().
+	//var json = jsoniter.ConfigFastest
 
 	returnStatus := func(w http.ResponseWriter, r *http.Request) {
 		jsonResponse, err := json.Marshal(responses.ApiResponse{
@@ -32,9 +34,8 @@ func main() {
 	}
 
 	getRetailers := func(w http.ResponseWriter, r *http.Request) {
-		//var retailers []model.Retailer
 		retailers := pgx.GetRetailers(dbPool)
-		jsonResponse, err := easyjson.Marshal(retailers)
+		jsonResponse, err := json.Marshal(retailers)
 		if err != nil {
 			return
 		}
@@ -47,7 +48,7 @@ func main() {
 		params := mux.Vars(r)
 		id := params["id"]
 		retailer := pgx.GetRetailer(dbPool, id)
-		jsonResponse, err := easyjson.Marshal(retailer)
+		jsonResponse, err := json.Marshal(retailer)
 		if err != nil {
 			return
 		}
