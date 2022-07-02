@@ -2,8 +2,10 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 	"go-pg-bench/shared/db/pgx"
 	"go-pg-bench/shared/models/responses"
+	"os"
 )
 
 /**
@@ -30,7 +32,14 @@ func main() {
 		return ctx.JSON(retailer)
 	}
 
+	func() {
+
+	}()
+
 	app := fiber.New()
+	if os.Getenv("APP_ENV") != "production" {
+		app.Use(logger.New())
+	}
 
 	app.Get("/", returnStatusOk)
 	app.Get("/retailers", getRetailers)

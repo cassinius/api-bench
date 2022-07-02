@@ -2,7 +2,9 @@ package main
 
 import (
 	"github.com/kataras/iris/v12"
+	"github.com/kataras/iris/v12/middleware/logger"
 	_ "github.com/kataras/iris/v12/middleware/recover"
+	"go-pg-bench/helpers"
 	"go-pg-bench/shared/db/pgx"
 	"go-pg-bench/shared/models/responses"
 )
@@ -32,9 +34,9 @@ func main() {
 	}
 
 	app := iris.New()
-	//app.Logger().SetLevel("error")
 	//app.Use(recover.New())
-	//app.Use(logger.New())
+	app.Logger().SetLevel(helpers.GetLogLevel())
+	app.Use(logger.New())
 
 	app.Get("/", returnStatusOk)
 	app.Get("/retailers", getRetailers)
