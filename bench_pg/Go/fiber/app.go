@@ -28,7 +28,7 @@ type Retailer struct {
  *
  */
 func main() {
-	connStr := "user=retailer password=retailer dbname=retailer_api sslmode=disable statement_cache_capacity=0"
+	connStr := "user=retailer password=retailer dbname=retailer_api sslmode=disable statement_cache_capacity=10"
 
 	dbPool, err := pgxpool.Connect(context.Background(), connStr)
 

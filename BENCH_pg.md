@@ -346,14 +346,20 @@ wrk -t 16 -c 200 <URL>
 - .NET 6 / dapper / async => 38103.64
 - .NET 6 / EF Core / async => 10316.96
 
-##### Fedora 36 / Postgres 14
+##### Fedora 36 / Postgres 14 
+
+> GO(lang) version go1.18.3 linux/amd64
 
 ###### _all_ ->>
 
-- Go 1.18 / pgxpool / std. statement cache => 28694.05
-- Go 1.18 / pgxpool / NO statement cache => 24515.83
+- Iris / pgxpool / statement cache = 10 => 28694.05 (27143.63 on July 2nd 22')
+- Iris / pgxpool / NO statement cache => 24515.83 (22923.64 on July 2nd 22')
+- Fiber / pgxpool / statement cache = 10 => 30155.94
+- Fiber / pgxpool / NO statement cache => 26156.61
 
 ###### _show_ ->>
 
-- Go 1.18 / pgxpool / std. statement cache =>  116397.02
-- Go 1.18 / pgxpool / NO statement cache => 64099.76
+- Iris / pgxpool / statement cache = 10 =>  116397.02 (95570.30 on July 2nd 22')
+- Iris / pgxpool / NO statement cache => 64099.76 (54990.79 on July 2nd 22')
+- Fiber / pgxpool / statement cache = 10 => 114355.39
+- Fiber / pgxpool / NO statement cache => 61900.93
