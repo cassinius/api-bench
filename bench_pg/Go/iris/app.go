@@ -19,7 +19,7 @@ func main() {
 	returnStatus := func(ctx iris.Context) {
 		ctx.JSON(responses.ApiResponse{
 			Status:  200,
-			Message: "Go->Fiber Retailer API up and running.",
+			Message: "Go->Iris Retailer API up and running.",
 		})
 	}
 

@@ -55,7 +55,10 @@ func main() {
 		}
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
-		w.Write(jsonResponse)
+		_, e := w.Write(jsonResponse)
+		if e != nil {
+			return
+		}
 	}
 
 	router := mux.NewRouter()

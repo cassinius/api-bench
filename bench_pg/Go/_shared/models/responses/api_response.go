@@ -1,6 +1,6 @@
 package responses
 
 type ApiResponse struct {
-	Status  int16  `json:"status"`
+	Status  uint16 `json:"status"`
 	Message string `json:"msg"`
 }
