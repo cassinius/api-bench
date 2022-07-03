@@ -29,7 +29,8 @@ func main() {
 	}
 
 	getRetailer := func(ctx iris.Context) {
-		retailer := pgx.GetRetailer(dbPool, ctx.Params().Get("id"))
+		id := ctx.Params().Get("id")
+		retailer := pgx.GetRetailer(dbPool, id)
 		ctx.JSON(retailer)
 	}
 
@@ -40,7 +41,13 @@ func main() {
 
 	app.Get("/", returnStatus)
 	app.Get("/retailers", getRetailers)
-	app.Get("/retailer/:id", getRetailer)
+	app.Get("/retailer/{id:uint64}", getRetailer)
 
-	app.Run(iris.Addr(":8000"))
+	config := iris.WithConfiguration(iris.Configuration{
+		DisableStartupLog:   false,
+		EnableOptimizations: true,
+		Charset:             "UTF-8",
+	})
+
+	app.Listen(":8000", config)
 }
