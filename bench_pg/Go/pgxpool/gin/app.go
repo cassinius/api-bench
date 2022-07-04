@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"go-pg-bench/_shared/db/pgx"
+	"go-pg-bench/shared/db/pgx"
 )
 
 /**

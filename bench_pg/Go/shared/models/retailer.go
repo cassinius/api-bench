@@ -1,6 +1,7 @@
 package model
 
 type Retailer struct {
+	//gorm.Model
 	Id               int32  `json:"id"`
 	GSTIN            string `json:"gstin"`
 	Business_name    string `json:"business_name"`

@@ -4,9 +4,9 @@ import (
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/middleware/logger"
 	_ "github.com/kataras/iris/v12/middleware/recover"
-	"go-pg-bench/_shared/db/pgx"
-	"go-pg-bench/_shared/helpers"
-	"go-pg-bench/_shared/models/responses"
+	"go-pg-bench/shared/db/pgx"
+	"go-pg-bench/shared/helpers"
+	"go-pg-bench/shared/models/responses"
 )
 
 /**

@@ -3,8 +3,8 @@ package main
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
-	"go-pg-bench/_shared/db/pgx"
-	"go-pg-bench/_shared/models/responses"
+	"go-pg-bench/shared/db/pgx"
+	"go-pg-bench/shared/models/responses"
 	"os"
 )
 

@@ -352,26 +352,36 @@ wrk -t 16 -c 200 <URL>
 
 ###### _all_ ->>
 
-- Iris / pgxpool / statement cache = 10 => 28694.05 (27143.63 on July 2nd 22')
-- Iris / pgxpool / NO statement cache => 24515.83 (22923.64 on July 2nd 22')
-- Fiber / pgxpool / statement cache = 10 => 30155.94
-- Fiber / pgxpool / NO statement cache => 26156.61
-- Gorilla / mux / pgxpool / statement cache = 10 => 26151.59
-- Gorilla / mux / pgxpool / NO statement cache => 22627.38
-- Gorilla / mux / pgxpool / go-json / statement cache = 10 => 28043.39
-- Gorilla / mux / pgxpool / sonic / statement cache = 10 => 27833.19
-- Echo / pgxpool / statement cache = 10 => 27893.04
-- Gin / pgxpool / statement cache = 10 => 26181.52
+> pgxpool
+
+- Iris / statement cache = 10 => 28694.05 (27143.63 on July 2nd 22')
+- Iris / NO statement cache => 24515.83 (22923.64 on July 2nd 22')
+- Fiber / statement cache = 10 => 30155.94
+- Fiber / NO statement cache => 26156.61
+- Gorilla / mux / statement cache = 10 => 26151.59
+- Gorilla / mux / NO statement cache => 22627.38
+- Gorilla / mux / go-json / statement cache = 10 => 28043.39
+- Gorilla / mux / sonic / statement cache = 10 => 27833.19
+- Echo / statement cache = 10 => 27893.04
+- Gin / statement cache = 10 => 26181.52
+
+> gorm
+
+- Gorilla / mux / sonic => 15998.03
 
 ###### _show_ ->>
 
-- Iris / pgxpool / statement cache = 10 =>  116397.02 (95570.30 on July 2nd 22')
-- Iris / pgxpool / NO statement cache => 64099.76 (54990.79 on July 2nd 22')
-- Fiber / pgxpool / statement cache = 10 => 114355.39
-- Fiber / pgxpool / NO statement cache => 61900.93
-- Gorilla / mux / pgxpool / statement cache = 10 => 91912.26
-- Gorilla / mux / pgxpool / NO statement cache => 53697.67
-- Gorilla / mux / pgxpool / go-json / statement cache = 10 => 90613.69
-- Gorilla / mux / pgxpool / sonic / statement cache = 10 => 93976.48
-- Echo / pgxpool / statement cache = 10 => 96341.07
-- Gin / pgxpool / statement cache = 10 => 94153.76
+- Iris / statement cache = 10 =>  116397.02 (95570.30 on July 2nd 22')
+- Iris / NO statement cache => 64099.76 (54990.79 on July 2nd 22')
+- Fiber /statement cache = 10 => 114355.39
+- Fiber / NO statement cache => 61900.93
+- Gorilla / mux / statement cache = 10 => 91912.26
+- Gorilla / mux / NO statement cache => 53697.67
+- Gorilla / mux / go-json / statement cache = 10 => 90613.69
+- Gorilla / mux / sonic / statement cache = 10 => 93976.48
+- Echo / statement cache = 10 => 96341.07
+- Gin / statement cache = 10 => 94153.76
+
+> gorm
+
+- Gorilla / mux / sonic => 69376.73

@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/labstack/echo/v4"
-	"go-pg-bench/_shared/db/pgx"
-	"go-pg-bench/_shared/models/responses"
+	"go-pg-bench/shared/db/pgx"
+	"go-pg-bench/shared/models/responses"
 	"net/http"
 )
 
