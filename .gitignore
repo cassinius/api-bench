@@ -135,3 +135,6 @@ node_modules
 .vs
 .vscode
 .idea
+
+# Mac
+.DS_Store
