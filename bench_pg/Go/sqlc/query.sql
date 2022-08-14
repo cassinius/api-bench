@@ -1,6 +1,6 @@
 -- name: GetRetailer :one
 SELECT * FROM retailer
-WHERE id = ? LIMIT 1;
+WHERE id = $1 LIMIT 1;
 
 -- name: ListRetailers :many
 SELECT * FROM retailer;

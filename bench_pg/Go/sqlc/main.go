@@ -44,12 +44,12 @@ func run() error {
 	return nil
 }
 
-func main() {
-	if err := run(); err != nil {
-		log.Fatal(err)
-	}
-
+//
+func server() {
 	ctx := context.Background()
+
+	// dbPool := pgx.GetDbPool()
+	// defer dbPool.Close()
 
 	db, _ := sql.Open("postgres", "user=retailer password=retailer dbname=retailer_api sslmode=disable")
 	// if err != nil {
@@ -94,4 +94,12 @@ func main() {
 
 	fmt.Fprintln(os.Stdout, "Listening on port 8000")
 	http.ListenAndServe(":8000", router)
+}
+
+func main() {
+	if err := run(); err != nil {
+		log.Fatal(err)
+	}
+
+	server()
 }

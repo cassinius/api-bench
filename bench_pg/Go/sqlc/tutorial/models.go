@@ -5,17 +5,17 @@
 package tutorial
 
 import (
-	"database/sql"
+	// "database/sql"
 )
 
 type Retailer struct {
-	ID             int32
-	GSTIN          sql.NullString
-	BusinessName   sql.NullString
-	ContactPerson  sql.NullString
-	ContactNumber  sql.NullInt32
-	ContactAddress sql.NullString
-	ContactEmailId sql.NullString
-	Status         sql.NullString
-	OutletLimit    sql.NullInt32
+	ID             int32 `json:"id"`
+	GSTIN          string `json:"gstin"`
+	BusinessName   string `json:"business_name"`
+	ContactPerson  string `json:"contact_person"`
+	ContactNumber  int32 `json:"contact_number"`
+	ContactAddress string `json:"contact_address"`
+	ContactEmailId string `json:"contact_emailId"`
+	Status         string `json:"status"`
+	OutletLimit    int32 `json:"outlet_limit"`
 }

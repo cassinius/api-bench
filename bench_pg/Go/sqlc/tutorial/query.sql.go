@@ -11,7 +11,7 @@ import (
 
 const getRetailer = `-- name: GetRetailer :one
 SELECT id, "GSTIN", "Business_name", "Contact_person", "Contact_number", "Contact_address", "Contact_emailId", "Status", "Outlet_limit" FROM retailer
-WHERE id = ? LIMIT 1
+WHERE id = $1 LIMIT 1
 `
 
 func (q *Queries) GetRetailer(ctx context.Context, id int32) (Retailer, error) {
