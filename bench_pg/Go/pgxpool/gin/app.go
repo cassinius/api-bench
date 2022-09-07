@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"go-pg-bench/shared/db/pgx"
+	"net/http"
 )
 
 /**
@@ -13,30 +14,30 @@ func main() {
 	dbPool := pgx.GetDbPool()
 	defer dbPool.Close()
 
-	returnStatus := func(ctx *gin.Context) {
-		ctx.JSON(200, gin.H{
-			"status":  200,
+	returnStatus := func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"status":  "Ok",
 			"message": "Go->Gin Retailer API up and running.",
 		})
 	}
 
-	getRetailers := func(ctx *gin.Context) {
+	getRetailers := func(c *gin.Context) {
 		retailers := pgx.GetRetailers(dbPool)
-		ctx.JSON(200, retailers)
+		c.JSON(http.StatusOK, retailers)
 	}
 
 	getRetailer := func(c *gin.Context) {
 		id := c.Param("id")
 		retailer := pgx.GetRetailer(dbPool, id)
-		c.JSON(200, retailer)
+		c.JSON(http.StatusOK, retailer)
 	}
 
-	r := gin.New()
+	g := gin.New()
 
-	r.GET("/", returnStatus)
-	r.GET("/retailers", getRetailers)
-	r.GET("/retailer/:id", getRetailer)
+	g.GET("/", returnStatus)
+	g.GET("/retailers", getRetailers)
+	g.GET("/retailer/:id", getRetailer)
 
 	fmt.Println("Go->Gin Retailer API starting on port 8000.")
-	r.Run(":8000")
+	g.Run(":8000")
 }
