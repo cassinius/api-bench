@@ -348,6 +348,7 @@ wrk -t 16 -c 200 <URL>
 
 ##### Fedora 36 / Postgres 14 
 
+> NET version 7 preview 7
 > GO(lang) version go1.18.3 linux/amd64
 
 ###### _all_ ->>
@@ -369,6 +370,10 @@ wrk -t 16 -c 200 <URL>
 
 - Gorilla / mux / sonic => 15998.03
 
+> .NET
+
+- 7 preview 7 / ef => 11269.33
+
 ###### _show_ ->>
 
 - Iris / statement cache = 10 =>  116397.02 (95570.30 on July 2nd 22')
@@ -385,3 +390,7 @@ wrk -t 16 -c 200 <URL>
 > gorm
 
 - Gorilla / mux / sonic => 69376.73
+
+> .NET
+
+- 7 preview 7 / ef => 23614.20
