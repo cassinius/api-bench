@@ -372,7 +372,8 @@ wrk -t 16 -c 200 <URL>
 
 > .NET
 
-- 7 preview 7 / ef => 11269.33
+- 7 preview 7 / ef / sync => 11269.33
+- 7 preview 7 / ef / async / asnotracking => 15008.69
 
 ###### _show_ ->>
 
@@ -393,4 +394,5 @@ wrk -t 16 -c 200 <URL>
 
 > .NET
 
-- 7 preview 7 / ef => 23614.20
+- 7 preview 7 / ef / sync => 23614.20
+- 7 preview 7 / ef / async / asnotracking => 24020.41

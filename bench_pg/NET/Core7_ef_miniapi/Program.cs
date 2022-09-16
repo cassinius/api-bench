@@ -31,18 +31,18 @@ app.MapGet("/", () => new APIStatusResponse
     .WithName("GetWeatherForecast")
     .WithOpenApi();
 
-app.MapGet("/retailers", () =>
+app.MapGet("/retailers", async () =>
 {
     using var scope = app.Services.CreateScope();
     var ctx = scope.ServiceProvider.GetRequiredService<RetailerContext>();
-    var retailers = ctx.Retailers.ToList<Retailer>();
+    var retailers = await ctx.Retailers.AsNoTracking().ToListAsync<Retailer>();
     return retailers;
 });
 
 app.MapGet("/retailer/{id}", async (int id) => {
     using var scope = app.Services.CreateScope();
     var ctx = scope.ServiceProvider.GetRequiredService<RetailerContext>();
-    var retailer = await ctx.Retailers.Where(r => r.Id == id).FirstOrDefaultAsync();
+    var retailer = await ctx.Retailers.Where(r => r.Id == id).AsNoTracking().FirstOrDefaultAsync();
     return retailer;
 });
 
