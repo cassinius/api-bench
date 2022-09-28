@@ -370,6 +370,10 @@ wrk -t 16 -c 200 <URL>
 
 - Gorilla / mux / sonic => 15998.03
 
+> entgo.io
+
+- Gin => 14269.35
+
 > .NET
 
 - 7 preview 7 / ef / sync => 11269.33
@@ -391,6 +395,10 @@ wrk -t 16 -c 200 <URL>
 > gorm
 
 - Gorilla / mux / sonic => 69376.73
+
+> entgo.io
+
+- Gin => 45260.59
 
 > .NET
 

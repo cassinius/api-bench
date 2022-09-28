@@ -2,31 +2,33 @@ package main
 
 import (
 	"context"
-	"database/sql"
+	"time"
 
-	"entgo.io/ent/dialect"
-	entsql "entgo.io/ent/dialect/sql"
-	_ "github.com/jackc/pgx/v4/stdlib"
+	"entgo.io/ent/dialect/sql"
 
 	"fmt"
 	"github.com/gin-gonic/gin"
+	_ "github.com/lib/pq"
 	"log"
 	"net/http"
 	"retent/ent"
 	"strconv"
 )
 
-const dsn = "host=localhost port=5432 user=retailer dbname=retailer_api password=retailer sslmode=disable statement_cache_capacity=10"
+const dsn = "host=localhost port=5432 user=retailer dbname=retailer_api password=retailer sslmode=disable"
 
 // Open new connection
 func Open() *ent.Client {
-	db, err := sql.Open("pgx", dsn)
+	drv, err := sql.Open("postgres", dsn)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Create an ent.Driver from `db`.
-	drv := entsql.OpenDB(dialect.Postgres, db)
+	db := drv.DB()
+	db.SetMaxIdleConns(10)
+	db.SetMaxOpenConns(50)
+	db.SetConnMaxLifetime(time.Minute)
+
 	return ent.NewClient(ent.Driver(drv))
 }
 
