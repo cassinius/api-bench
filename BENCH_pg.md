@@ -404,3 +404,31 @@ wrk -t 16 -c 200 <URL>
 
 - 7 preview 7 / ef / sync => 23614.20
 - 7 preview 7 / ef / async / asnotracking => 24020.41
+
+---
+
+### Mac Mini M2 Pro
+
+#### Environment
+
+* M2 Pro
+* 16 GB Ram
+* Mac OS Ventura 13.2.1
+* Python 3.9.13
+* Node.js 18.14.2
+* rustc ---
+* Postgres 15.2
+
+#### Test command
+
+```bash
+wrk -t 16 -c 200 <URL>
+```
+
+###### _all_ ->> `/retailers`
+
+- Express (Node 17.2) / pg / pm2 => 15394.47
+
+###### _show_ ->>
+
+- Express (Node 17.2) / pg / pm2 => 23103.37
