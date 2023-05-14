@@ -427,10 +427,42 @@ wrk -t 16 -c 200 <URL>
 
 ###### _all_ ->> `/retailers`
 
-- Express (Node 17.2) / pg / pm2 => 15394.47
+- Express / pg / pm2 => 15394.47
 
 ###### _show_ ->>
 
-- Express (Node 17.2) / pg / pm2 => 23103.37
+- Express / pg / pm2 => 23103.37
 
 
+### MinisForum UM690
+
+#### Environment
+
+* Ryzen 9 6900HX
+* 64 GB Ram
+* Ubuntu 22.04 LTS
+* Python 3.7.16
+* Node.js 18.15.0
+* Go 1.20.4
+* Bun 0.5.9
+* Postgres 14.7
+
+```bash
+wrk -t 16 -c 256 -d 30 <URL>
+```
+
+###### _all_ ->> `/retailers`
+
+- .NET 7 / EF => 16544.74
+- Node / Express / pg / pm2 => 16186.79
+- Bun / Elysia / postgres / pm2 => 17797.89
+- Go / Ent => 16755.45
+- Go / Gin / pgxpool => 33938.89
+
+###### _show_ ->> `/retailer/42`
+
+- .NET 7 / EF => 27840.77
+- Node / Express / pg / pm2 => 29369.05
+- Bun / Elysia / postgres / pm2 => 54345.79 (- 65k / 75k , depending on test run & whether we re-start pm2... ??)
+- Go / Ent => 56061.32
+- Go / Gin / pgxpool => 146113.31

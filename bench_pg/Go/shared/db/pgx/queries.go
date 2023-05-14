@@ -15,7 +15,7 @@ func GetRetailers(dbPool *pgxpool.Pool) []model.Retailer {
 	}
 	for rows.Next() {
 		var retailer model.Retailer
-		err := rows.Scan(&retailer.Id, &retailer.GSTIN, &retailer.Business_name, &retailer.Contact_person, &retailer.Contact_number, &retailer.Constact_address, &retailer.Contact_emailId, &retailer.Status, &retailer.Outlet_limit)
+		err := rows.Scan(&retailer.Id, &retailer.GSTIN, &retailer.Business_name, &retailer.Contact_person, &retailer.Contact_number, &retailer.Contact_address, &retailer.Contact_emailId, &retailer.Status, &retailer.Outlet_limit)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -27,7 +27,7 @@ func GetRetailers(dbPool *pgxpool.Pool) []model.Retailer {
 func GetRetailer(dbPool *pgxpool.Pool, id string) model.Retailer {
 	var retailer model.Retailer
 	row := dbPool.QueryRow(context.Background(), "SELECT * FROM retailer WHERE id = $1", id)
-	err := row.Scan(&retailer.Id, &retailer.GSTIN, &retailer.Business_name, &retailer.Contact_person, &retailer.Contact_number, &retailer.Constact_address, &retailer.Contact_emailId, &retailer.Status, &retailer.Outlet_limit)
+	err := row.Scan(&retailer.Id, &retailer.GSTIN, &retailer.Business_name, &retailer.Contact_person, &retailer.Contact_number, &retailer.Contact_address, &retailer.Contact_emailId, &retailer.Status, &retailer.Outlet_limit)
 	if err != nil {
 		log.Fatal(err)
 	}
