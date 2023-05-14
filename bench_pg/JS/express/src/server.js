@@ -53,7 +53,7 @@ const getAllRetailers = (req, res) => {
 app.get('/', (req, res) => {
   res.status(200).json({
     status: 200, 
-    msg: 'Retailer API up and running.'
+    msg: 'Express Retailer API up and running...'
   });
 });
 
