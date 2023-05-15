@@ -7,7 +7,7 @@ const app = new Elysia()
   .use(swagger())
   .get("/", () => ({
     status: 200,
-    message: "Bun / Elysia Retailer API up and running...",
+    message: "Bun / Elysia / Postgres.js Retailer API up and running...",
   }))
   .get("/pgversion", async () => {
     const version = await sql`SELECT VERSION()`;

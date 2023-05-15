@@ -456,6 +456,7 @@ wrk -t 16 -c 256 -d 30 <URL>
 - .NET 7 / EF => 16544.74
 - Node / Express / pg / pm2 => 16186.79
 - Bun / Elysia / postgres / pm2 => 17797.89
+- Bun / Elysia / drizzle / pm2 => 13304.20
 - Go / Ent => 16755.45
 - Go / Gin / pgxpool => 33938.89
 
@@ -463,6 +464,7 @@ wrk -t 16 -c 256 -d 30 <URL>
 
 - .NET 7 / EF => 27840.77
 - Node / Express / pg / pm2 => 29369.05
-- Bun / Elysia / postgres / pm2 => 54345.79 (- 65k / 75k , depending on test run & whether we re-start pm2... ??)
+- Bun / Elysia / postgres / pm2 => 65438.49
+- Bun / Elysia / drizzle / pm2 => 32353.98
 - Go / Ent => 56061.32
 - Go / Gin / pgxpool => 146113.31
