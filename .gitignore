@@ -132,9 +132,9 @@ dmypy.json
 node_modules
 
 # IDEs
-.vs
-.vscode
 .idea
+.vscode/*
+!.vscode/settings.json
 
 # Mac
 .DS_Store
