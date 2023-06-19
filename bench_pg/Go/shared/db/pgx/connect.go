@@ -2,8 +2,9 @@ package pgx
 
 import (
 	"context"
-	"github.com/jackc/pgx/v4/pgxpool"
 	"log"
+
+	"github.com/jackc/pgx/v4/pgxpool"
 )
 
 const connStr = "user=retailer password=retailer dbname=retailer_api sslmode=disable statement_cache_capacity=10"

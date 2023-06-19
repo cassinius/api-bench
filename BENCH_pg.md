@@ -456,7 +456,8 @@ wrk -t 16 -c 256 -d 30 <URL>
 - .NET 7 / EF => 16544.74
 - Node / Express / pg / pm2 => 16186.79
 - Bun / Elysia / postgres / pm2 => 17797.89
-- Bun / Elysia / drizzle / pm2 => 13304.20
+- Bun / Elysia / drizzle / pm2 => 13766.20
+- Bun / Elysia / drizzle-prepared / pm2 => 14221.48
 - Go / Ent => 16755.45
 - Go / Gin / pgxpool => 33938.89
 
@@ -465,6 +466,7 @@ wrk -t 16 -c 256 -d 30 <URL>
 - .NET 7 / EF => 27840.77
 - Node / Express / pg / pm2 => 29369.05
 - Bun / Elysia / postgres / pm2 => 65438.49
-- Bun / Elysia / drizzle / pm2 => 32353.98
+- Bun / Elysia / drizzle / pm2 => 35921.09
+- Bun / Elysia / drizzle-prepared / pm2 => 48041.09
 - Go / Ent => 56061.32
 - Go / Gin / pgxpool => 146113.31
