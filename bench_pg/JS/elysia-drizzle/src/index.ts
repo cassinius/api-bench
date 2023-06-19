@@ -3,9 +3,53 @@ import { swagger } from "@elysiajs/swagger";
 
 import { eq, placeholder } from "drizzle-orm";
 
+// import { sia, desia, Sia, DeSia, constructors } from "sializer";
+import fastJson from "fast-json-stringify";
+
 import db, { sql } from "./db";
 import { RetailerType, retailers } from "./schema";
 
+/**
+ * fast-json-stringify schema definition
+ */
+const stringifySingle = fastJson({
+  title: "Retailer",
+  type: "object",
+  properties: {
+    id: { type: "number" },
+    GSTIN: { type: "string" },
+    businessName: { type: "string" },
+    contactPerson: { type: "string" },
+    contactNumber: { type: "number" },
+    contactAddress: { type: "string" },
+    contactEmail: { type: "string" },
+    status: { type: "string" },
+    outletLimit: { type: "number" },
+  },
+});
+
+const stringifyArray = fastJson({
+  title: "Retailers",
+  type: "array",
+  items: {
+    type: "object",
+    properties: {
+      id: { type: "number" },
+      GSTIN: { type: "string" },
+      businessName: { type: "string" },
+      contactPerson: { type: "string" },
+      contactNumber: { type: "number" },
+      contactAddress: { type: "string" },
+      contactEmail: { type: "string" },
+      status: { type: "string" },
+      outletLimit: { type: "number" },
+    },
+  },
+});
+
+/**
+ * Drizzle prepared statements / queries
+ */
 const allRetailersQuery = db.select().from(retailers).prepare("all");
 const singleRetailerQuery = db
   .select()
@@ -29,7 +73,15 @@ const app = new Elysia()
   .get("/retailers", async ({ request }) => {
     // const allRetailers: RetailerType[] = await db.select().from(retailers);
     const allRetailers: RetailerType[] = await allRetailersQuery.execute();
-    return allRetailers;
+
+    // "normal" serialization
+    // return allRetailers;
+
+    // sializer
+    // return sia(allRetailers);
+
+    // fast-json-stringify
+    return stringifyArray(allRetailers);
   })
   .get("/retailer/:id", async ({ params: { id } }) => {
     // const queryResult = await db
@@ -38,7 +90,15 @@ const app = new Elysia()
     //   .where(eq(retailers.id, +id));
     const queryResult = await singleRetailerQuery.execute({ id: +id });
     const singleRetailer: RetailerType = queryResult[0];
-    return singleRetailer;
+
+    // "normal" serialization
+    // return singleRetailer;
+
+    // sializer
+    // return sia(singleRetailer);
+
+    // fast-json-stringify
+    return stringifySingle(singleRetailer);
   })
   .listen(8000);
 

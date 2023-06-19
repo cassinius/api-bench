@@ -458,6 +458,8 @@ wrk -t 16 -c 256 -d 30 <URL>
 - Bun / Elysia / postgres / pm2 => 17797.89
 - Bun / Elysia / drizzle / pm2 => 13766.20
 - Bun / Elysia / drizzle-prepared / pm2 => 14221.48
+- Bun / Elysia / drizzle-prepared / sia / pm2 => 17002.11
+- Bun / Elysia / drizzle-prepared / fast-json / pm2 => 11893.29
 - Go / Ent => 16755.45
 - Go / Gin / pgxpool => 33938.89
 
@@ -468,5 +470,7 @@ wrk -t 16 -c 256 -d 30 <URL>
 - Bun / Elysia / postgres / pm2 => 65438.49
 - Bun / Elysia / drizzle / pm2 => 35921.09
 - Bun / Elysia / drizzle-prepared / pm2 => 48041.09
+- Bun / Elysia / drizzle-prepared / sia / pm2 => 45233.16
+- Bun / Elysia / drizzle-prepared / fast-json / pm2 => 45380.79
 - Go / Ent => 56061.32
 - Go / Gin / pgxpool => 146113.31
