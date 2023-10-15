@@ -30,7 +30,7 @@ wrk -t 16 -c 256 -d 30 <url>
 
 - Py / Flask / gunicorn => 13060.61
 - Node / Express / pg / pm2 => 14893.54
-- .NET 8 / EF =>
+- .NET 8 / EF => 11696.56
 - .NET 8 / Dapper =>
 - .NET 8 / npgsql ADO.NET =>
 - Golang / Ent => 10351.31
@@ -40,7 +40,7 @@ wrk -t 16 -c 256 -d 30 <url>
 
 - Py / Flask / gunicorn => 17045.36
 - Node / express / pg-pool => 19061.33
-- .NET 8 / EF =>
+- .NET 8 / EF => 17134.61
 - .NET 8 / Dapper =>
 - .NET 8 / npgsql ADO.NET =>
 - Golang / Ent => 35609.91
