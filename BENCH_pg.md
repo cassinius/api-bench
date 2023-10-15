@@ -32,7 +32,7 @@ wrk -t 16 -c 256 -d 30 <url>
 - Node / Express / pg / pm2 => 14893.54
 - .NET 8 / EF => 11696.56
 - .NET 8 / Dapper =>
-- .NET 8 / npgsql ADO.NET =>
+- .NET 8 / npgsql ADO.NET => 15691.02
 - Golang / Ent => 10351.31
 - Golang / Gin / pgxpool => 20284.86
 
@@ -42,8 +42,9 @@ wrk -t 16 -c 256 -d 30 <url>
 - Node / express / pg-pool => 19061.33
 - .NET 8 / EF => 17134.61
 - .NET 8 / Dapper =>
-- .NET 8 / npgsql ADO.NET =>
+- .NET 8 / npgsql ADO.NET => 30737.69
 - Golang / Ent => 35609.91
 - Golang / Gin / pgxpool => 83475.48
+
 
 ---
