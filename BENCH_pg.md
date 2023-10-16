@@ -30,8 +30,8 @@ if ou
 
 - Py / Flask / gunicorn => 13060.61
 - Node / Express / pg / pm2 => 14893.54
-- Bun / postgres / pm2 => 13753.42
 - Bun / pg / drizzle (prep) / pm2 => 11488.02
+- Bun / postgres / pm2 => 13753.42
 - .NET 8 / EF => 11696.56
 - .NET 8 / Dapper => 14839.13
 - .NET 8 / npgsql ADO.NET => 16631.39
@@ -42,8 +42,8 @@ if ou
 
 - Py / Flask / gunicorn => 17045.36
 - Node / express / pg-pool => 19061.33
-- Bun / postgres / pm2 => 30784.32
-- Bun / pg / drizzle (prep) / pm2 => 19227.10
+- Bun / pg / drizzle (prep) / pm2 => 19227.10 
+- Bun / postgres / pm2 => 30784.32 
 - .NET 8 / EF => 17134.61
 - .NET 8 / Dapper => 31858.73
 - .NET 8 / npgsql ADO.NET => 32927.07

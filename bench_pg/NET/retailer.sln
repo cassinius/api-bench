@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core8_dapper", "8_dapper\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core8_npgsql", "8_npgsql\Core8_npgsql.csproj", "{EA41A91A-6100-48A6-869B-8EE313E08DA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core8_EF_compiled", "8_EF_compiled\Core8_EF_compiled.csproj", "{F9B24E99-E399-4882-99EB-BCEE7B45277F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{EA41A91A-6100-48A6-869B-8EE313E08DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA41A91A-6100-48A6-869B-8EE313E08DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA41A91A-6100-48A6-869B-8EE313E08DA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9B24E99-E399-4882-99EB-BCEE7B45277F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B24E99-E399-4882-99EB-BCEE7B45277F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9B24E99-E399-4882-99EB-BCEE7B45277F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9B24E99-E399-4882-99EB-BCEE7B45277F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
