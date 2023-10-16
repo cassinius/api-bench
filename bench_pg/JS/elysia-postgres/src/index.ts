@@ -25,6 +25,7 @@ const app = new Elysia()
     const retailer = await sql`SELECT * FROM retailer WHERE id = ${+id};`;
     return JSON.stringify(retailer);
   })
+  // .listen(PORT)
   .listen(PORT + +portSuffix + 1);
 
 console.log(
