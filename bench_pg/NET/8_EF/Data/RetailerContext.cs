@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Minapi7.Models;
+using Minapi8.Models;
 
-namespace Minapi7.Data;
+namespace Minapi8.Data;
 
 public class RetailerContext : DbContext
 {

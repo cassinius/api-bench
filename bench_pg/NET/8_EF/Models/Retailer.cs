@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Minapi7.Models;
+namespace Minapi8.Models;
 
 [Table("retailer")]
 public class Retailer

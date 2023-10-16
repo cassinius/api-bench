@@ -1,4 +1,4 @@
-namespace Minapi7.Models.Responses;
+namespace Minapi8.Models.Responses;
 
 public class APIStatusResponse
 {

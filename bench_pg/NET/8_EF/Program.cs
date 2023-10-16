@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Minapi7.Data;
-using Minapi7.Models;
-using Minapi7.Models.Responses;
+using Minapi8.Data;
+using Minapi8.Models;
+using Minapi8.Models.Responses;
 
 var builder = WebApplication.CreateBuilder(args);
 

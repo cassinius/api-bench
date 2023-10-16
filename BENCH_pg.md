@@ -25,14 +25,14 @@ wrk -t 16 -c 256 -d 30 <url>
 - Docker: 20.10.24+dfsg1, build 297e128
 
 #### Results
-
+if ou 
 ##### _all_ ->> `/retailers`
 
 - Py / Flask / gunicorn => 13060.61
 - Node / Express / pg / pm2 => 14893.54
 - .NET 8 / EF => 11696.56
-- .NET 8 / Dapper =>
-- .NET 8 / npgsql ADO.NET => 15691.02
+- .NET 8 / Dapper => 14839.13
+- .NET 8 / npgsql ADO.NET => 16631.39
 - Golang / Ent => 10351.31
 - Golang / Gin / pgxpool => 20284.86
 
@@ -41,10 +41,9 @@ wrk -t 16 -c 256 -d 30 <url>
 - Py / Flask / gunicorn => 17045.36
 - Node / express / pg-pool => 19061.33
 - .NET 8 / EF => 17134.61
-- .NET 8 / Dapper =>
-- .NET 8 / npgsql ADO.NET => 30737.69
+- .NET 8 / Dapper => 31858.73
+- .NET 8 / npgsql ADO.NET => 32927.07
 - Golang / Ent => 35609.91
 - Golang / Gin / pgxpool => 83475.48
-
 
 ---
