@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core7_ef_miniapi", "7_EF\Core7_ef_miniapi.csproj", "{709E5332-74B2-4208-B20E-0370BF43D27A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core8_EF", "8_EF\Core8_EF.csproj", "{3BE0C21D-29FA-463A-9262-A5EED6C56184}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core8_dapper", "8_dapper\Core8_dapper.csproj", "{3A641BA5-E713-473E-824F-12CF1C665905}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core8_npgsql", "8_npgsql\Core8_npgsql.csproj", "{EA41A91A-6100-48A6-869B-8EE313E08DA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{709E5332-74B2-4208-B20E-0370BF43D27A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709E5332-74B2-4208-B20E-0370BF43D27A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{709E5332-74B2-4208-B20E-0370BF43D27A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709E5332-74B2-4208-B20E-0370BF43D27A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BE0C21D-29FA-463A-9262-A5EED6C56184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BE0C21D-29FA-463A-9262-A5EED6C56184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BE0C21D-29FA-463A-9262-A5EED6C56184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BE0C21D-29FA-463A-9262-A5EED6C56184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A641BA5-E713-473E-824F-12CF1C665905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A641BA5-E713-473E-824F-12CF1C665905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A641BA5-E713-473E-824F-12CF1C665905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A641BA5-E713-473E-824F-12CF1C665905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA41A91A-6100-48A6-869B-8EE313E08DA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA41A91A-6100-48A6-869B-8EE313E08DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA41A91A-6100-48A6-869B-8EE313E08DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA41A91A-6100-48A6-869B-8EE313E08DA9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

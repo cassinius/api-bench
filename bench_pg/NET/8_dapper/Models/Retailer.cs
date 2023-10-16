@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
@@ -11,8 +10,9 @@ public class Retailer
   [JsonPropertyName("id")]
   [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
   public int Id { get; set; } = -1;
+  [JsonPropertyName("GSTIN")]
   [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-  public string GSTIN { get; set; } = "";
+  public string Gstin { get; set; } = "";
   [Column("Business_name")]
   [JsonPropertyName("business_name")]
   [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
