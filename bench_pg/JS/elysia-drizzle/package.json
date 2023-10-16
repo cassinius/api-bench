@@ -4,23 +4,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --hot src/index.ts",
-    "deploy": "pm2 start -i max bun --name elysia -- run src/index.ts",
-    "prepare": "ts-patch install"
+    "deploy": "pm2 start --interpreter ~/.bun/bin/bun --name elysia src/index.ts -i 16"
   },
   "dependencies": {
-    "@elysiajs/swagger": "^0.4.0",
-    "drizzle-orm": "^0.25.4",
-    "elysia": "latest",
-    "fast-json-stringify": "^5.7.0",
-    "postgres": "^3.3.4",
-    "sializer": "^0.2.0",
-    "typescript-json": "^4.0.12"
+    "drizzle-orm": "^0.28.6",
+    "elysia": "^0.7.17",
+    "postgres": "3.3.4"
   },
   "devDependencies": {
-    "bun-types": "latest",
-    "drizzle-kit": "^0.17.6",
-    "ts-node": "^10.9.1",
-    "ts-patch": "^3.0.0",
+    "bun-types": "^1.0.6",
+    "drizzle-kit": "^0.19.13",
     "typescript": "^5.1.3"
   },
   "module": "src/index.js"
