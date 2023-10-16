@@ -42,4 +42,5 @@ app.MapGet("/retailer/{id}", async (int id) =>
     return retailer;
 });
 
-app.Run("Retailer API running...");
+Console.WriteLine("Listening on http://localhost:8000");
+app.Run();
