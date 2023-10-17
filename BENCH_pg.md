@@ -33,6 +33,7 @@ if ou
 - Bun / pg / drizzle (prep) / pm2 => 11488.02
 - Bun / postgres / pm2 => 13753.42
 - .NET 8 / EF => 11696.56
+- .NET 8 / EF compiled => 11526.07
 - .NET 8 / Dapper => 14839.13
 - .NET 8 / npgsql ADO.NET => 16631.39
 - Golang / Ent => 10351.31
@@ -45,6 +46,7 @@ if ou
 - Bun / pg / drizzle (prep) / pm2 => 19227.10 
 - Bun / postgres / pm2 => 30784.32 
 - .NET 8 / EF => 17134.61
+- .NET 8 / EF compiled => 19172.89
 - .NET 8 / Dapper => 31858.73
 - .NET 8 / npgsql ADO.NET => 32927.07
 - Golang / Ent => 35609.91
