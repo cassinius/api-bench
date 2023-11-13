@@ -25,7 +25,7 @@ wrk -t 16 -c 256 -d 30 <url>
 - Docker: 20.10.24+dfsg1, build 297e128
 
 #### Results
-if ou 
+
 ##### _all_ ->> `/retailers`
 
 - Py / Flask / gunicorn => 13060.61
