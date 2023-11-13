@@ -1,14 +1,14 @@
-## Performance benchmarks
+# Performance benchmarks
 
-### Linux ARM64 server
+## Linux ARM64 server
 
-#### Command
+### Command
 
 ```bash
 wrk -t 16 -c 256 -d 30 <url>
 ```
 
-#### Environment
+### Environment
 
 - Hetzner server
 - CPU: Ampere 16x vCPU
@@ -24,9 +24,9 @@ wrk -t 16 -c 256 -d 30 <url>
 - .NET: 8.0.rc2
 - Docker: 20.10.24+dfsg1, build 297e128
 
-#### Results
+### Results
 
-##### _all_ ->> `/retailers`
+#### _all_ ->> `/retailers`
 
 - Py / Flask / gunicorn => 13060.61
 - Node / Express / pg / pm2 => 14893.54
@@ -39,7 +39,7 @@ wrk -t 16 -c 256 -d 30 <url>
 - Golang / Ent => 10351.31
 - Golang / Gin / pgxpool => 20284.86
 
-##### _show_ ->> `/retailer/42`
+#### _show_ ->> `/retailer/42`
 
 - Py / Flask / gunicorn => 17045.36
 - Node / express / pg-pool => 19061.33
