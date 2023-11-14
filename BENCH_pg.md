@@ -1,6 +1,6 @@
 # Performance benchmarks
 
-## Linux ARM64 server
+## Linux ARM64 server 16-core
 
 ### Command
 
@@ -51,5 +51,59 @@ wrk -t 16 -c 256 -d 30 <url>
 - .NET 8 / npgsql ADO.NET => 32927.07
 - Golang / Ent => 35609.91
 - Golang / Gin / pgxpool => 83475.48
+
+---
+
+## Linux ARM64 server 8-core
+
+### Command
+
+```bash
+wrk -t 16 -c 256 -d 30 <url>
+```
+
+### Environment
+
+- Hetzner server
+- CPU: Ampere 8x vCPU
+- RAM: 16 GB
+- OS: Debian Bookworm
+- Kernel: 6.1.0-13-arm64
+- Postgres: 15.5
+- Python: 3.9.18
+- Python runner: gunicorn
+- Node.js: v20.9.0
+- Bun: 1.0.11
+- Go: 1.19.8
+- .NET: 8.0.rc2
+- Docker: 20.10.24+dfsg1
+
+### Results
+
+#### _all_ ->> `/retailers`
+
+- Py / Flask / gunicorn => 
+- Node / Express / pg / pm2 => 
+- Bun / pg / drizzle (prep) / pm2 => 
+- Bun / postgres / pm2 => 
+- .NET 8 / EF => 
+- .NET 8 / EF compiled => 
+- .NET 8 / Dapper => 
+- .NET 8 / npgsql ADO.NET => 
+- Golang / Ent => 
+- Golang / Gin / pgxpool => 
+
+#### _show_ ->> `/retailer/42`
+
+- Py / Flask / gunicorn =>
+- Node / express / pg-pool => 
+- Bun / pg / drizzle (prep) / pm2 => 
+- Bun / postgres / pm2 =>  
+- .NET 8 / EF =>
+- .NET 8 / EF compiled => 
+- .NET 8 / Dapper => 
+- .NET 8 / npgsql ADO.NET => 
+- Golang / Ent => 
+- Golang / Gin / pgxpool => 
 
 ---
