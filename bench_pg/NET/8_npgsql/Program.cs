@@ -59,7 +59,7 @@ app.MapGet("/retailer/{id}", async (int id) =>
 {
     int rowsRead = 0;
     // List<Retailer> retailers = new List<Retailer>();
-    Retailer retailer = null;
+    Retailer retailer = null!;
 
     // open the connection (every time!?)
     var conn = new NpgsqlConnection(connStr);
