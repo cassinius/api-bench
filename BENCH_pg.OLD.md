@@ -454,7 +454,7 @@ wrk -t 16 -c 256 -d 30 <URL>
 ###### _all_ ->> `/retailers`
 
 - .NET 7 / EF => 16544.74
-- Node / Express / pg / pm2 => 16186.79
+- Express / pg / pm2 => 16186.79
 - Bun / Elysia / postgres / pm2 => 17797.89
 - Bun / Elysia / drizzle / pm2 => 13766.20
 - Bun / Elysia / drizzle-prepared / pm2 => 14221.48
@@ -466,7 +466,7 @@ wrk -t 16 -c 256 -d 30 <URL>
 ###### _show_ ->> `/retailer/42`
 
 - .NET 7 / EF => 27840.77
-- Node / Express / pg / pm2 => 29369.05
+- Express / pg / pm2 => 29369.05
 - Bun / Elysia / postgres / pm2 => 65438.49
 - Bun / Elysia / drizzle / pm2 => 35921.09
 - Bun / Elysia / drizzle-prepared / pm2 => 48041.09

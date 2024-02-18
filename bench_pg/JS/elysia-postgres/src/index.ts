@@ -5,7 +5,7 @@ import sql from "./db";
 const PORT = 8000;
 const portSuffix = Bun.env.NODE_APP_INSTANCE || 0;
 
-const app = new Elysia({prefix: '/phi'})
+const app = new Elysia()
   .get("/", () => ({
     status: 200,
     message: "Bun / Elysia / Postgres.js Retailer API up and running...",

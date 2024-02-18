@@ -54,56 +54,43 @@ wrk -t 16 -c 256 -d 30 <url>
 
 ---
 
-## Linux ARM64 server 8-core
 
-### Command
+### MinisForum UM 790 Pro
+
+#### Environment
+
+* Ryzen 9 7940 HS
+* 32 GB Ram
+* Fedora 39
+* Node.js 20.11.0
+* Go 1.22.0
+* Bun 1.0.27
+* Postgres 16.1
 
 ```bash
-wrk -t 16 -c 256 -d 30 <url>
+wrk -t 16 -c 256 -d 30 <URL>
 ```
 
-### Environment
+###### _all_ ->> `/retailers`
 
-- Hetzner server
-- CPU: Ampere 8x vCPU
-- RAM: 16 GB
-- OS: Debian Bookworm
-- Kernel: 6.1.0-13-arm64
-- Postgres: 15.5
-- Python: 3.9.18
-- Python runner: gunicorn
-- Node.js: v20.9.0
-- Bun: 1.0.11
-- Go: 1.19.8
-- .NET: 8.0.rc2
-- Docker: 20.10.24+dfsg1
+- .NET 8 / EF => 23813.39
+- .NET 8 / EF compiled => 24272.56
+- .NET 8 / Dapper => 29865.14
+- .NET 8 / Npgsql => 36181.57
+- Express / pg / pm2 => 22878.10
+- Bun / Elysia / postgres / pm2 => 
+- Bun / Elysia / drizzle-prepared / pm2 => 
+- Go / Ent => 21912.31
+- Go / Gin / pgxpool => 43376.76
 
-### Results
+###### _show_ ->> `/retailer/42`
 
-#### _all_ ->> `/retailers`
-
-- Py / Flask / gunicorn => 
-- Node / Express / pg / pm2 => 
-- Bun / pg / drizzle (prep) / pm2 => 
-- Bun / postgres / pm2 => 
-- .NET 8 / EF => 
-- .NET 8 / EF compiled => 
-- .NET 8 / Dapper => 
-- .NET 8 / npgsql ADO.NET => 
-- Golang / Ent => 
-- Golang / Gin / pgxpool => 
-
-#### _show_ ->> `/retailer/42`
-
-- Py / Flask / gunicorn =>
-- Node / express / pg-pool => 
-- Bun / pg / drizzle (prep) / pm2 => 
-- Bun / postgres / pm2 =>  
-- .NET 8 / EF =>
-- .NET 8 / EF compiled => 
-- .NET 8 / Dapper => 
-- .NET 8 / npgsql ADO.NET => 
-- Golang / Ent => 
-- Golang / Gin / pgxpool => 
-
----
+- .NET 8 / EF => 40114.46
+- .NET 8 / EF compiled => 44971.82
+- .NET 8 / Dapper => 82980.33
+- .NET 8 / Npgsql => 85395.02
+- Express / pg / pm2 => 30367.38
+- Bun / Elysia / postgres / pm2 =>
+- Bun / Elysia / drizzle-prepared / pm2 => 
+- Go / Ent => 68234.38
+- Go / Gin / pgxpool => 193956.28
