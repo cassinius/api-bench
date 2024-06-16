@@ -1,0 +1,21 @@
+services:
+  db:
+    #    image: maria-retailer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: maria-retailer
+    restart: always
+    environment:
+      MARIADB_USER: root
+      MARIADB_ROOT_PASSWORD: retailer
+      DB_ROOT_PW: retailer
+    ports:
+      - "3506:3306"
+    # volumes:
+      # - mysql_data:/var/lib/mysql
+      # - opt_sustsol:/opt/sustsol
+
+# volumes:
+  #  Named data volumes are managed by the Docker engine. Their source location can not be set manually.
+  # mysql_data:
