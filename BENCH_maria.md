@@ -29,8 +29,9 @@ wrk -t 16 -c 256 -d 30 <url>
 #### _all_ ->> `/retailers`
 
 - Elixir / Phoenix => 10282.22
+- Node / Express => 21199.32
 
 #### _show_ ->> `/retailer/42`
 
 - Elixir / Phoenix => 33317.54
-
+- Node / Express => 41755.84

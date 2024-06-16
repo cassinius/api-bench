@@ -1,0 +1,17 @@
+{
+  "name": "expressapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "deploy": "pm2 start src/server.js -i max"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mariadb": "^3.3.1"
+  }
+}
