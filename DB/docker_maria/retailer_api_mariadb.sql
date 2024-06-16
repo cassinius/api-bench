@@ -18,13 +18,13 @@
 USE retailer_api;
 
 --
--- Table structure for table `retailer`
+-- Table structure for table `retailers`
 --
 
-DROP TABLE IF EXISTS `retailer`;
+DROP TABLE IF EXISTS `retailers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `retailer` (
+CREATE TABLE `retailers` (
   `id` int(11) DEFAULT NULL,
   `GSTIN` varchar(50) DEFAULT NULL,
   `Business_name` varchar(50) DEFAULT NULL,
@@ -38,12 +38,12 @@ CREATE TABLE `retailer` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `retailer`
+-- Dumping data for table `retailers`
 --
 
-LOCK TABLES `retailer` WRITE;
-/*!40000 ALTER TABLE `retailer` DISABLE KEYS */;
-INSERT INTO `retailer` VALUES
+LOCK TABLES `retailers` WRITE;
+/*!40000 ALTER TABLE `retailers` DISABLE KEYS */;
+INSERT INTO `retailers` VALUES
 (1,'u7iZhX6bWwQosJM','Aaron Haney','Daniel Gillespie',27355,'912 Kathy Rest Apt. 281\nWigginstown, AZ 25488','orivera@yahoo.com','active',3),
 (2,'TUHVNryQBJvghhg','Jackie Rocha','Madeline Jones',88854,'11721 Kylie Common Suite 069\nDonaldberg, AK 61656','haroldhoffman@hopkins.info','active',5),
 (3,'EkBD7mZB6OuZudV','Breanna Barrett','Daniel Clements',60000,'227 Brandt Mission\nPort Daniel, MA 97234','davisashley@cunningham-watson.com','active',5),
@@ -144,7 +144,7 @@ INSERT INTO `retailer` VALUES
 (98,'weDTDDUAyHxX9NE','Antonio Henry','Jessica Jones',60475,'61616 Cunningham Squares Suite 160\nLopezview, IN 52091','cartergreg@jenkins-griffin.com','active',6),
 (99,'pDWKJ1Wq4DuVNLh','Jennifer Myers','Kimberly Camacho',30755,'USNV Estrada\nFPO AP 51797','gabriellabell@barton.com','inactive',2),
 (100,'GWnvYpYPnSnLF8X','Margaret Rodriguez','Courtney Rivera',77719,'22391 Melinda Spurs\nShanemouth, CO 98478','melinda06@gmail.com','active',9);
-/*!40000 ALTER TABLE `retailer` ENABLE KEYS */;
+/*!40000 ALTER TABLE `retailers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
