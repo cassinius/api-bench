@@ -20,8 +20,7 @@ wrk -t 16 -c 256 -d 30 <url>
 - Elixir: 1.17.0 / Erlang/OTP 27 [erts-15.0]
 - Phoenix: 1.7.12
 - Node.js: 20.14.0
-- Bun: 1.1.3
-- Go: 1.22.4 linux/amd64
+- Bun: 1.1.14
 - .NET: 9.0.100-preview.5
 
 ### Results
@@ -32,6 +31,7 @@ wrk -t 16 -c 256 -d 30 <url>
 - NET 8.0.302 / EF 8 => 13586.06
 - NET 9.0.100-p5 / EF 8 => 14439.60
 - NET 8.0.302 / Dapper => 19795.94
+- NET 9.0.100-p5 / Dapper => 20791.30
 - Node / Express => 21199.32
 - Bun / Elysia => only single core...
 
@@ -42,5 +42,6 @@ wrk -t 16 -c 256 -d 30 <url>
 - NET 8.0.302 / EF 8 => 22257.06
 - NET 9.0.100-p5 / EF 8 => 24249.55
 - NET 8.0.302 / Dapper => 30080.97
+- NET 9.0.100-p5 / Dapper => 39496.27
 - Node / Express => 41755.84
 - Bun / Elysia => only single core...
