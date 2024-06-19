@@ -18,6 +18,7 @@ defmodule RetailerApi.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
+      # applications: [:phoenix_jiffy],
       mod: {RetailerApi.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
@@ -40,7 +41,10 @@ defmodule RetailerApi.MixProject do
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.20"},
-      {:jason, "~> 1.2"},
+      {:jason, "~> 1.4"},
+      # {:jiffy, "~> 1.1.2"},
+      # {:phoenix_jiffy, "~> 0.2.0"},
+      {:poison, "~> 6.0"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.2"}
     ]

@@ -36,6 +36,10 @@ CREATE TABLE `retailers` (
   `Outlet_limit` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+-- CREATE INDEX retailers_id_idx ON retailers (id);
+-- CREATE INDEX retailers_id_Business_name ON retailers (Business_name);
+-- CREATE INDEX retailers_id_Contact_person ON retailers (Contact_person);
+CREATE UNIQUE INDEX retailers_id_Contact_emailId ON retailers (Contact_emailId);
 
 --
 -- Dumping data for table `retailers`

@@ -27,7 +27,7 @@ wrk -t 16 -c 256 -d 30 <url>
 
 #### _all_ ->> `/retailers`
 
-- Elixir / Phoenix => 10282.22
+- Elixir / Phoenix => 10314.65
 - NET 8.0.302 / EF 8 => 13586.06
 - NET 9.0.100-p5 / EF 8 => 14439.60
 - NET 8.0.302 / Dapper => 19795.94
@@ -38,7 +38,7 @@ wrk -t 16 -c 256 -d 30 <url>
 
 #### _show_ ->> `/retailer/42`
 
-- Elixir / Phoenix => 33317.54
+- Elixir / Phoenix => 33782.56
 - NET 8.0.302 / EF 8 => 22257.06
 - NET 9.0.100-p5 / EF 8 => 24249.55
 - NET 8.0.302 / Dapper => 30080.97
