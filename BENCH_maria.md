@@ -29,7 +29,9 @@ wrk -t 16 -c 256 -d 30 <url>
 #### _all_ ->> `/retailers`
 
 - Elixir / Phoenix => 10282.22
-- NET / EF => 13586.06
+- NET 8.0.302 / EF 8 => 13586.06
+- NET 9.0.100-p5 / EF 8 => 14439.60
+- NET 8.0.302 / Dapper => 19795.94
 - Node / Express => 21199.32
 - Bun / Elysia => only single core...
 
@@ -37,7 +39,8 @@ wrk -t 16 -c 256 -d 30 <url>
 #### _show_ ->> `/retailer/42`
 
 - Elixir / Phoenix => 33317.54
-- NET / EF => 22257.06
+- NET 8.0.302 / EF 8 => 22257.06
+- NET 9.0.100-p5 / EF 8 => 24249.55
+- NET 8.0.302 / Dapper => 30080.97
 - Node / Express => 41755.84
 - Bun / Elysia => only single core...
-
