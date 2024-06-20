@@ -21,39 +21,38 @@ SET row_security = off;
 --
 \c retailer_api
 
-ALTER TABLE IF EXISTS ONLY public.retailer DROP CONSTRAINT IF EXISTS retailer_pkey;
-ALTER TABLE IF EXISTS public.retailer ALTER COLUMN id DROP DEFAULT;
-DROP SEQUENCE IF EXISTS public.retailer_id_seq;
-DROP TABLE IF EXISTS public.retailer;
+ALTER TABLE IF EXISTS ONLY public.retailers DROP CONSTRAINT IF EXISTS retailers_pkey;
+ALTER TABLE IF EXISTS public.retailers ALTER COLUMN id DROP DEFAULT;
+DROP SEQUENCE IF EXISTS public.retailers_id_seq;
+DROP TABLE IF EXISTS public.retailers;
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- Name: retailer; Type: TABLE; Schema: public; Owner: retailer
+-- Name: retailers; Type: TABLE; Schema: public; Owner: retailer
 --
 
-CREATE TABLE public.retailer (
-    id integer NOT NULL,
-    "GSTIN" character varying(15),
-    "Business_name" character varying(100),
-    "Contact_person" character varying(50),
+CREATE TABLE public.retailers (
+    id bigint NOT NULL,
+    "GSTIN" character varying(255),
+    "Business_name" character varying(255),
+    "Contact_person" character varying(255),
     "Contact_number" integer,
-    "Contact_address" character varying(100),
-    "Contact_emailId" character varying(50),
-    "Status" character varying(10),
+    "Contact_address" character varying(255),
+    "Contact_emailId" character varying(255),
+    "Status" character varying(255),
     "Outlet_limit" integer
 );
 
 
-ALTER TABLE public.retailer OWNER TO retailer;
+ALTER TABLE public.retailers OWNER TO retailer;
 
 --
--- Name: retailer_id_seq; Type: SEQUENCE; Schema: public; Owner: retailer
+-- Name: retailers_id_seq; Type: SEQUENCE; Schema: public; Owner: retailer
 --
 
-CREATE SEQUENCE public.retailer_id_seq
-    AS integer
+CREATE SEQUENCE public.retailers_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -61,27 +60,27 @@ CREATE SEQUENCE public.retailer_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.retailer_id_seq OWNER TO retailer;
+ALTER SEQUENCE public.retailers_id_seq OWNER TO retailer;
 
 --
--- Name: retailer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: retailer
+-- Name: retailers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: retailer
 --
 
-ALTER SEQUENCE public.retailer_id_seq OWNED BY public.retailer.id;
-
-
---
--- Name: retailer id; Type: DEFAULT; Schema: public; Owner: retailer
---
-
-ALTER TABLE ONLY public.retailer ALTER COLUMN id SET DEFAULT nextval('public.retailer_id_seq'::regclass);
+ALTER SEQUENCE public.retailers_id_seq OWNED BY public.retailers.id;
 
 
 --
--- Data for Name: retailer; Type: TABLE DATA; Schema: public; Owner: retailer
+-- Name: retailers id; Type: DEFAULT; Schema: public; Owner: retailer
 --
 
-COPY public.retailer (id, "GSTIN", "Business_name", "Contact_person", "Contact_number", "Contact_address", "Contact_emailId", "Status", "Outlet_limit") FROM stdin;
+ALTER TABLE ONLY public.retailers ALTER COLUMN id SET DEFAULT nextval('public.retailers_id_seq'::regclass);
+
+
+--
+-- Data for Name: retailers; Type: TABLE DATA; Schema: public; Owner: retailer
+--
+
+COPY public.retailers (id, "GSTIN", "Business_name", "Contact_person", "Contact_number", "Contact_address", "Contact_emailId", "Status", "Outlet_limit") FROM stdin;
 1	JnoUJV969zqGZuA	Patrick Taylor	Jesus Wright	28671	75157 Santos Viaduct\nNelsonview, CT 19750	kgarrett@yahoo.com	active	5
 2	TdhF8gSoATjP2F2	Ronald Romero	Jaime Dunn	93167	2450 Jacob Overpass\nDanielton, IA 79272	ryanmichael@torres-gonzales.com	inactive	4
 3	k2b9tDKNY66G7Jp	Shane Anderson	Mary Park	59005	4330 Alexis Estate\nStaceyberg, IL 03731	bethany41@cook-wilson.com	active	6
@@ -186,18 +185,18 @@ COPY public.retailer (id, "GSTIN", "Business_name", "Contact_person", "Contact_n
 
 
 --
--- Name: retailer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: retailer
+-- Name: retailers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: retailer
 --
 
-SELECT pg_catalog.setval('public.retailer_id_seq', 1, false);
+SELECT pg_catalog.setval('public.retailers_id_seq', 1, false);
 
 
 --
--- Name: retailer retailer_pkey; Type: CONSTRAINT; Schema: public; Owner: retailer
+-- Name: retailers retailers_pkey; Type: CONSTRAINT; Schema: public; Owner: retailer
 --
 
-ALTER TABLE ONLY public.retailer
-    ADD CONSTRAINT retailer_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY public.retailers
+    ADD CONSTRAINT retailers_pkey PRIMARY KEY (id);
 
 
 --
