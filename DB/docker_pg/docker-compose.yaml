@@ -1,0 +1,13 @@
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pg-retailer
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=retailer
+      - POSTGRES_USER=retailer
+      - POSTGRES_DB=retailer_api
+    ports:
+      - "5432:5432"

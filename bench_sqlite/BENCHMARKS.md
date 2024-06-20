@@ -46,8 +46,8 @@ wrk -t 16 -c 256 -d 30 <url>
 
 #### _all_ ->> `/retailers`
 
-* Bun / Elysia / Drizzle => 
+* Bun / Elysia / Drizzle => only single core...
 
 #### _show_ ->> `/retailer/42`
 
-* Bun / Elysia / Drizzle => 
+* Bun / Elysia / Drizzle => only single core...
