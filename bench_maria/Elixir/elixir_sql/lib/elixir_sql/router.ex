@@ -35,7 +35,9 @@ defmodule ElixirSql.Router do
   end
 
   get "/api/retailers" do
-    retailers = MyXQL.query(:myxql, "SELECT * FROM retailers")
+    retailers = MyXQL.query!(:myxql, "SELECT * FROM retailers", [])
+
+    # send_resp(conn, 200, "ALL RETAILERS ARE HERE...");
 
     conn
     |> put_resp_header("content-type", "application/json")
@@ -44,7 +46,7 @@ defmodule ElixirSql.Router do
 
   get "/api/retailer/:id" do
     id = conn.params["id"]
-    retailer = MyXQL.query(:myxql, "SELECT * FROM retailers WHERE id = ?", [id])
+    retailer = MyXQL.query!(:myxql, "SELECT * FROM retailers WHERE id = ?", [id])
 
     conn
     |> put_resp_header("content-type", "application/json")
