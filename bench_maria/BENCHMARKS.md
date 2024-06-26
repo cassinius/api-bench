@@ -46,7 +46,7 @@ wrk -t 16 -c 256 -d 30 <url>
 - NET 9.0.100-p5 / EF 8 => 14439.60
 - NET 8.0.302 / Dapper => 19795.94
 - NET 9.0.100-p5 / Dapper => 20791.30
-- Bun / Drizzle => 16752.86
+- Bun / Drizzle => 16825.90
 - Node / Express / Sql => 25283.94
 - Bun / Sql =>
 
@@ -57,6 +57,6 @@ wrk -t 16 -c 256 -d 30 <url>
 - NET 9.0.100-p5 / EF 8 => 24249.55
 - NET 8.0.302 / Dapper => 30080.97
 - NET 9.0.100-p5 / Dapper => 39496.27
-- Bun / Drizzle => 46883.19
+- Bun / Drizzle => 46980.21
 - Node / Express / Sql => 46151.53
 - Bun / Sql =>
