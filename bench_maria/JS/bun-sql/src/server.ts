@@ -1,19 +1,6 @@
-import { eq, sql as drzlsql } from "drizzle-orm";
-import { type RetailerType, retailers } from "./schema";
-import { db } from "./db";
+import { getConnection } from "./db";
 
 const PORT = 8000;
-// const portSuffix = Bun.env.NODE_APP_INSTANCE || 0;
-
-/**
- * Drizzle prepared statements / queries
- */
-const allRetailersQuery = db.select().from(retailers).prepare();
-const singleRetailerQuery = db
-  .select()
-  .from(retailers)
-  .where(eq(retailers.id, drzlsql.placeholder("id")))
-  .prepare();
 
 Bun.serve({
   port: PORT,
@@ -28,7 +15,9 @@ Bun.serve({
     // console.log("Bun requested on", path);
 
     if (path === "/api/retailers") {
-      const allRetailers: RetailerType[] = await allRetailersQuery.execute();
+      const conn = await getConnection();
+
+      const allRetailers = await conn.query(`SELECT * FROM retailers`);
 
       return new Response(JSON.stringify(allRetailers), { status: 200 });
     }
@@ -36,9 +25,12 @@ Bun.serve({
     if (path.startsWith("/api/retailer/")) {
       const id = path.split("/").pop() || "";
 
-      const queryResult = await singleRetailerQuery.execute({ id: +id });
+      const conn = await getConnection();
 
-      const singleRetailer: RetailerType = queryResult[0];
+      const singleRetailer = await conn.query(
+        "SELECT * FROM retailers WHERE id=(?)",
+        [id]
+      );
 
       return new Response(JSON.stringify(singleRetailer), { status: 200 });
     }

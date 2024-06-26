@@ -1,17 +1,22 @@
-import { drizzle } from "drizzle-orm/mysql2";
-import mysql, { PoolOptions } from "mysql2/promise";
-import * as schema from "./schema";
+import mariadb, { PoolConnection } from 'mariadb';
 
-// console.log({ schema });
+const pool = mariadb.createPool({
+  host: 'localhost',
+  user: 'retailer',
+  password: 'retailer',
+  database: 'retailer_api',
+  connectionLimit: 50,
+  port: 3506
+});
 
-const dbConfig = {
-  host: "localhost",
-  user: "retailer",
-  password: "retailer",
-  database: "retailer_api",
-  port: 3506,
-  // connectionLimit: 500,
-} satisfies PoolOptions;
+// console.log(pool);
 
-export const pool = await mysql.createPool(dbConfig);
-export const db = drizzle(pool, { schema, mode: "default" });
+let conn: PoolConnection;
+async function getConnection() {
+  if (!conn) {
+    conn = await pool.getConnection();
+  }
+  return conn;
+}
+
+export { getConnection };
