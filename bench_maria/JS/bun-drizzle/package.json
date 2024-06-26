@@ -1,0 +1,21 @@
+{
+  "name": "elysia",
+  "version": "1.0.32",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "deploy": "pm2 start --interpreter ~/.bun/bin/bun --name elysia-retailer-api src/index.ts -i max"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.31.2",
+    "elysia": "^1.0.25",
+    "mariadb": "^3.3.1",
+    "mysql2": "^3.10.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.5",
+    "drizzle-kit": "^0.22.7",
+    "typescript": "^5.5.2"
+  },
+  "module": "src/index.ts",
+  "type": "module"
+}
