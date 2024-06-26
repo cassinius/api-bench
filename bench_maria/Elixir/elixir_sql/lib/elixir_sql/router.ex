@@ -26,23 +26,29 @@ defmodule ElixirSql.Router do
   end
 
   get "/health" do
-    # TODO still got no clue about Elixir pattern matching...
-    #  case MyXQL.query!(:myxql, "SELECT NOW()").rows do
-    #   {_, _res} -> send_resp(conn, 200, "OK")
-    #   {:error, _reason} -> send_resp(conn, 500, "DB Error")
-    #   # _ -> send_resp(conn, 200, "OK")
-    #  end
-
-     send_resp(conn, 200, MyXQL.query!(:myxql, "SELECT NOW()").rows)
+    # NOTE using the bang version of MyXQL.query! will NOT return an :ok or :error
+    case MyXQL.query(:myxql, "SELECT NOW()") do
+      {:ok, res} -> send_resp(conn, 200, inspect(res))
+      {:error, reason} -> send_resp(conn, 500, "DB Error: #{inspect(reason)}")
+      _ -> send_resp(conn, 200, "Unknown Error")
+    end
   end
 
   get "/api/retailers" do
-    send_resp(conn, 200, "OK ALL Retailers")
+    retailers = MyXQL.query(:myxql, "SELECT * FROM retailers")
+
+    conn
+    |> put_resp_header("content-type", "application/json")
+    |> send_resp(200, inspect(retailers))
   end
 
   get "/api/retailer/:id" do
     id = conn.params["id"]
-    send_resp(conn, 200, "OK Retailer ##{id}")
+    retailer = MyXQL.query(:myxql, "SELECT * FROM retailers WHERE id = ?", [id])
+
+    conn
+    |> put_resp_header("content-type", "application/json")
+    |> send_resp(200, inspect(retailer))
   end
 
   # Fallback handler when there was no match

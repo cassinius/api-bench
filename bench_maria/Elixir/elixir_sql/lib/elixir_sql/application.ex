@@ -18,7 +18,7 @@ defmodule ElixirSql.Application do
         Plug.Cowboy,
         scheme: :http,
         plug: ElixirSql.Router,
-        options: [port: Application.get_env(:elixir_sql, :port)]
+        options: [port: Application.get_env(:elixir_sql, :port), ]
       },
       {
         MyXQL,
@@ -26,7 +26,9 @@ defmodule ElixirSql.Application do
         username: Application.get_env(:elixir_sql, :db_user),
         password: Application.get_env(:elixir_sql, :db_pass),
         database: Application.get_env(:elixir_sql, :db_db),
-        port: Application.get_env(:elixir_sql, :db_port)
+        port: Application.get_env(:elixir_sql, :db_port),
+        # TODO not sure whether this has any effect
+        pool_size: 10
       }
     ]
 
