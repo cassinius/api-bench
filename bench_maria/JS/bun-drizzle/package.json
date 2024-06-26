@@ -2,8 +2,9 @@
   "name": "elysia",
   "version": "1.0.32",
   "scripts": {
-    "dev": "bun run --hot src/index.ts",
-    "deploy": "pm2 start --interpreter ~/.bun/bin/bun --name elysia-retailer-api src/index.ts -i max"
+    "dev": "bun run --hot src/server.ts",
+    "start": "bun run src/cluster.ts",
+    "deploy": "pm2 start --interpreter ~/.bun/bin/bun --name elysia-retailer-api src/server.ts -i max"
   },
   "dependencies": {
     "drizzle-orm": "^0.31.2",
@@ -16,6 +17,6 @@
     "drizzle-kit": "^0.22.7",
     "typescript": "^5.5.2"
   },
-  "module": "src/index.ts",
+  "module": "src/server.ts",
   "type": "module"
 }
